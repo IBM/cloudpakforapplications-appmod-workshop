@@ -6,7 +6,7 @@
 
 ### Labs
 
-* [generatedContent/digidevcon-iks](generatedContent/digidevcon-iks/README.md)
-* [generatedContent/app-modernization-openshift-s2i-templates-lab-shared](generatedContent/app-modernization-openshift-s2i-templates-lab-shared/README.md)
-* [generatedContent/app-modernization-openshift-cicd-lab-shared](generatedContent/app-modernization-openshift-cicd-lab-shared/README.md)
+* [Lab: Kubernetes and Operators](generatedContent/digidevcon-iks/README.md)
+* [Lab: Openshift S2I and Templates](generatedContent/app-modernization-openshift-s2i-templates-lab-shared/README.md)
+* [Lab: Openshift CI/CD with Jenkins](generatedContent/app-modernization-openshift-cicd-lab-shared/README.md)
 
