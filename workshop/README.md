@@ -23,7 +23,7 @@ In the workshop you will learn about foundational open source technologies and i
 | [Lab: S2I and Templates](generatedContent/app-modernization-openshift-s2i-templates-lab-shared/README.md) | Deploy Cloud Native Applications using S2I |
 | [Lecture: 12 Factors](https://ibm.box.com/s/mhn0ff94xq0lwewfebgruxya44nmhm08) | Cloud Native Development – 12 Factor|
 | [Lecture: CI/CD for Kubernetes](https://ibm.box.com/s/6cn4wi4amqm9dwl7wgdt05vtj1xdtrkm) | Jenkins Pipelines in OpenShift Lecture|
-| [Lab: CI/CD for Kubernetes](generatedContent/app-modernization-openshift-cicd-lab-shared/README.md) | Jenkins Pipelines in OpenShift Lab|
+| [Lab: CI/CD for Kubernetes](generatedContent/app-modernization-openshift-cicd-lab-shared/README.md) | Jenkins Pipelines in OpenShift Lab
 
 ## Technology Used
 
