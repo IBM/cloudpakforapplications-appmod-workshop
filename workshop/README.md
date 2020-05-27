@@ -38,4 +38,6 @@ In the workshop you will learn about foundational open source technologies and i
 ## Credits
 
 * [David Carew](https://github.com/djccarew)
+* [Tim Robinson](https://github.com/timroster)
 * [John Zaccone](https://github.com/jzaccone)
+* [Remko de Knikker](https://github.com/remkohdev)
