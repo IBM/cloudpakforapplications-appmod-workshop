@@ -7,10 +7,10 @@
 ### Prework
 
 * [Lab: Docker101](generatedContent/docker101/README.md)
-    * [Pre-work](lab-0/README.md)
-    * [Lab 1](lab-1/README.md)
-    * [Lab 2](lab-2/README.md)
-    * [Lab 3](lab-3/README.md)
+    * [Pre-work](generatedContent/docker101/lab-0/README.md)
+    * [Lab 1](generatedContent/docker101/lab-1/README.md)
+    * [Lab 2](generatedContent/docker101/lab-2/README.md)
+    * [Lab 3](generatedContent/docker101/lab-3/README.md)
 
 
 
