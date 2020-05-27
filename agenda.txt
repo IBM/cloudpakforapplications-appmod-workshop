@@ -1,0 +1,4 @@
+# Add repo URLs for labs in this file with no blank lines
+https://github.com/timroster/digidevcon-iks
+https://github.com/IBMAppModernization/app-modernization-openshift-s2i-templates-lab-shared
+https://github.com/IBMAppModernization/app-modernization-openshift-cicd-lab-shared
