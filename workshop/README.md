@@ -16,7 +16,7 @@ In the workshop you will learn about foundational open source technologies and i
 | [Introduction](https://ibm.box.com/s/h4kopjikllv061bmwhlw2z0735j5wc2y) |  Introduction to Application Modernization |
 | [Lecture: Kubernetes](https://ibm.box.com/s/migr539izuf8d686shemct1na0gyvl6v) | What is Kubernetes? |
 | [Lab: Kubernetes](generatedContent/digidevcon-iks/README.md) | Hands On Kubernetes |
-| [Lecture: Lab Environment Overview](some-exercise/README.md) | Overview of the OpenShift lab Environment |
+| Lecture: Lab Environment Overview | Overview of the OpenShift lab Environment |
 | [Lecture: App Mod](https://ibm.box.com/s/yundw794wuiyhil485s1eua9hfkujz0a) | Application Modernization Migration Approaches |
 | Demo: Transformation Advisor | Run Transformation Advisor against WebSphere |
 | [Lecture: S2I and Templates](https://ibm.box.com/s/a8n1qt3ao8bx2qh80ktgzx3h4m81rq4l) | Learn about S2I and Templates in OpenShift |
