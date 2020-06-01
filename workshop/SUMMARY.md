@@ -16,7 +16,7 @@
     * [Excercise - 5](generatedContent/digidevcon-iks/exercise-5/README.md)
 
 * [helm101](generatedContent/helm101/README.md)
-    * [Lab 0](generatedContent/helm101/Lab0/README.md)
+    * [Lab 0](helm-setup/README.md)
     * [Lab 1](generatedContent/helm101/Lab1/README.md)
     * [Lab 2](generatedContent/helm101/Lab2/README.md)
     * [Lab 3](generatedContent/helm101/Lab3/README.md)

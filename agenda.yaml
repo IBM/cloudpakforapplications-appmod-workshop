@@ -4,7 +4,6 @@ repos:
     - url: https://github.com/timroster/digidevcon-iks
       branch: fs2020
     - url: https://github.com/IBMAppModernization/helm101
-      branch: helm-v2
     - url: https://github.com/IBMAppModernization/app-modernization-openshift-s2i-templates-lab-shared
     - url: https://github.com/IBMAppModernization/app-modernization-openshift-cicd-lab-shared
     - url: https://github.com/IBMAppModernization/app-modernization-ta-explore-lab-openshift4
