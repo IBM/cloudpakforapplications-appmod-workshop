@@ -9,15 +9,23 @@ In the workshop you will learn about foundational open source technologies and i
 * [Technology Used](#technology-used)
 * [Credits](#credits)
 
-## Agenda
+* [digidevcon-iks](generatedContent/digidevcon-iks/README.md)
+
+## Agenda Day 1
 |   |   |
 | - | - |
+| Introductions | |
+| [Lecture: Docker/Kube Recap](https://ibm.box.com/s/t9vipcb1ncnjedeydpwx4np0yzi8xdzr) | Quick Recap of Docker and Kubernetes |
+| [Lecture: Operators Overview](https://ibm.box.com/s/vxk3rj1f8babuap02frcisve0p43knqi) | Overview of Kubernetes Operators |
+| [Lab: Kubernetes and Operators](generatedContent/digidevcon-iks/README.md) | Kubernetes Lab with IBM Cloud Operator |
+| Break | |
 | [Lecture: Helm](https://ibm.box.com/s/cluclg99642s5bgi6j2wixr37jg7nw96) | Helm Overview Lecture |
 | [Lab: Helm](generatedContent/helm101/README.md) | Series of Helm Labs |
-| [Lecture: S2I and Templates](https://ibm.box.com/s/a8n1qt3ao8bx2qh80ktgzx3h4m81rq4l) | Learn about S2I and Templates in OpenShift |
-| [Lab: S2I Open Liberty](generatedContent/s2i-open-liberty-workshop/README.md) | Write your own S2I Scripts for Open Liberty|
-| [Lecture: App Mod](https://ibm.box.com/s/yundw794wuiyhil485s1eua9hfkujz0a) | Learn about Application Modernization Migration Approaches |
+| Lunch | |
+| [Lecture - CPforApps](https://ibm.box.com/s/uvw3yu8m750akki6o2mk0d8mdrmkcg2w) | Value Add with IBM Cloud Pak for Apps |
 | [Lab - Explore Transformation Advisor](generatedContent/app-modernization-ta-explore-lab-openshift4/README.md) | Run Transformation Advisor against WebSphere |
+| Summary Wrap Up | |
+|
 ## Technology Used
 
 * Docker
