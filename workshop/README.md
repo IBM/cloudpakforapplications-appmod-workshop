@@ -14,7 +14,7 @@ In the workshop you will learn about foundational open source technologies and i
 | - | - |
 | [Introduction](https://ibm.box.com/s/h4kopjikllv061bmwhlw2z0735j5wc2y) |  Introduction to Application Modernization |
 | [Lecture: Docker](https://ibm.box.com/s/0mvlb8hvd8lx23smfvoaijdt9ex63go2) | What is Docker? |
-| [Lab: Docker](generatedContent/docker101/README.m) | Series of Docker Labs |
+| [Lab: Docker](generatedContent/docker101/README.md) | Series of Docker Labs |
 | [Lecture: Kubernetes](https://ibm.box.com/s/migr539izuf8d686shemct1na0gyvl6v) | What is Kubernetes? |
 | [Lab: Kubernetes](generatedContent/digidevcon-iks/README.md) | Series of Kubernetes Labs |
 | [Lecture: Helm](https://ibm.box.com/s/cluclg99642s5bgi6j2wixr37jg7nw96) | Helm Overview Lecture |
