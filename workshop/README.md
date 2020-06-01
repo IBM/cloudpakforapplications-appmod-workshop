@@ -3,14 +3,6 @@
 
 In the workshop you will learn about foundational open source technologies and industry-wide accepted best practices for building modern, scalable, portable, and robust applications. You will learn migration strategies for moving legacy, monolithic WAS applications into Liberty containers running on Red Hat OpenShift, and some of the common pitfalls to watch out for.
 
-### About this workshop
-
-* [Agenda](#agenda)
-* [Technology Used](#technology-used)
-* [Credits](#credits)
-
-* [digidevcon-iks](generatedContent/digidevcon-iks/README.md)
-
 ## Agenda Day 1
 |   |   |
 | - | - |
