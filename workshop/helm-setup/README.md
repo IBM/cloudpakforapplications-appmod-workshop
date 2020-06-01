@@ -4,6 +4,7 @@ This section is broken up into the following steps:
 
 1. [Access the Cloud Shell](#1-access-the-cloud-shell)
 1. [Install Helm Version 3](#2-install-helm-version-3)
+1. [Configure Kubectl](#3-configure-kubectl)
 
 ## 1. Access the Cloud Shell
 
@@ -47,14 +48,6 @@ v3.2.0+ge11b7ce
 ```
 
 ## 3. Configure Kubectl
-
-## Set up the web terminal
-
-Log in to the [IBM Cloud](https://cloud.ibm.com) to access the dashboard.
-
-Click on the top right terminal icon to launch the **IBM Cloud Shell**.
-
-![IBM Cloud Shell](../.gitbook/assets/cloud-shell.png)
 
 Run the `ibmcloud ks clusters` command to verify the terminal and setup for access to the cluster
 
