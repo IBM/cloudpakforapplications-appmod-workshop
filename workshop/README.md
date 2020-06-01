@@ -26,6 +26,7 @@ In the workshop you will learn about foundational open source technologies and i
 | [Lab - Explore Transformation Advisor](generatedContent/app-modernization-ta-explore-lab-openshift4/README.md) | Run Transformation Advisor against WebSphere |
 | Summary Wrap Up | |
 |
+
 ## Technology Used
 
 * Docker
@@ -34,12 +35,9 @@ In the workshop you will learn about foundational open source technologies and i
 * RedHat OpenShift
 * IBM Kubernetes Service
 * IBM Transformation Advisor
-* Jenkins
 
+## Presenters
 
-## Credits
-
-* [David Carew](https://github.com/djccarew)
-* [Tim Robinson](https://github.com/timroster)
+* [Oliver Rodriguez](https://github.com/odrodrig)
 * [John Zaccone](https://github.com/jzaccone)
 * [Remko de Knikker](https://github.com/remkohdev)
