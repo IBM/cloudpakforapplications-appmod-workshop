@@ -110,3 +110,15 @@ THIS FILE CONTAINS ALL THE SUMMARY.MDs OF THE GENERATED CONTENT PREFIXED WITH RI
 * [Lab - S2I Open Liberty](generatedContent/s2i-open-liberty-workshop/README.md)
 
 
+###############################
+##  SUMMARY.md for tekton-tutorial
+################################
+
+# Home Page for Gitbook 
+* [tekton-tutorial](generatedContent/tekton-tutorial/README.md)
+
+# Table of contents
+
+* [Lab - Tekton Pipelines](generatedContent/tekton-tutorial/README.md)
+
+

@@ -9,4 +9,6 @@ repos:
     - url: https://github.com/IBMAppModernization/app-modernization-ta-explore-lab-openshift4
       branch: no-auth
     - url: https://github.com/IBM/s2i-open-liberty-workshop
+    - url: https://github.com/jzaccone/tekton-tutorial
+      branch: beta-update
         

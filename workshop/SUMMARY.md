@@ -24,6 +24,11 @@
 
 * [Lab - Explore Transformation Advisor](generatedContent/app-modernization-ta-explore-lab-openshift4/README.md)
 
+### Day 2 Labs
+
+* [Lab - Source to Image](generatedContent/s2i-open-liberty-workshop/README.md)
+* [Lab - Tekton Pipelines](generatedContent/tekton-tutorial/README.md)
+
 ### Resources
 
 * [IBM Developer](https://developer.ibm.com)

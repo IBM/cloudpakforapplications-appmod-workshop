@@ -23,7 +23,7 @@ In the workshop you will learn about foundational open source technologies and i
 |   |   |
 | - | - |
 | Recap of Day 1 | |
-| [Lecture: Source to Image](https://ibm.box.com/s/t9vipcb1ncnjedeydpwx4np0yzi8xdzr) | Overview of Source to Image |
+| [Lecture: Source to Image](https://ibm.box.com/s/xfe0abgj8s7gochyrnt6c9z7um3w6pnh) | Overview of Source to Image |
 | [Lab: Source to Image](generatedContent/s2i-open-liberty-workshop/README.md) | Create a custom builder image for S2I |
 | Break | |
 | [Lecture: Tekton](https://ibm.box.com/s/kisshn88w4a79jzz557o5h6c5k55o9ze) | Tekton Overview Lecture |
