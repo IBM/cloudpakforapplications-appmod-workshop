@@ -19,6 +19,21 @@ In the workshop you will learn about foundational open source technologies and i
 | Summary Wrap Up | |
 |
 
+## Agenda Day 2
+|   |   |
+| - | - |
+| Recap of Day 1 | |
+| [Lecture: Source to Image](https://ibm.box.com/s/t9vipcb1ncnjedeydpwx4np0yzi8xdzr) | Overview of Source to Image |
+| [Lab: Source to Image](generatedContent/s2i-open-liberty-workshop/README.md) | Create a custom builder image for S2I |
+| Break | |
+| [Lecture: Tekton](https://ibm.box.com/s/kisshn88w4a79jzz557o5h6c5k55o9ze) | Tekton Overview Lecture |
+| [Lab: Tekton](generatedContent/helm101/README.md) | Run Tekton Pipelines on OpenShift Lab |
+| Lunch | |
+| Overview and demo of Cloud Pak for MCM | |
+| Overview and demo of Cloud Pak for Integration | |
+| Summary Wrap Up | |
+|
+
 ## Technology Used
 
 * Docker
@@ -27,9 +42,13 @@ In the workshop you will learn about foundational open source technologies and i
 * RedHat OpenShift
 * IBM Kubernetes Service
 * IBM Transformation Advisor
+* Tekton
+* IBM Cloud Paks
 
 ## Presenters
 
 * [Oliver Rodriguez](https://github.com/odrodrig)
 * [John Zaccone](https://github.com/jzaccone)
 * [Remko de Knikker](https://github.com/remkohdev)
+* [David Carew](https://github.com/djccarew)
+* Keyauri Kendrick
