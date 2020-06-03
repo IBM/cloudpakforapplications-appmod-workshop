@@ -27,7 +27,9 @@
 ### Day 2 Labs
 
 * [Lab - Source to Image](generatedContent/s2i-open-liberty-workshop/README.md)
-* [Lab - Tekton Pipelines](generatedContent/tekton-tutorial/README.md)
+* Tekton Lab
+    * [Setup](tekton-setup/README.md)
+    * [Lab - Tekton Pipelines](generatedContent/tekton-tutorial/README.md)
 
 ### Resources
 
