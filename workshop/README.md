@@ -27,7 +27,7 @@ In the workshop you will learn about foundational open source technologies and i
 | [Lab: Source to Image](generatedContent/s2i-open-liberty-workshop/README.md) | Create a custom builder image for S2I |
 | Break | |
 | [Lecture: Tekton](https://ibm.box.com/s/kisshn88w4a79jzz557o5h6c5k55o9ze) | Tekton Overview Lecture |
-| [Lab: Tekton](generatedContent/helm101/README.md) | Run Tekton Pipelines on OpenShift Lab |
+| [Lab: Tekton](tekton-setup/README.md) | Run Tekton Pipelines on OpenShift Lab |
 | Lunch | |
 | Overview and demo of Cloud Pak for MCM | |
 | Overview and demo of Cloud Pak for Integration | |
