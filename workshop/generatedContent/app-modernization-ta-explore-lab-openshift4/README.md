@@ -27,11 +27,11 @@ Transformation Advisor organizes your legacy server scans into workspaces and co
 
 1. Download the server scan by right clicking on [this link](https://github.com//IBMAppModernization/app-modernization-ta-explore-lab/raw/master/ta/AppSrv01.zip) and selecting **Save Link As** from the context menu to save the file locally.
 
-2. Access Transformation Advisor by following the URL given to you by the instructor. You will then be asked to log in with either `kube:admin` or `dragonslayer-ldap`. Select `dragonslayer-ldap` and log in using credentials provided to you by your instructor. 
+2. Access Transformation Advisor by following the URL given to you by the instructor. You will then be asked to log in with either `kube:admin` or `dragonslayer-ldap`. Select `dragonslayer-ldap` and log in using credentials provided to you by your instructor.
 
 ![dragonslayer-ldap](./images/dragonslayer_ldap.png)
 
-3. Once logged into Transformation Advisor, click on **Add a new workspace**
+3. Once in Transformation Advisor, click on **Add a new workspace**
 
 4. Enter a unique name for your workspace e.g. `usernnn_ta_workspace` where `usernnn` is your assigned  student  ID (e.g. `user011`)
 
@@ -61,13 +61,13 @@ Transformation Advisor organizes your legacy server scans into workspaces and co
 
     ![Sun JSF RI](images/ss4.png)
 
-4. Go back to the **IBM Cloud Transformation** browser tab, scroll to the top of the page, and click on **Recommendations /** to go back to the list of apps.
+4. Go back to the **IBM Cloud Transformation** browser tab, scroll to the top of the page, and click on **lab_collection /** to go back to the list of apps.
 
-    ![Recommendation link](images/ss5.png)
+    ![Recommendation link](images/backToCollection.png)
 
 5. This time take a look at one of the "show stoppers" for the app **plants-by-websphere-jee5.ear** by selecting the app and then clicking on the Analysis Report link. This version of the  WebSphere sample Plants by WebSphere was shipped with WebSphere Application Server V7.0. Two  of the  three severe issues have to do with no support for the JAX-RPC API in Liberty. Note: with the explosion of REST based APIs, technologies like JAX-RPC and SOAP/WSDL have become more or less obsolete.
 
-6. Go back to the **IBM Cloud Transformation** browser tab, scroll to the top of the page, and click on **Recommendations /** to go back to the list of apps.
+6. Go back to the **IBM Cloud Transformation** browser tab, scroll to the top of the page, and click on **lab_collection /** to go back to the list of apps.
 
 7. Now you'll look at the migration plan for the app **plants-by-websphere-jee6-mysql.ear**. This is the Plants By WebSphere  app that comes with WebSphere Application Server 8.5.5 and  has been tweaked to work with the MySQL database instead of the  embedded Apache Derby database that the original uses. Note that this version uses JAX-RS (the Java API for RESTful Web Services) instead of JAX-RPC and JAX-RS is fully supported on WebSphere Liberty. Click on three dot menu button to the right of **plants-by-websphere-jee6-mysql.ear** and then select **Migration plan** as shown below
 
@@ -95,7 +95,9 @@ Lastly, Transformation Advisor gives you the choice to either download or send y
 
 ![Bundle buttons](./images/bundleButtons.png)
 
-Don't worry about doing anything with this bundle right now. In a later lab we will explore how to deploy the application.
+Don't worry about doing anything with this bundle right now. 
+
+<!-- In a later lab we will explore how to deploy the application. -->
 
 ## Summary
 

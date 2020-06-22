@@ -5,25 +5,24 @@ THIS FILE CONTAINS ALL THE SUMMARY.MDs OF THE GENERATED CONTENT PREFIXED WITH RI
 # Home Page for Gitbook 
 * [docker101](generatedContent/docker101/README.md)
 
-# Summary
+# Table of contents
 
-<!-- Rules of SUMMARY.md are here: https://docs.gitbook.com/integrations/github/content-configuration#summary -->
-<!-- All headings MUST be THREE hashmarks (###) -->
-<!-- Indented bullets (4 spaces) will make the first line be a section -->
+* [Introduction](generatedContent/docker101/README.md)
 
-### Getting Started
+## Getting Started
 
-* [Pre-work](generatedContent/docker101/lab-0/README.md)
+* [Pre-work](generatedContent/docker101/getting-started/lab-0.md)
 
-### Docker 101
+## Docker 101
 
-* [Lab 1](generatedContent/docker101/lab-1/README.md)
-* [Lab 2](generatedContent/docker101/lab-2/README.md)
-* [Lab 3](generatedContent/docker101/lab-3/README.md)
+* [Lab 1](generatedContent/docker101/docker-101/lab-1.md)
+* [Lab 2](generatedContent/docker101/docker-101/lab-2.md)
+* [Lab 3](generatedContent/docker101/docker-101/lab-3.md)
 
-### Resources
+## Resources
 
 * [IBM Developer](generatedContent/docker101/https://developer.ibm.com)
+
 
 
 ###############################
@@ -108,5 +107,17 @@ THIS FILE CONTAINS ALL THE SUMMARY.MDs OF THE GENERATED CONTENT PREFIXED WITH RI
 # Table of contents
 
 * [Lab - S2I Open Liberty](generatedContent/s2i-open-liberty-workshop/README.md)
+
+
+###############################
+##  SUMMARY.md for tekton-tutorial-openshift
+################################
+
+# Home Page for Gitbook 
+* [tekton-tutorial-openshift](generatedContent/tekton-tutorial-openshift/README.md)
+
+# Table of contents
+
+* [Lab - Tekton Pipelines](generatedContent/tekton-tutorial-openshift/README.md)
 
 
