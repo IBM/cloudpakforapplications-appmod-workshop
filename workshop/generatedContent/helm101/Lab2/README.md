@@ -16,7 +16,7 @@ In this part of the lab we will update the previously deployed application [Gues
 1. This is an **optional** step that is not technically required to update your running app. The reason for doing this step is "house keeping" - you want to have the correct files for the current configuration that you have deployed. This avoids making mistakes if you have future updates or even rollbacks. In this updated configuration, we remove the Redis slaves. To have the directory match the configuration, move/archive or simply remove the Redis slave files from the guestbook repo tree:
 
    ``` console
-   cd ~/guestbook/v1
+   cd guestbook/v1
    rm redis-slave-service.yaml
    rm redis-slave-deployment.yaml
    ```
@@ -206,7 +206,7 @@ Enough talking about the theory. Now let's give it a go!
     guestbook-demo  helm-demo 2         2020-02-25 14:23:27.06732381 +0000 UTC  deployed  guestbook-0.2.0
     ```
 
-1. View the guestbook as per [Lab1](../Lab1/README.md), using the updated port for the guestbook service.
+1. View the guestbook
 
    Get the public IP of one of your nodes:
    ```console

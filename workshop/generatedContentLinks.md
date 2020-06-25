@@ -146,3 +146,27 @@ THIS FILE CONTAINS ALL THE SUMMARY.MDs OF THE GENERATED CONTENT PREFIXED WITH RI
 * [Exercise 7 - Secure your service mesh](generatedContent/istio101/exercise-7/README.md)
 
 
+###############################
+##  SUMMARY.md for app-modernization-cicd-lab-iks
+################################
+
+# Home Page for Gitbook 
+* [app-modernization-cicd-lab-iks](generatedContent/app-modernization-cicd-lab-iks/README.md)
+
+# Table of contents
+
+* [Lab - CICD on IKS](generatedContent/app-modernization-cicd-lab-iks/README.md)
+
+
+###############################
+##  SUMMARY.md for app-modernization-microservices-lab-iks
+################################
+
+# Home Page for Gitbook 
+* [app-modernization-microservices-lab-iks](generatedContent/app-modernization-microservices-lab-iks/README.md)
+
+# Table of contents
+
+* [Lab - Microservices on IKS](generatedContent/app-modernization-microservices-lab-iks/README.md)
+
+

@@ -1,7 +1,7 @@
 
-## App Modernization Workshop
+## IBM Kubernetes Service Workshop
 
-In the workshop you will learn about foundational open source technologies and industry-wide accepted best practices for building modern, scalable, portable, and robust applications. You will learn migration strategies for moving legacy, monolithic WAS applications into Liberty containers running on Red Hat OpenShift, and some of the common pitfalls to watch out for.
+In the workshop you will learn about foundational open source technologies and industry-wide accepted best practices for building modern, scalable, portable, and robust applications. You will learn migration strategies for moving legacy, monolithic WAS applications into Liberty containers running on IBM Kubernetes Service (IKS), and some of the common pitfalls to watch out for.
 
 ### About this workshop
 
@@ -12,7 +12,7 @@ In the workshop you will learn about foundational open source technologies and i
 ## Agenda Day 1
 | Topic  |  Description |
 | - | - |
-| Welcome, Introductions & Objectives |  |
+| Welcome | Introductions & Objectives |
 | [Lecture: Overview of Docker (with Demo)](https://ibm.box.com/s/0mvlb8hvd8lx23smfvoaijdt9ex63go2) | What is Docker? |
 | [Lecture: Overview of Kubernetes](https://ibm.box.com/s/migr539izuf8d686shemct1na0gyvl6v) | What is Kubernetes? |
 | BREAK | |
@@ -25,12 +25,12 @@ In the workshop you will learn about foundational open source technologies and i
 | [Lab: CI/CD for Kubernetes]() | Jenkins Pipelines in IKS Lab|
 | BREAK | |
 | [Lecture: 12 Factors](https://ibm.box.com/s/mhn0ff94xq0lwewfebgruxya44nmhm08) | Cloud Native Development – 12 Factor |
-| Wrap up and Questions | |
+| Wrap up | Questions? |
 
 ## Agenda Day 2
 | Topic  |  Description |
 | - | - |
-| Welcome, Day 1 Recap / Questions | |
+| Welcome | Day 1 Recap / Questions |
 | Lecture: Roles & Responsibilities on IBM Kubernetes Service (IBM and GEICO  Dev / Admin) | |
 | BREAK | |
 | [Lecture: Application Modernization](https://ibm.box.com/s/yundw794wuiyhil485s1eua9hfkujz0a) | Learn about Application Modernization Migration Approaches |
@@ -40,7 +40,7 @@ In the workshop you will learn about foundational open source technologies and i
 | [Lecture: Istio](https://ibm.box.com/s/4al8hgpzj90vuus55i9fmcw856qz1bt1) | Overview of Istio Service Mesh |
 | BREAK | |
 | [Lab: Istio](generatedContent/istio101/README.md) | Working with Istio (Deploying Applications and Traffic Management) |
-| Wrap up | |
+| Wrap up | Questions? |
 
 
 ## Technology Used

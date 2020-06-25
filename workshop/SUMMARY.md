@@ -14,15 +14,18 @@
     * [Excercise - 4](generatedContent/digidevcon-iks/exercise-4/README.md)
     * [Excercise - 5](generatedContent/digidevcon-iks/exercise-5/README.md)
 
-* [helm101](generatedContent/helm101/README.md)
+* [Lab: helm101](generatedContent/helm101/README.md)
     * [Lab 0](generatedContent/helm101/Lab0/README.md)
     * [Lab 1](generatedContent/helm101/Lab1/README.md)
     * [Lab 2](generatedContent/helm101/Lab2/README.md)
     * [Lab 3](generatedContent/helm101/Lab3/README.md)
     * [Lab 4](generatedContent/helm101/Lab4/README.md)
     
+* [Lab: Jenkins and Kubernetes](generatedContent/app-modernization-cicd-lab-iks/README.md)
 
 ### Day 2
+* [Lab: Deploy Microservices on IKS](generatedContent/app-modernization-microservices-lab-iks/README.md)
+
 * [Istio Lab](generatedContent/istio101/README.md)
     * [Accessing a Kubernetes cluster with IBM Cloud Kubernetes Service](generatedContent/istio101/exercise-1/README.md)
     * [Installing Istio](generatedContent/istio101/exercise-2/README.md)
