@@ -30,12 +30,14 @@ do_the_thing(){
         cd ../..
 
         GITBOOK_YAML="tempClones/"$workshopName"/.gitbook.yaml"
-        if [[ -z $GITBOOK_YAML ]]; then
-            echo "Not a gitbook... skipping!"
-            continue
+
+        GITBOOK_ROOT="."
+        if [ -f $GITBOOK_YAML ]; then
+            GITBOOK_ROOT=`yq r tempClones/"$workshopName"/.gitbook.yaml root`
+        else
+            echo "Not a gitbook... using . as root!"
         fi
 
-        GITBOOK_ROOT=`yq r tempClones/"$workshopName"/.gitbook.yaml root`
         if [[ -z "GITBOOK_ROOT" ]]; then
             echo "Error reading gitbook... skipping!"
             continue

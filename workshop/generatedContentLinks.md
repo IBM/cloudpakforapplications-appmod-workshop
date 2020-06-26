@@ -159,14 +159,20 @@ THIS FILE CONTAINS ALL THE SUMMARY.MDs OF THE GENERATED CONTENT PREFIXED WITH RI
 
 
 ###############################
-##  SUMMARY.md for app-modernization-microservices-lab-iks
+##  SUMMARY.md for spring-boot-microservices-on-kubernetes
 ################################
 
 # Home Page for Gitbook 
-* [app-modernization-microservices-lab-iks](generatedContent/app-modernization-microservices-lab-iks/README.md)
+* [spring-boot-microservices-on-kubernetes](generatedContent/spring-boot-microservices-on-kubernetes/README.md)
 
-# Table of contents
 
-* [Lab - Microservices on IKS](generatedContent/app-modernization-microservices-lab-iks/README.md)
+
+###############################
+##  SUMMARY.md for kube101
+################################
+
+# Home Page for Gitbook 
+* [kube101](generatedContent/kube101/README.md)
+
 
 

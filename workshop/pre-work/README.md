@@ -3,7 +3,7 @@
 This section will guide you through the pre-requisites and setup of the environment used in this workshop labs. It is broken up into the following steps:
 
 1. [Sign up for IBM Cloud](#1-sign-up-for-ibm-cloud)
-1. [Download or clone the repo](#2-kubernetes-cluster)
+1. [Access a cluster](#2-kubernetes-cluster)
 
 ## 1. Sign up for IBM Cloud
 
