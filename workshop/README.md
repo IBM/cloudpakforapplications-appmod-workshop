@@ -39,7 +39,7 @@ In the workshop you will learn about foundational open source technologies and i
 | [Lab: Deploy Microservices](generatedContent/spring-boot-microservices-on-kubernetes/README_deployment.md) | Deploy Microservices Application Lab |
 | [Lecture: Istio](https://ibm.box.com/s/4al8hgpzj90vuus55i9fmcw856qz1bt1) | Overview of Istio Service Mesh |
 | BREAK | |
-| [Lab: Istio](generatedContent/istio101/README.md) | Working with Istio (Deploying Applications and Traffic Management) |
+| [Lab: Istio](istio-setup/README.md) | Working with Istio (Deploying Applications and Traffic Management) |
 | Wrap up | Questions? |
 
 

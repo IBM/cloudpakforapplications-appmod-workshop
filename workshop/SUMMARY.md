@@ -28,7 +28,7 @@
 * [Lab: Deploy Microservices on IKS](generatedContent/spring-boot-microservices-on-kubernetes/README_deployment.md)
 
 * [Istio Lab](generatedContent/istio101/README.md)
-    * [Accessing a Kubernetes cluster with IBM Cloud Kubernetes Service](generatedContent/istio101/exercise-1/README.md)
+    * [Lab Setup](istio-setup/README.md)
     * [Installing Istio](generatedContent/istio101/exercise-2/README.md)
     * [Deploying Guestbook sample application](generatedContent/istio101/exercise-3/README.md) 
     * [Perform traffic management](generatedContent/istio101/exercise-6/README.md)
