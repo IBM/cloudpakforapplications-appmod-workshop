@@ -11,21 +11,8 @@ In this course, you can see how to install Istio alongside microservices for a s
 After you complete this course, you'll be able to:
 - Download and install Istio in your cluster
 - Deploy the Guestbook sample app
-- Use metrics, logging and tracing to observe services
 - Set up the Istio Ingress Gateway
 - Perform simple traffic management, such as A/B tests and canary deployments
-- Secure your service mesh
-- Enforce policies for your microservices
-
-## Prerequisites
-You must you must have a Pay-As-You-Go, or Subscription [IBM Cloud account](https://cloud.ibm.com/registration/) to complete all the modules in this course.
-
-You must have [already created a Standard 1.16+ cluster](https://cloud.ibm.com/docs/containers?topic=containers-clusters#clusters_standard) in IBM Cloud Kubernetes Service. **FREE Cluster is not supported for this lab**
-
-You should have a basic understanding of containers, IBM Cloud Kubernetes Service, and Istio. If you have no experience with those, take the following courses:
-1. [Get started with Kubernetes and IBM Cloud Kubernetes Service](https://cognitiveclass.ai/courses/kubernetes-course/)
-2. [Get started with Istio and IBM Cloud Kubernetes Service](https://cognitiveclass.ai/courses/get-started-with-microservices-istio-and-ibm-cloud-container-service/)
-
 
 ## Workshop setup
 
