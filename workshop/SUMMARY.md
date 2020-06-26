@@ -27,11 +27,11 @@
 ### Day 2
 * [Lab: Deploy Microservices on IKS](generatedContent/spring-boot-microservices-on-kubernetes/README_deployment.md)
 
-* [Istio Lab](generatedContent/istio101/README.md)
-    * [Lab Setup](istio-setup/README.md)
+* [Istio Lab](istio101/README.md)
+    * [Lab Setup](istio101/setup.md)
     * [Installing Istio](generatedContent/istio101/exercise-2/README.md)
-    * [Deploying Guestbook sample application](generatedContent/istio101/exercise-3/README.md) 
-    * [Perform traffic management](generatedContent/istio101/exercise-6/README.md)
+    * [Deploying Guestbook sample application](istio101/exercise-3/README.md) 
+    * [Perform traffic management](istio101/exercise-6/README.md)
 
 
 ### Resources
