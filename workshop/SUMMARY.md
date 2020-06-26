@@ -4,6 +4,10 @@
 <!-- All headings MUST be THREE hashmarks (###) -->
 <!-- Indented bullets (4 spaces) will make the first line be a section -->
 
+### Getting Started
+
+* [Setup](pre-work/README.md)
+
 ### Day 1
 * [Lab: Kubernetes and Operators](generatedContent/digidevcon-iks/README.md)
     * [Excercise - 0a](generatedContent/digidevcon-iks/exercise-0a/README.md)
