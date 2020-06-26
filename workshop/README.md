@@ -36,7 +36,7 @@ In the workshop you will learn about foundational open source technologies and i
 | [Lecture: Application Modernization](https://ibm.box.com/s/yundw794wuiyhil485s1eua9hfkujz0a) | Learn about Application Modernization Migration Approaches |
 | [Lecture: Microservices](https://ibm.box.com/s/juwyhpy4yt99ckvigd43140tlx3j53rb)| Microservices Principles, Patterns and Implementation Considerations |
 | Lunch | |
-| [Lab: Deploy Microservices](generatedContent/spring-boot-microservices-on-kubernetes/README.md) | Deploy Microservices Application Lab |
+| [Lab: Deploy Microservices](generatedContent/spring-boot-microservices-on-kubernetes/README_deployment.md) | Deploy Microservices Application Lab |
 | [Lecture: Istio](https://ibm.box.com/s/4al8hgpzj90vuus55i9fmcw856qz1bt1) | Overview of Istio Service Mesh |
 | BREAK | |
 | [Lab: Istio](generatedContent/istio101/README.md) | Working with Istio (Deploying Applications and Traffic Management) |

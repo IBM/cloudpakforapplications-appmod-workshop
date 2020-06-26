@@ -9,14 +9,10 @@
 * [Setup](pre-work/README.md)
 
 ### Day 1
-* [Lab: Kubernetes and Operators](generatedContent/digidevcon-iks/README.md)
-    * [Excercise - 0a](generatedContent/digidevcon-iks/exercise-0a/README.md)
-    * [Excercise - 0b](generatedContent/digidevcon-iks/exercise-0b/README.md)
-    * [Excercise - 1](generatedContent/digidevcon-iks/exercise-1/README.md)
-    * [Excercise - 2](generatedContent/digidevcon-iks/exercise-2/README.md)
-    * [Excercise - 3](generatedContent/digidevcon-iks/exercise-3/README.md)
-    * [Excercise - 4](generatedContent/digidevcon-iks/exercise-4/README.md)
-    * [Excercise - 5](generatedContent/digidevcon-iks/exercise-5/README.md)
+* [Lab: Kubernetes 101](generatedContent/kube101/README.md)
+    * [Lab 1](generatedContent/kube101/Lab1/README.md)
+    * [Lab 2](generatedContent/kube101/Lab2/README.md)
+    * [Lab 3](generatedContent/kube101/Lab3/README.md)
 
 * [Lab: helm101](generatedContent/helm101/README.md)
     * [Setup](helm-setup/README.md)
@@ -29,7 +25,7 @@
 * [Lab: Jenkins and Kubernetes](generatedContent/app-modernization-cicd-lab-iks/README.md)
 
 ### Day 2
-* [Lab: Deploy Microservices on IKS](generatedContent/app-modernization-microservices-lab-iks/README.md)
+* [Lab: Deploy Microservices on IKS](generatedContent/spring-boot-microservices-on-kubernetes/README_deployment.md)
 
 * [Istio Lab](generatedContent/istio101/README.md)
     * [Accessing a Kubernetes cluster with IBM Cloud Kubernetes Service](generatedContent/istio101/exercise-1/README.md)
