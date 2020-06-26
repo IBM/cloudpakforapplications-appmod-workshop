@@ -14,13 +14,12 @@
     * [Lab 2](generatedContent/kube101/Lab2/README.md)
     * [Lab 3](generatedContent/kube101/Lab3/README.md)
 
-* [Lab: helm101](generatedContent/helm101/README.md)
-    * [Setup](helm-setup/README.md)
-    * [Lab 0](generatedContent/helm101/Lab0/README.md)
-    * [Lab 1](generatedContent/helm101/Lab1/README.md)
-    * [Lab 2](generatedContent/helm101/Lab2/README.md)
-    * [Lab 3](generatedContent/helm101/Lab3/README.md)
-    * [Lab 4](generatedContent/helm101/Lab4/README.md)
+* [Lab: Helm 101](generatedContent/helm101/README.md)
+    * [Setup Helm](helm-setup/README.md)
+    * [Lab 1 - Deploy Application](generatedContent/helm101/Lab1/README.md)
+    * [Lab 2 - Update Application](generatedContent/helm101/Lab2/README.md)
+    * [Lab 3 - Revisions](generatedContent/helm101/Lab3/README.md)
+    * [Lab 4 - Helm Repositories](generatedContent/helm101/Lab4/README.md)
     
 * [Lab: Jenkins and Kubernetes](generatedContent/app-modernization-cicd-lab-iks/README.md)
 
