@@ -6,13 +6,13 @@
 
 ### Getting Started
 
-* [Setup](pre-work/README.md)
+* [Environment Setup](pre-work/README.md)
 
 ### Day 1
 * [Lab: Kubernetes 101](generatedContent/kube101/README.md)
-    * [Lab 1](generatedContent/kube101/Lab1/README.md)
-    * [Lab 2](generatedContent/kube101/Lab2/README.md)
-    * [Lab 3](generatedContent/kube101/Lab3/README.md)
+    * [Lab 1 - Deploy Application](generatedContent/kube101/Lab1/README.md)
+    * [Lab 2 - Scale Application](generatedContent/kube101/Lab2/README.md)
+    * [Lab 3 - Multi-tier Application](generatedContent/kube101/Lab3/README.md)
 
 * [Lab: Helm 101](generatedContent/helm101/README.md)
     * [Setup Helm](helm-setup/README.md)
@@ -26,13 +26,12 @@
 ### Day 2
 * [Lab: Deploy Microservices on IKS](generatedContent/spring-boot-microservices-on-kubernetes/README_deployment.md)
 
-* [Istio Lab](istio101/README.md)
-    * [Lab Setup](istio101/setup.md)
-    * [Installing Istio](generatedContent/istio101/exercise-2/README.md)
-    * [Deploying Guestbook sample application](istio101/exercise-3/README.md) 
-    * [Expose the service mesh with the Istio Ingress Gateway](istio101/exercise-5/README.md) 
-    * [Perform traffic management](istio101/exercise-6/README.md)
-
+* [Lab: Istio 101](istio101/README.md)
+    * [Setup Istio](istio101/setup.md)
+    * [Lab 1 - Installing Istio](generatedContent/istio101/exercise-2/README.md)
+    * [Lab 2 - Deploying Guestbook Application](istio101/exercise-3/README.md)
+    * [Lab 3 - Expose the Service Mesh with Istio Ingress Gateway](istio101/exercise-5/README.md)
+    * [Lab 4 - Perform Traffic Management](istio101/exercise-6/README.md)
 
 ### Resources
 
