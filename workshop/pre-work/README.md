@@ -4,6 +4,7 @@ This section will guide you through the pre-requisites and setup of the environm
 
 1. [Sign up for IBM Cloud](#1-sign-up-for-ibm-cloud)
 1. [Access a cluster](#2-kubernetes-cluster)
+1. [Configure CLI Tools](#3-command-line-tools-/-cloud-shell)
 
 ## 1. Sign up for IBM Cloud
 
@@ -41,7 +42,7 @@ Many of the labs will involve interacting with your cluster using command line t
 
 1. From the [IBM Cloud Home Page](https://cloud.ibm.com), select the terminal icon in the upper right hand menu.
 
-![Terminal Button](../.gitbook/generic/access-cloud-shell.png)
+   ![Terminal Button](../.gitbook/generic/access-cloud-shell.png)
 
 1. It might take a few moments to create the instance and a new session which automatically logs you in through the IBM Cloud CLI.
 
