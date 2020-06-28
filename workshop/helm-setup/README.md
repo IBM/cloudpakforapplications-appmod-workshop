@@ -63,10 +63,10 @@ If you have not setup your kubectl to access your cluster, you can do so in the 
    ibmcloud ks clusters
    ```
 
-1. Configure the `kubectl` cli available within the terminal for access to your cluster. If you previously stored your cluster name to an environment variable, use that (ie. `$CLUSTERNAME`), otherwise copy and paste your cluster name from the previous commands output to the `[cluster name]` portion below.
+1. Configure the `kubectl` cli available within the terminal for access to your cluster. If you previously stored your cluster name to an environment variable, use that (ie. `$CLUSTER_NAME`), otherwise copy and paste your cluster name from the previous commands output to the `$CLUSTER_NAME` portion below.
 
    ```shell
-   ibmcloud ks cluster config --cluster [cluster name]
+   ibmcloud ks cluster config --cluster $CLUSTER_NAME
    ```
 
 1. Verify access to the Kubernetes API by getting the namespaces.
