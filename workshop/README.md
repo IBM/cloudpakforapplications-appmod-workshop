@@ -1,7 +1,7 @@
 
 ## IBM Kubernetes Service Workshop
 
-In the workshop you will learn about foundational open source technologies and industry-wide accepted best practices for building modern, scalable, portable, and robust applications. You will learn migration strategies for moving legacy, monolithic WAS applications into Liberty containers running on IBM Kubernetes Service (IKS), and some of the common pitfalls to watch out for.
+In the workshop you will learn about foundational open source technologies and industry-wide accepted best practices for building modern, scalable, portable, and robust applications. You will learn about deploying and managing microservice applications on top of the IBM Kubernetes Service (IKS) environment. We will also discuess some of the most common pitfalls to watch out for.
 
 ### About this workshop
 
@@ -14,8 +14,9 @@ In the workshop you will learn about foundational open source technologies and i
 | - | - |
 | Welcome | Introductions & Objectives |
 | [Lecture: Overview of Docker (with Demo)](https://ibm.box.com/s/0mvlb8hvd8lx23smfvoaijdt9ex63go2) | What is Docker? |
-| [Lecture: Overview of Kubernetes](https://ibm.box.com/s/migr539izuf8d686shemct1na0gyvl6v) | What is Kubernetes? |
+| [Lecture: Overview of Kubernetes](https://ibm.box.com/s/of4o5xg20v9b1nzi3cahfqhyfvdh58ne) | What is Kubernetes? |
 | BREAK | |
+| [Lab Environment Setup](pre-work/README.md) | Run these steps to setup your environment for the labs |
 | [Hands On Lab: Kubernetes](generatedContent/kube101/README.md) | Kubernetes Introduction Labs (Deploying & Scaling Apps) |
 | LUNCH | |
 | [Lecture: Helm](https://ibm.box.com/s/cluclg99642s5bgi6j2wixr37jg7nw96) | Helm Overview Lecture |
