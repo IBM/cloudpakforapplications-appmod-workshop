@@ -22,7 +22,7 @@ In the workshop you will learn about foundational open source technologies and i
 | [Lecture: Helm](https://ibm.box.com/s/cluclg99642s5bgi6j2wixr37jg7nw96) | Helm Overview Lecture |
 | [Lab: Helm](generatedContent/helm101/README.md) | Deploy Cloud Native Applications using Helm |
 | BREAK | |
-| [Lecture: CI/CD for Kubernetes](https://ibm.box.com/s/bcm19z6q1yrtnj92nk8dbr95vk72oyp2) | Jenkins Pipelines in OpenShift Lecture|
+| [Lecture: CI/CD for Kubernetes](https://ibm.box.com/s/lf3fpxdopre22u1dbyrzw7qfzj69530u) | Jenkins Pipelines in OpenShift Lecture|
 | [Lab: CI/CD for Kubernetes](generatedContent/app-modernization-cicd-lab-iks/README.md) | Jenkins Pipelines in IKS Lab|
 | BREAK | |
 | [Lecture: 12 Factors](https://ibm.box.com/s/mhn0ff94xq0lwewfebgruxya44nmhm08) | Cloud Native Development – 12 Factor |
