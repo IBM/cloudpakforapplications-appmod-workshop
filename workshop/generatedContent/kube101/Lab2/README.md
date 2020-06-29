@@ -161,7 +161,7 @@ kubectl rollout status deployment/guestbook
    ```
    and
    ```shell
-   ibmcloud ks workers $CLUSTER_NAME
+   ibmcloud ks workers --cluster $CLUSTER_NAME
    ```
 
    To verify that you're running "v2" of guestbook, look at the title of the page,

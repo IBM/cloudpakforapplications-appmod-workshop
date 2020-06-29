@@ -174,7 +174,7 @@ Deployment container spec.
   and
 
   ```shell 
-  ibmcloud cs workers $CLUSTER_NAME
+  ibmcloud cs workers --cluster $CLUSTER_NAME
   ```
 
 # 2. Connect to a back-end service.
