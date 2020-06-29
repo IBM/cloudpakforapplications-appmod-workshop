@@ -34,7 +34,7 @@ In the workshop you will learn about foundational open source technologies and i
 | Welcome | Day 1 Recap / Questions |
 | Lecture: Roles & Responsibilities on IBM Kubernetes Service (IBM and GEICO  Dev / Admin) | |
 | BREAK | |
-| [Lecture: Application Modernization](https://ibm.box.com/s/yundw794wuiyhil485s1eua9hfkujz0a) | Learn about Application Modernization Migration Approaches |
+| [Lecture: Application Modernization](https://ibm.box.com/s/h9c5357a72xm2c0p8whqkv8dyl0c7is0) | Learn about Application Modernization Migration Approaches |
 | [Lecture: Microservices](https://ibm.box.com/s/juwyhpy4yt99ckvigd43140tlx3j53rb)| Microservices Principles, Patterns and Implementation Considerations |
 | Lunch | |
 | [Lab: Deploy Microservices](generatedContent/spring-boot-microservices-on-kubernetes/README_deployment.md) | Deploy Microservices Application Lab |
