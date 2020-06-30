@@ -153,35 +153,4 @@ The Redis database is a service that you can use to persist the data of your app
 
     Note that each guestbook pod has 2 containers in it. One is the guestbook container, and the other is the Envoy proxy sidecar.
 
-## Use Watson Tone Analyzer
-
-Watson Tone Analyzer detects the tone from the words that users enter into the Guestbook app. The tone is converted to the corresponding emoticons.
-
-1. Create Watson Tone Analyzer in your account.
-
-    ```shell
-    ibmcloud resource service-instance-create my-tone-analyzer-service tone-analyzer lite us-south
-    ```
-
-1. Create the service key for the Tone Analyzer service. This command should output the credentials you just created. You will need the value for **apikey** & **url** later.
-
-    ```shell
-    ibmcloud resource service-key-create tone-analyzer-key Manager --instance-name my-tone-analyzer-service
-    ```
-
-1. If you need to get the service-keys later, you can use the following command:
-
-    ```shell
-    ibmcloud resource service-key tone-analyzer-key
-    ```
-
-1. Open the `analyzer-deployment.yaml` and find the env section near the end of the file. Replace `YOUR_API_KEY` with your own API key, and replace `YOUR_URL` with the url value you saved before. YOUR_URL should look something like `https://gateway.watsonplatform.net/tone-analyzer/api`. Save the file.
-
-1.   Deploy the analyzer pods and service, using the `analyzer-deployment.yaml` and `analyzer-service.yaml` files found in the `guestbook/v2` directory. The analyzer service talks to Watson Tone Analyzer to help analyze the tone of a message. Ensure you are still in the `guestbook/v2` directory.
-
-    ```shell
-    kubectl apply -f analyzer-deployment.yaml
-    kubectl apply -f analyzer-service.yaml
-    ```
-
-Great! Your guestbook app is up and running. In Exercise 6, you'll play around with some traffic management features of Istio.
+Great! Your guestbook app is up and running. In the next exercise you will expose the Istio service mesh with the Ingress Gateway
