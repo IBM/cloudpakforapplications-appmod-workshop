@@ -16,13 +16,13 @@ After you complete this course, you'll be able to:
 
 ## Workshop setup
 
-* [Lab Setup](istio101/setup.md)
-* [Installing Istio](generatedContent/istio101/exercise-2/README.md)
-* [Deploying Guestbook sample application](istio101/exercise-3/README.md) 
+* [Lab Setup](../generatedContent/istio101/exercise-1/README.md)
+* [Installing Istio](../generatedContent/istio101/exercise-2/README.md)
+* [Deploying Guestbook sample application](exercise-3/README.md) 
 
 ## Creating a service mesh with Istio
 
-* [Perform traffic management](istio101/exercise-6/README.md)
+* [Perform traffic management](exercise-6/README.md)
 
 
 ## Cleaning up the Workshop
