@@ -16,7 +16,7 @@ After you complete this course, you'll be able to:
 
 ## Workshop setup
 
-* [Lab Setup](../generatedContent/istio101/exercise-1/README.md)
+* [Lab Setup](setup.md)
 * [Installing Istio](../generatedContent/istio101/exercise-2/README.md)
 * [Deploying Guestbook sample application](exercise-3/README.md) 
 
