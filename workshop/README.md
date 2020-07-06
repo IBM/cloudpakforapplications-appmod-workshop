@@ -43,17 +43,16 @@ Also:
 |   |   |
 | - | - |
 | [Lecture: Microservices](https://ibm.box.com/s/juwyhpy4yt99ckvigd43140tlx3j53rb)| Microservices Principles, Patterns and Implementation Considerations |
-| [Lecture: 12 Factors](https://ibm.box.com/s/mhn0ff94xq0lwewfebgruxya44nmhm08) | Cloud Native Development – 12 Factor |
 | Wrap up | Questions? |
 | [Lab: Deploy Microservices](generatedContent/spring-boot-microservices-on-kubernetes/README_deployment.md) | Deploy Microservices Application Lab |
 | [Lecture: Istio](https://ibm.box.com/s/4al8hgpzj90vuus55i9fmcw856qz1bt1) | Overview of Istio Service Mesh |
-| [Lab: Istio](istio-setup/README.md) | Working with Istio (Deploying Applications and Traffic Management)
+| [Lab: Istio](istio101/setup.md) | Working with Istio (Deploying Applications and Traffic Management)
 
 ## Modern Development in OpenShift
 |   |   |
 | - | - |
 | [Introduction](https://ibm.box.com/s/h4kopjikllv061bmwhlw2z0735j5wc2y) |  Introduction to Application Modernization |
-| [Lecture: S2I and Templates](https://ibm.box.com/s/a8n1qt3ao8bx2qh80ktgzx3h4m81rq4l) | Learn about S2I and Templates in OpenShift |
+| [Lecture: S2I and Templates](https://ibm.box.com/s/orn1speymlos7w22n6haowq1kyyd0g5v) | Learn about S2I and Templates in OpenShift |
 | [Lab: S2I and Templates](generatedContent/app-modernization-openshift-s2i-templates-lab-shared/README.md) | Deploy Cloud Native Applications using S2I |
 | [Lab: S2I Open Liberty](generatedContent/s2i-open-liberty-workshop/README.md) | Write your own S2I Scripts for Open Liberty
 
@@ -78,7 +77,7 @@ Also:
 ## IBM Value Add
 |   |   |
 | - | - |
-| [Lecture: IBM Cloud Pak for Applications](https://ibm.box.com/s/uvw3yu8m750akki6o2mk0d8mdrmkcg2w) | Overview of IBM Cloud Pak for Applications
+| [Lecture: IBM Cloud Pak for Applications](https://ibm.box.com/s/y4wh104vdos1vw5kdjwwuhebf8jgq580) | Overview of IBM Cloud Pak for Applications
 
 ## Technology Used
 
