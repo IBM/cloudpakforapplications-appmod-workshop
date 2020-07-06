@@ -3,11 +3,6 @@
 
 In the workshop you will learn about foundational open source technologies and industry-wide accepted best practices for building modern, scalable, portable, and robust applications. You will learn migration strategies for moving legacy, monolithic WAS applications into Liberty containers running on Red Hat OpenShift, and some of the common pitfalls to watch out for.
 
-### Agenda Catagories
-
-Build your own agenda from the following catagories.
-Browse the variants in the upper lefthand dropdown to view past agendas.
-
 * [Setup](#setup)
 * [Day 1](#day-1)
 * [Day 2](#day-2)
@@ -40,10 +35,10 @@ Browse the variants in the upper lefthand dropdown to view past agendas.
 | [Lecture: Istio](https://ibm.box.com/s/4al8hgpzj90vuus55i9fmcw856qz1bt1) | Overview of Istio Service Mesh |
 | [Lab: Istio](istio101/setup.md) | Working with Istio (Deploying Applications and Traffic Management)
 | BREAK | |
-| [Lab: Add Secure Object Storage to MongoDB]()	| |
+| [Lab: Add Secure Object Storage to MongoDB](generatedContent/ddc-cloud-native-security-labs.git/lab-02/README.md)	| |
 | LUNCH | |
-| [Overview of Kubernetes Extension	Lecture](https://ibm.box.com/s/c7r9vsfdqtev76p1nqvdvumnoc6cai7m) | |
-| [Lab: Custom Resources and Operators]() | |
+| [Lecture: Overview of Kubernetes Extensions](https://ibm.box.com/s/c7r9vsfdqtev76p1nqvdvumnoc6cai7m) | |
+| [Lab: Custom Resources and Operators](generatedContent/kubernetes-extensions.git/README.md) | |
 | RECAP and Survey | |
 
 ## Day 3
@@ -51,7 +46,7 @@ Browse the variants in the upper lefthand dropdown to view past agendas.
 | - | - |
 | Welcome, Day 2 Recap / Questions | |
 | [Overview of CI/CD for Microservices](https://ibm.box.com/s/8y9yglljd4yd7xmdo501o1xyqta3p9q9)	| |
-| [Lab: Source-to-Image (S2I)]() | S2I with Custom Builder and Runtime Image
+| [Lab: Source-to-Image (S2I)](generatedContent/ddc-cloud-native-security-labs.git/lab-03/README.md) | S2I with Custom Builder and Runtime Image
 | BREAK | |
 | [Lecture: Overview of Tekton Pipelines](https://ibm.box.com/s/kisshn88w4a79jzz557o5h6c5k55o9ze) | Tekton Overview Lecture|
 | [Lab: Tekton on OpenShift](generatedContent/tekton-tutorial-openshift/README.md) | Tekton Pipelines in OpenShift Lab
