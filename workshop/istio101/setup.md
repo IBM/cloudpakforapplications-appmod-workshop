@@ -43,6 +43,19 @@ Learn how to set the context to work with your cluster by using the `kubectl` CL
     kubectl get nodes
     ```
 
+## Clean up default namespace from previous lab
+1. From the command line
+
+```shell
+kubectl get all
+```
+
+2. or each deployment and service listed run
+```shell
+kubectl delete deploy [deployment 1] [deployment n]
+kubectl delete service [service 1] [service n]
+```
+
 ## Clone the lab repo
 
 1. From your command line, run:
