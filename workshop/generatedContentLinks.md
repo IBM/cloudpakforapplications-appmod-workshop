@@ -176,3 +176,45 @@ THIS FILE CONTAINS ALL THE SUMMARY.MDs OF THE GENERATED CONTENT PREFIXED WITH RI
 
 
 
+###############################
+##  SUMMARY.md for ddc-cloud-native-security-labs.git
+################################
+
+# Home Page for Gitbook 
+* [ddc-cloud-native-security-labs.git](generatedContent/ddc-cloud-native-security-labs.git/README.md)
+
+# Summary
+
+### Getting Started
+
+* [Create an IBM Cloud account](generatedContent/ddc-cloud-native-security-labs.git/lab-00/NEWACCOUNT.md)
+* [Setup](generatedContent/ddc-cloud-native-security-labs.git/lab-00/README.md)
+
+### Workshop
+
+* [Lab0 - Setup](generatedContent/ddc-cloud-native-security-labs.git/lab-00/README.md)
+* [Lab1 - Kubernetes Networking](generatedContent/ddc-cloud-native-security-labs.git/lab-01/README.md)
+* [Lab2 - Adding Secure Storage](generatedContent/ddc-cloud-native-security-labs.git/lab-02/README.md)
+* [Lab3 - Source-to-Image (S2I)](generatedContent/ddc-cloud-native-security-labs.git/lab-03/README.md)
+
+### Resources
+
+- [Cloud Native Computing Foundation](generatedContent/ddc-cloud-native-security-labs.git/https://www.cncf.io/)
+- [Cloud Native Security Conference](generatedContent/ddc-cloud-native-security-labs.git/https://developer.ibm.com/conferences/digital-developer-conference-security/)
+- [IBM Developer](generatedContent/ddc-cloud-native-security-labs.git/https://developer.ibm.com)
+
+
+### Survey
+
+* [Tell us how we did](generatedContent/ddc-cloud-native-security-labs.git/http://ibm.biz/workshop-survey-generic)
+
+
+###############################
+##  SUMMARY.md for kubernetes-extensions.git
+################################
+
+# Home Page for Gitbook 
+* [kubernetes-extensions.git](generatedContent/kubernetes-extensions.git/README.md)
+
+
+

@@ -22,7 +22,8 @@ resources to handle increasing load on your application.
    `guestbook` up to 10 instances:
 
    ``` console
-   kubectl scale --replicas=10 deployment guestbook
+   $ kubectl scale --replicas=10 deployment guestbook
+   deployment "guestbook" scaled
    ```
 
    Kubernetes will now try to make reality match the desired state of
@@ -30,9 +31,7 @@ resources to handle increasing load on your application.
    the first.
 
 1. To see your changes being rolled out, you can run:
-   ```shell
-   kubectl rollout status deployment guestbook
-   ```
+   `kubectl rollout status deployment guestbook`.
 
    The rollout might occur so quickly that the following messages might
    _not_ display:
@@ -52,9 +51,7 @@ resources to handle increasing load on your application.
    ```
 
 1. Once the rollout has finished, ensure your pods are running by using:
-   ```shell
-   kubectl get pods
-   ```
+   `kubectl get pods`.
 
    You should see output listing 10 replicas of your deployment:
 
@@ -95,9 +92,7 @@ To update and roll back:
    resources with the `set` subcommand. We can use it to change the
    image being used.
 
-    ```shell
-    kubectl set image deployment/guestbook guestbook=ibmcom/guestbook:v2
-    ```
+    ```$ kubectl set image deployment/guestbook guestbook=ibmcom/guestbook:v2```
 
    Note that a pod could have multiple containers, each with its own name.
    Each image can be changed individually or all at once by referring to the name.
@@ -105,13 +100,8 @@ To update and roll back:
    Multiple containers can be updated at the same time.
    ([More information](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#-em-image-em-).)
 
-1. To check the status of the rollout, run:
-
-```shell
-kubectl rollout status deployment/guestbook
-```
-
-  The rollout might occur so quickly that the following messages
+1. Run `kubectl rollout status deployment/guestbook` to check the status of
+   the rollout. The rollout might occur so quickly that the following messages
    might _not_ display:
 
    ```console
@@ -154,15 +144,11 @@ kubectl rollout status deployment/guestbook
 1. Test the application as before, by accessing `<public-IP>:<nodeport>`
    in the browser to confirm your new code is active.
 
-   Remember, to get the "nodeport" and "public-ip" use the following commands. Replace `$CLUSTER_NAME` with the name of your cluster if the environment variable is not set.:
+   Remember, to get the "nodeport" and "public-ip" use:
 
-   ```shell
-   kubectl describe service guestbook
-   ```
+   `$ kubectl describe service guestbook`
    and
-   ```shell
-   ibmcloud ks workers --cluster $CLUSTER_NAME
-   ```
+   `$ ibmcloud ks workers $USERNAME-cluster`
 
    To verify that you're running "v2" of guestbook, look at the title of the page,
    it should now be `Guestbook - v2`. If you are using a browser, make sure you force refresh (invalidating your cache).
@@ -170,13 +156,12 @@ kubectl rollout status deployment/guestbook
 1. If you want to undo your latest rollout, use:
 
    ```console
-   kubectl rollout undo deployment guestbook
+   $ kubectl rollout undo deployment guestbook
+   deployment "guestbook"
    ```
 
-   You can then use this command to see the status:
-   ```shell
-   kubectl rollout status deployment/guestbook
-   ``` 
+   You can then use `kubectl rollout status deployment/guestbook` to see
+   the status.
 
 1. When doing a rollout, you see references to *old* replicas and *new* replicas.
    The *old* replicas are the original 10 pods deployed when we scaled the application.
@@ -195,16 +180,9 @@ kubectl rollout status deployment/guestbook
 Before we continue, let's delete the application so we can learn about
 a different way to achieve the same results:
 
- To remove the deployment, use 
- ```shell
- kubectl delete deployment guestbook
- ```
+ To remove the deployment, use `kubectl delete deployment guestbook`.
 
- To remove the service, use:
- ```shell
- kubectl delete service guestbook
- ```
-
+ To remove the service, use `kubectl delete service guestbook`.
 
 Congratulations! You deployed the second version of the app. Lab 2
 is now complete. Continue to the [next lab of this course](../Lab3/README.md).

@@ -11,9 +11,7 @@ that has already been built and uploaded to DockerHub under the name
 
 1. Start by running `guestbook`:
 
-   ```shell
-   kubectl create deployment guestbook --image=ibmcom/guestbook:v1
-   ```
+   ```$ kubectl create deployment guestbook --image=ibmcom/guestbook:v1```
 
    This action will take a bit of time. To check the status of the running application,
    you can use `$ kubectl get pods`.
@@ -21,7 +19,9 @@ that has already been built and uploaded to DockerHub under the name
    You should see output similar to the following:
 
    ```console
-   kubectl get pods
+   $ kubectl get pods
+   NAME                          READY     STATUS              RESTARTS   AGE
+   guestbook-59bd679fdc-bxdg7    0/1       ContainerCreating   0          1m
    ```
 
    Eventually, the status should show up as `Running`.
@@ -40,7 +40,8 @@ that has already been built and uploaded to DockerHub under the name
    The `guestbook` application listens on port 3000.  Run:
 
    ```console
-   kubectl expose deployment guestbook --type="NodePort" --port=3000
+   $ kubectl expose deployment guestbook --type="NodePort" --port=3000
+   service "guestbook" exposed
    ```
 
 1. To find the port used on that worker node, examine your new service:
@@ -57,10 +58,10 @@ that has already been built and uploaded to DockerHub under the name
 
 1. `guestbook` is now running on your cluster, and exposed to the internet. We need to find out where it is accessible.
    The worker nodes running in the container service get external IP addresses.
-   Get the workers for your cluster and note one (any one) of the public IPs listed on the `<public-IP>` line. Replace `$CLUSTER_NAME` with your cluster name unless you have this environment variable set.
+   Get the workers for your cluster and note one (any one) of the public IPs listed on the `<public-IP>` line.
 
    ```console
-   $ ibmcloud ks workers --cluster $CLUSTER_NAME
+   $ ibmcloud ks workers $USERNAME-cluster
    OK
    ID                                                 Public IP        Private IP     Machine Type   State    Status   Zone    Version  
    kube-hou02-pa1e3ee39f549640aebea69a444f51fe55-w1   173.193.99.136   10.76.194.30   free           normal   Ready    hou02   1.5.6_1500*
