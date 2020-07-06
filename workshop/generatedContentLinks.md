@@ -121,3 +121,58 @@ THIS FILE CONTAINS ALL THE SUMMARY.MDs OF THE GENERATED CONTENT PREFIXED WITH RI
 * [Lab - Tekton Pipelines](generatedContent/tekton-tutorial-openshift/README.md)
 
 
+###############################
+##  SUMMARY.md for istio101
+################################
+
+# Home Page for Gitbook 
+* [istio101](generatedContent/istio101/README.md)
+
+# Table of contents
+
+### About this workshop
+* [Overview](generatedContent/istio101/README.md)
+
+### Workshop setup
+* [Exercise 1 - Accessing a Kubernetes cluster with IBM Cloud Kubernetes Service](generatedContent/istio101/exercise-1/README.md)
+* [Exercise 2 - Installing Istio](generatedContent/istio101/exercise-2/README.md)
+* [Exercise 3 - Deploying Guestbook sample application](generatedContent/istio101/exercise-3/README.md)
+
+### Creating a service mesh with Istio
+
+* [Exercise 4 - Observe service telemetry: metrics and tracing](generatedContent/istio101/exercise-4/README.md)
+* [Exercise 5 - Expose the service mesh with the Istio Ingress Gateway](generatedContent/istio101/exercise-5/README.md)
+* [Exercise 6 - Perform traffic management](generatedContent/istio101/exercise-6/README.md)
+* [Exercise 7 - Secure your service mesh](generatedContent/istio101/exercise-7/README.md)
+
+
+###############################
+##  SUMMARY.md for app-modernization-cicd-lab-iks
+################################
+
+# Home Page for Gitbook 
+* [app-modernization-cicd-lab-iks](generatedContent/app-modernization-cicd-lab-iks/README.md)
+
+# Table of contents
+
+* [Lab - CICD on IKS](generatedContent/app-modernization-cicd-lab-iks/README.md)
+
+
+###############################
+##  SUMMARY.md for spring-boot-microservices-on-kubernetes
+################################
+
+# Home Page for Gitbook 
+* [spring-boot-microservices-on-kubernetes](generatedContent/spring-boot-microservices-on-kubernetes/README.md)
+
+
+
+###############################
+##  SUMMARY.md for kube101
+################################
+
+# Home Page for Gitbook 
+* [kube101](generatedContent/kube101/README.md)
+
+
+
