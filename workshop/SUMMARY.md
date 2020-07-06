@@ -6,7 +6,7 @@
 
 ### Setup
 
-* [Cloud Workshop + Cloud Shell Setup Instructions](pre-work/CloudWorkshopK8sWithWebTerminal)
+* [Cloud Workshop + Cloud Shell Setup Instructions](pre-work/CloudWorkshopK8sWithWebTerminal.md)
 
 ### Day 1
 
