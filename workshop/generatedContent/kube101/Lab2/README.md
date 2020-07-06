@@ -8,7 +8,7 @@ For this lab, you need a running deployment of the `guestbook` application
 from the previous lab. If you deleted it, recreate it using:
 
 ```console
-kubectl run guestbook --image=ibmcom/guestbook:v1
+kubectl create deployment guestbook --image=ibmcom/guestbook:v1
 ```
 
 ## 1. Scale apps with replicas

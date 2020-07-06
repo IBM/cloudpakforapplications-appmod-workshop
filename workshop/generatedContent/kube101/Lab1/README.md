@@ -16,7 +16,7 @@ that has already been built and uploaded to DockerHub under the name
 1. Start by running `guestbook`:
 
    ```shell
-   kubectl run guestbook --image=ibmcom/guestbook:v1
+   kubectl create deployment guestbook --image=ibmcom/guestbook:v1
    ```
 
    This action will take a bit of time. To check the status of the running application,
