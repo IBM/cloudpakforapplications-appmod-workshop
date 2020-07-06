@@ -4,6 +4,10 @@
 <!-- All headings MUST be THREE hashmarks (###) -->
 <!-- Indented bullets (4 spaces) will make the first line be a section -->
 
+### Setup
+
+* [Cloud Workshop + Cloud Shell Setup Instructions](pre-work/README.md)
+
 ### Technology Foundations
 
 * [Lab: Docker101](generatedContent/docker101/README.md)

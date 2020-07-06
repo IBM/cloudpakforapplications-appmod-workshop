@@ -24,12 +24,12 @@ Also:
 ## Setup 
 |   |   |
 | - | - |
-| [Lab Environment Setup](pre-work/README.md) | Run these steps to setup your environment for the labs |
+| [Cloud Workshop + Cloud Shell Setup Instructions](pre-work/README.md) | Run these steps to setup your environment for the labs
 
 ## Technology Foundations
 |   |   |
 | - | - |
-| [Docker/K8s Summary](https://ibm.box.com/s/t9vipcb1ncnjedeydpwx4np0yzi8xdzr) |  A Quick Overview of Docker/K8s for an advanced audience |
+| [Lecture: Docker/K8s Summary](https://ibm.box.com/s/t9vipcb1ncnjedeydpwx4np0yzi8xdzr) |  A Quick Overview of Docker/K8s for an advanced audience |
 | [Lecture: Docker](https://ibm.box.com/s/0mvlb8hvd8lx23smfvoaijdt9ex63go2) | What is Docker? |
 | [Lab: Docker](generatedContent/docker101/README.md) | Series of Docker Labs |
 | [Lecture: Kubernetes](https://ibm.box.com/s/migr539izuf8d686shemct1na0gyvl6v) | What is Kubernetes? |
@@ -37,26 +37,17 @@ Also:
 | [Lab: Kubernetes with Operators](generatedContent/digidevcon-iks/README.md) | Series of Kubernetes Labs |
 | [Lab (alternate): Kubernetes 101](generatedContent/kube101/README.md) | Kubernetes Introduction Labs (Deploying & Scaling Apps) |
 | [Lecture: Helm](https://ibm.box.com/s/cluclg99642s5bgi6j2wixr37jg7nw96) | Helm Overview Lecture |
-| [Lab: Helm](generatedContent/helm101/README.md) | Series of Helm Labs |
-
-| LUNCH | |
-| [Lecture: Helm](https://ibm.box.com/s/cluclg99642s5bgi6j2wixr37jg7nw96) | Helm Overview Lecture |
-| [Lab: Helm](generatedContent/helm101/README.md) | Deploy Cloud Native Applications using Helm |
-| BREAK | |
-
+| [Lab: Helm](generatedContent/helm101/README.md) | Series of Helm Labs 
 
 ## Microservices Development
 |   |   |
 | - | - |
 | [Lecture: Microservices](https://ibm.box.com/s/juwyhpy4yt99ckvigd43140tlx3j53rb)| Microservices Principles, Patterns and Implementation Considerations |
-| [Lecture: CI/CD for Kubernetes](https://ibm.box.com/s/lf3fpxdopre22u1dbyrzw7qfzj69530u) | Jenkins Pipelines in OpenShift Lecture|
-| [Lab: CI/CD for Kubernetes](generatedContent/app-modernization-cicd-lab-iks/README.md) | Jenkins Pipelines in IKS Lab|
 | [Lecture: 12 Factors](https://ibm.box.com/s/mhn0ff94xq0lwewfebgruxya44nmhm08) | Cloud Native Development – 12 Factor |
 | Wrap up | Questions? |
 | [Lab: Deploy Microservices](generatedContent/spring-boot-microservices-on-kubernetes/README_deployment.md) | Deploy Microservices Application Lab |
 | [Lecture: Istio](https://ibm.box.com/s/4al8hgpzj90vuus55i9fmcw856qz1bt1) | Overview of Istio Service Mesh |
-| [Lab: Istio](istio-setup/README.md) | Working with Istio (Deploying Applications and Traffic Management) |
-| Wrap up | Questions? |
+| [Lab: Istio](istio-setup/README.md) | Working with Istio (Deploying Applications and Traffic Management)
 
 ## Modern Development in OpenShift
 |   |   |
@@ -73,21 +64,21 @@ Also:
 | [Lab: CI/CD for Kubernetes on OpenShift](generatedContent/app-modernization-openshift-cicd-lab-shared/README.md) | Jenkins Pipelines in OpenShift Lab|
 | [Lecture: Overview of Tekton Pipelines](https://ibm.box.com/s/kisshn88w4a79jzz557o5h6c5k55o9ze) | Tekton Overview Lecture|
 | [Lab: Tekton on OpenShift](generatedContent/tekton-tutorial-openshift/README.md) | Tekton Pipelines in OpenShift Lab
-| [Lecture: CI/CD Options for Kubernetes](https://ibm.box.com/s/lf3fpxdopre22u1dbyrzw7qfzj69530u) | Covers breifly... why CICD for microservices, Jenkins, Jenkins X, Tekton, and ArgoCD|
-| [Lab: CI/CD for Kubernetes on IKS](generatedContent/app-modernization-cicd-lab-iks/README.md) | Jenkins Pipelines in IKS Lab|
+| [Lecture: CI/CD Options for Kubernetes](https://ibm.box.com/s/corz4h3v7t03x0fl3av6f1r4ei54j8dj) | Covers breifly... why CICD for microservices, Jenkins, Jenkins X, Tekton, and ArgoCD|
+| [Lab: CI/CD for Kubernetes on IKS](generatedContent/app-modernization-cicd-lab-iks/README.md) | Jenkins Pipelines in IKS Lab
 
 ## Application Modernization
 |   |   |
 | - | - |
 | [Lecture: App Modernization Migration](https://ibm.box.com/s/yundw794wuiyhil485s1eua9hfkujz0a) | Learn about Application Modernization Migration Approaches |
 | [Lab - Explore Transformation Advisor](generatedContent/app-modernization-ta-explore-lab-openshift4/README.md) | Run Transformation Advisor against WebSphere |
-| [Lecture: 12 Factors](https://ibm.box.com/s/mhn0ff94xq0lwewfebgruxya44nmhm08) | Cloud Native Development – 12 Factor |
+| [Lecture: 12 Factors](https://ibm.box.com/s/mhn0ff94xq0lwewfebgruxya44nmhm08) | Cloud Native Development – 12 Factor
 
 
 ## IBM Value Add
 |   |   |
 | - | - |
-| [Lecture: IBM Cloud Pak for Applications](https://ibm.box.com/s/uvw3yu8m750akki6o2mk0d8mdrmkcg2w) | Overview of IBM Cloud Pak for Applications |
+| [Lecture: IBM Cloud Pak for Applications](https://ibm.box.com/s/uvw3yu8m750akki6o2mk0d8mdrmkcg2w) | Overview of IBM Cloud Pak for Applications
 
 ## Technology Used
 
