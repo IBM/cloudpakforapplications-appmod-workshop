@@ -10,10 +10,10 @@ In the workshop you will learn about foundational open source technologies and i
 * [Technology Used](#technology-used)
 * [Presenters](#presenters)
 
-## Setup 
+## Lab Setup 
 |   |   |
 | - | - |
-| [Cloud Workshop + Cloud Shell Setup Instructions](pre-work/README.md) | Run these steps to setup your environment for the labs
+| [Cloud Workshop + Cloud Shell Setup Instructions](pre-work/CloudWorkshopK8sWithWebTerminal.md) | Run these steps to setup your environment for the labs
 
 ## Day 1
 |  Topic | Description  |
