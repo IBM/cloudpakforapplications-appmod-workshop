@@ -50,9 +50,9 @@ This lab uses the [IBM Cloud Object Storage plugin](https://github.com/IBM/ibmcl
 ![](../.gitbook/images/cos-plugin-architecture.png)
 
 
-### IBM Cloud Shell
+### web-terminal
 
-The `IBM Cloud Shell` is a web-based terminal running as a container on a Kubernetes cluster in the IBM Cloud. It provides common CLIs when you work with container, kubernetes and OpenShift related technologies. The steps in this exercise are written and tested in the `Cloud Shell` environment.
+The web-terminal that is used as the client is based on a custom implementation of the [ttyd](https://hub.docker.com/r/tsl0922/ttyd/) image by tsl0922. We have created a [custom Dockerfile](https://github.com/IBMAppModernization/web-terminal/blob/master/Dockerfile-s2i-oc-tekton-operator) using the ttyd image to support different client cli tools for this workshop, found at https://github.com/IBMAppModernization/web-terminal.
 
 ## Lab 
 
@@ -105,31 +105,22 @@ The `IBM Cloud Shell` is a web-based terminal running as a container on a Kubern
     $ kubectl get nodes
     ```
 
-### Installing Helm v3
+### Helm v3
 
-You are going to install `IBM Cloud Object Storage Plugin` via Helm v3 CLI. At the time of writing, by default, Helm v2.16 was installed on the `Cloud Shell`. 
+For this lab, you need Helm v3 to install `IBM Cloud Object Storage Plugin` and MongoDB. Check which version is installed in your web-terminal.
 
-1. In the `Cloud Shell`, download and unzip Helm v3.2.
+```
+helm version --short
+```
 
-    ```
-    $ wget https://get.helm.sh/helm-v3.2.0-linux-amd64.tar.gz
-    $ tar -zxvf helm-v3.2.0-linux-amd64.tar.gz
-    ```
+If you see version 2 of Helm, you need to add Helm v3.
 
-2. Make Helm v3 CLI available in your `PATH` environment variable.
-
-    ```
-    $ echo 'export PATH=$HOME/linux-amd64:$PATH' > .bash_profile
-    $ source .bash_profile
-    ```
-
-3. Verify Helm v3 installation.
-
-    ```
-    $ helm version --short
-
-    v3.2.0+ge11b7ce
-    ```
+```
+curl -LO https://raw.githubusercontent.com/remkohdev/setup/master/install-helm.sh
+chmod 755 install-helm.sh
+./install-helm.sh
+helm version --short
+```
 
 ### Preparing IBM Cloud Object Storage Service Instance
 
