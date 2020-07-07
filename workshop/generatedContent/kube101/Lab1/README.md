@@ -61,9 +61,13 @@ that has already been built and uploaded to DockerHub under the name
    guestbook   NodePort   10.10.10.253   <none>        3000:31208/TCP   1m
    ```
 
-   We can see that our `<nodeport>` is `31208`. We can see in the output the port mapping from 3000 inside
-   the pod exposed to the cluster on port 31208. This port in the 31000 range is automatically chosen,
-   and could be different for you.
+   We can see that our `<nodeport>` is `31208`. We can see in the output the port mapping from 3000 inside the pod exposed to the cluster on port 31208. This port in the 31000 range is automatically chosen, and could be different for you.
+
+   Set the NODEPORT environment variable:
+
+   ```
+   export NODEPORT=<your nodeport value>
+   ```
 
 4. `guestbook` is now running on your cluster, and exposed to the internet. We need to find out where it is accessible.
    The worker nodes running in the container service get external IP addresses.
@@ -72,14 +76,25 @@ that has already been built and uploaded to DockerHub under the name
    ```console
    $ ibmcloud ks workers --cluster $CLUSTER_NAME
    OK
-   ID                                                 Public IP        Private IP     Machine Type   State    Status   Zone    Version  
-   kube-hou02-pa1e3ee39f549640aebea69a444f51fe55-w1   173.193.99.136   10.76.194.30   free           normal   Ready    hou02   1.5.6_1500*
+   ID    Public IP    Private IP    Machine Type    State    Status    Zone    Version  
+   kube-hou02-pa1e3ee39f549640aebea69a444f51fe55-w1   173.193.99.136    10.76.194.30    free    normal    Ready    hou02    1.5.6_1500*
    ```
 
    We can see that our `<public-IP>` is `173.193.99.136`.
 
-5. Now that you have both the address and the port, you can now access the application in the web browser
-   at `<public-IP>:<nodeport>`. In the example case this is `173.193.99.136:31208`.
+   Set the PUBLIC environment variable to your worker node Public IP,
+
+   ```
+   PUBLICIP=<your worker node's public IP>
+   ```
+
+5. Now that you have both the address and the port, you can now access the application in the web browser at `<public-IP>:<nodeport>`. In the example case this is `173.193.99.136:31208`.
+
+    Or using curl,
+
+    ```
+    curl http://$PUBLICIP:$NODEPORT
+    ```
 
 Congratulations, you've now deployed an application to Kubernetes!
 
