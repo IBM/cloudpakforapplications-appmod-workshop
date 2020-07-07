@@ -3,12 +3,13 @@
 
 In the workshop you will learn about foundational open source technologies and industry-wide accepted best practices for building modern, scalable, portable, and robust applications. You will learn migration strategies for moving legacy, monolithic WAS applications into Liberty containers running on Red Hat OpenShift, and some of the common pitfalls to watch out for.
 
-* [Setup](#setup)
-* [Day 1](#day-1)
-* [Day 2](#day-2)
-* [Day 3](#day-3)
-* [Technology Used](#technology-used)
-* [Presenters](#presenters)
+- [App Modernization Workshop](#app-modernization-workshop)
+- [Lab Setup](#lab-setup)
+- [Day 1](#day-1)
+- [Day 2](#day-2)
+- [Day 3](#day-3)
+- [Technology Used](#technology-used)
+- [Presenters](#presenters)
 
 ## Lab Setup 
 |   |   |
@@ -27,6 +28,14 @@ In the workshop you will learn about foundational open source technologies and i
 | [Lecture: Helm](https://ibm.box.com/s/cluclg99642s5bgi6j2wixr37jg7nw96) | Helm Overview Lecture |
 | [Lab: Helm](generatedContent/helm101/README.md) | Series of Helm Labs 
 | RECAP and Survey | |
+
+** Install helm v3**
+```
+curl -LO https://raw.githubusercontent.com/remkohdev/setup/master/install-helm.sh
+chmod 755 install-helm.sh
+./install-helm.sh
+helm version --short
+```
 
 ## Day 2
 |  Topic | Description  |
