@@ -148,15 +148,15 @@ Now you are good to continue. Make sure that when you execute `kubectl` commands
 
 1. If you don't have any `IBM Cloud Object Storage` service instance or prefer to create a new instance for this exercise, go to https://cloud.ibm.com/catalog/services/cloud-object-storage and create a Lite plan of Cloud Object Storage for free. You can only have 1 single free Lite instance per account.
 
-2. Note, that if you are using a pre-created cluster you are now logged into a different account than your personal account, because the other account is where the clusters were created for you. On this other account you do not have permission to create new services, so switch to your personal account first before you create the new service.
+1. Note, that if you are using a pre-created cluster you are now logged into a different account than your personal account, because the other account is where the clusters were created for you. On this other account you do not have permission to create new services, so switch to your personal account first before you create the new service.
 
     ![IBMCloud Switch Accounts](../.gitbook/images/ibmcloud-switch-accounts.png)
 
-3. If you are using the CLI to create a new service, in the `Cloud Shell` open a new session, and login to your personal account,
+1. If you are using the CLI to create a new service, in the `Cloud Shell` open a new session, and login to your personal account,
 
     ![IBMCloud new shell session](../.gitbook/images/ibmcloud-new-shell-session.png)
 
-4. You also need a resource group at the time of writing, but none was created when you created a new account recently yet,
+1. You also need a resource group at the time of writing, but none was created when you created a new account recently yet,
 
     Check if you already have a resource-group
     ```
@@ -176,7 +176,7 @@ Now you are good to continue. Make sure that when you execute `kubectl` commands
     Resource Group ID: 93f7a4cd3c824c0cbe90d8f21b46f758
     ```
 
-5. Create a new Object Storage instance via CLI command, for the lab you can use a `Lite` plan.
+1. Create a new Object Storage instance via CLI command, for the lab you can use a `Lite` plan.
 
     ```
     $ ibmcloud resource service-instance-create <instance-name> cloud-object-storage <plan> global -g Default
@@ -206,42 +206,42 @@ Now you are good to continue. Make sure that when you execute `kubectl` commands
                   Message   Completed create instance operation   
     ```
 
-6. Now you need to add credentials. 
+1. Now you need to add credentials. 
 
-7. You can do this from the CLI,
+1. You can do this from the CLI,
     ```
     $ ibmcloud resource service-key-create my-cos-lab2-credentials Writer --instance-name "cos-securityconference" --parameters '{"HMAC":true}'
 
     $ ibmcloud resource service-key my-cos-lab2-credentials
     ```   
 
-8. Or via the web UI. In a browser, navigate to `https://cloud.ibm.com/resources` which shows a list of your services providioned in your cloud account.
+1. Or via the web UI. In a browser, navigate to `https://cloud.ibm.com/resources` which shows a list of your services providioned in your cloud account.
 
-9. Expand the `Storage` section. 
+1. Expand the `Storage` section. 
 
-10. Locate and select your `IBM Cloud Object Storage` service instance.
+1. Locate and select your `IBM Cloud Object Storage` service instance.
 
     ![](../.gitbook/images/cos-01.png)
 
-11. Navigate to the `Service credentials` tab.
+1. Navigate to the `Service credentials` tab.
 
     ![](../.gitbook/images/cos-02.png)
 
-12. Click on `New credential` button. 
+1. Click on `New credential` button. 
 
-13. Change the name to reference the Cloud Object Storage, e.g. `my-cos-lab2-credentials`
+1. Change the name to reference the Cloud Object Storage, e.g. `my-cos-lab2-credentials`
 
-14. For `Role` accept `Writer`,
+1. For `Role` accept `Writer`,
 
-15. Accept all other default settings, and select `Add` to create a new one.
+1. Accept all other default settings, and select `Add` to create a new one.
 
-16. Expand your new service credentials, you will need the credentials to configure the persistent volume later, and take a note of 
+1. Expand your new service credentials, you will need the credentials to configure the persistent volume later, and take a note of 
     - `apikey` in your `Service credential` and 
     - `name` of your `IBM Cloud Object Storage` service instance.
 
     ![](../.gitbook/images/cos-03.png)
 
-17. For your convenience, in the `Cloud Shell` store information in environment variables, store the Object Storage service name in `COS_SERVICE` and the credentials apikey in `COS_APIKEY`. Store each environment variable in cloud shell sessions for both accounts if you are using both your personal account and the pre-created account. 
+1. For your convenience, in the `Cloud Shell` store information in environment variables, store the Object Storage service name in `COS_SERVICE` and the credentials apikey in `COS_APIKEY`. Store each environment variable in cloud shell sessions for both accounts if you are using both your personal account and the pre-created account. 
 
 In the `Cloud Shell`, 
 
@@ -252,7 +252,7 @@ In the `Cloud Shell`,
 
     > Note: replace the example values with your own! 
 
-16. Retrieve `GUID` of your `IBM Cloud Object Storage` service instance. Note, that you should open a separate session in the cloud shell and be logged in to your own personal account. You have to be logged in to the account where the COS instance was created.
+1. Retrieve `GUID` of your `IBM Cloud Object Storage` service instance. Note, that you should open a separate session in the cloud shell and be logged in to your own personal account. You have to be logged in to the account where the COS instance was created.
 
     ```
     $ ibmcloud resource service-instance $COS_SERVICE | grep GUID
@@ -260,7 +260,7 @@ In the `Cloud Shell`,
     GUID:                  fef2d369-5f88-4dcc-bbf1-9afffcd9ccc7
     ```
 
-17. For your convenience, store information in environment variable `COS_GUID`.
+1. For your convenience, store information in environment variable `COS_GUID`.
 
     ```
     $ export COS_GUID=fef2d369-5f88-4dcc-bbf1-9afffcd9ccc7
@@ -268,7 +268,20 @@ In the `Cloud Shell`,
 
     > Note: replace the example value with your own GUID.
 
-18. From the `Cloud Shell` logged in to the account where your cluster was created, create a `Kubernetes Secret` to store the COS service credentials named `cos-write-access`.
+### Switch Back to the `1840867 - Advowork` Account
+
+1. Switch back to your other web-terminal session, the session where you are logged in to the `1840867 - Advowork` account, cvause we are switching back to our IKS cluster.
+
+1. Copy-paste the command to set the `COS_GUID` and the `COS_APIKEY` environment variables.
+
+    ```
+    export COS_GUID=fef2d369-5f88-4dcc-bbf1-9afffcd9ccc7
+    export COS_APIKEY=H4pWU7tKDIA0D95xQrDPmjwvA5JB4CuHXbCAn6I6bg5H
+    ```
+
+    > Note: replace the example value with your own GUID.
+
+2. Create a `Kubernetes Secret` to store the COS service credentials named `cos-write-access`.
 
     ```
     $ kubectl create secret generic cos-write-access --type=ibm/ibmc-s3fs --from-literal=api-key=$COS_APIKEY --from-literal=service-instance-id=$COS_GUID
