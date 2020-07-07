@@ -124,7 +124,27 @@ helm version --short
 
 ### Preparing IBM Cloud Object Storage Service Instance
 
-If you have an existing `IBM Cloud Object Storage` service instance, you can use it for the remaining of the exercise.
+**Note:** The cluster you are using is created and lives physically on a different account, named `1840867 - Advowork`,  than your personal account. When you work with the managed IBM Cloud Kubernetes Service (IKS) via your web-terminal and execute `kubectl` commands, you must be logged in to this account. 
+ 
+But for this section, we will use a Cloud Object Storage (COS) service on your personal account. So you need to create another web-terminal session by opening a new tab and loading the same URL to your web-terminal, but this time you log in to your personal account. 
+
+1. From your current web-terminal browser, copy the URL, e.g. `https://remkohdev-huntington-cl-2bef1f4b4097001da9502000c44fc2b2-0000.us-south.containers.appdomain.cloud/term100`. 
+
+1. Open a new tab in your browser, and paste the URL to open a new web-terminal session,
+
+1. Log in to IBM Cloud,
+
+    ```
+    ibmcloud login
+    ```
+
+1. When asked to select an account, choose `1.` your personal account,
+
+    ![IBMCloud Switch Accounts](../.gitbook/images/ibmcloud-login-personal-account.png)
+
+Now you are good to continue. Make sure that when you execute `kubectl` commands again, to switch back to your other web-terminal session that is connected to the `1840867 - Advowork` account, cause that is where the IKS clusters are located.
+
+1. If you have an existing `IBM Cloud Object Storage` service instance, you can use that instance for the remaining of the exercise and you can skip the following steps.
 
 1. If you don't have any `IBM Cloud Object Storage` service instance or prefer to create a new instance for this exercise, go to https://cloud.ibm.com/catalog/services/cloud-object-storage and create a Lite plan of Cloud Object Storage for free. You can only have 1 single free Lite instance per account.
 
