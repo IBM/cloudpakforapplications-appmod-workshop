@@ -21,7 +21,7 @@ In the workshop you will learn about foundational open source technologies and i
 | - | - |
 | Welcome, Introductions, Objectives and Setup| - |
 | [Lecture: Overview of Docker](https://ibm.box.com/s/0mvlb8hvd8lx23smfvoaijdt9ex63go2)|  |
-| [Lecture: Overview of Kubernetes](https://ibm.box.com/s/kdo8aa485qnoarovh1izlshka9pfam7v) |  |
+| [Lecture: Overview of Kubernetes](https://ibm.box.com/s/p8jqmihxterlpsrvg5d35yihs0am4c8g) |  |
 | BREAK | |
 | [Lab: Kubernetes 101](generatedContent/kube101/README.md) | Deploying, Scaling, and Operators |
 | LUNCH	| |	
