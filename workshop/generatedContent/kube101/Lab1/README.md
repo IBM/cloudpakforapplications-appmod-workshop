@@ -90,6 +90,12 @@ that has already been built and uploaded to DockerHub under the name
 
 5. Now that you have both the address and the port, you can now access the application in the web browser at `<public-IP>:<nodeport>`. In the example case this is `173.193.99.136:31208`.
 
+    Get full URL,
+
+    ```
+    echo http://$PUBLICIP:$NODEPORT
+    ```
+
     Or using curl,
 
     ```
