@@ -9,6 +9,12 @@ Make sure you satisfy the prerequisites as outlined in [Lab 0](../Lab0/README.md
 
 ## 1. Deploy the guestbook application
 
+Make sure you are logged in to IBM Cloud and you connected to your remote cluster as in the SETUP instructions.
+
+```
+kubectl config current-context
+```
+
 In this part of the lab we will deploy an application called `guestbook`
 that has already been built and uploaded to DockerHub under the name
 `ibmcom/guestbook:v1`.
@@ -39,7 +45,7 @@ that has already been built and uploaded to DockerHub under the name
    The end result of the run command is not just the pod containing our application containers,
    but a Deployment resource that manages the lifecycle of those pods.
 
-1. Once the status reads `Running`, we need to expose that deployment as a
+2. Once the status reads `Running`, we need to expose that deployment as a
    service so we can access it through the IP of the worker nodes.
    The `guestbook` application listens on port 3000.  Run:
 
@@ -47,7 +53,7 @@ that has already been built and uploaded to DockerHub under the name
    kubectl expose deployment guestbook --type="NodePort" --port=3000
    ```
 
-1. To find the port used on that worker node, examine your new service:
+3. To find the port used on that worker node, examine your new service:
 
    ```console
    $ kubectl get service guestbook
@@ -59,7 +65,7 @@ that has already been built and uploaded to DockerHub under the name
    the pod exposed to the cluster on port 31208. This port in the 31000 range is automatically chosen,
    and could be different for you.
 
-1. `guestbook` is now running on your cluster, and exposed to the internet. We need to find out where it is accessible.
+4. `guestbook` is now running on your cluster, and exposed to the internet. We need to find out where it is accessible.
    The worker nodes running in the container service get external IP addresses.
    Get the workers for your cluster and note one (any one) of the public IPs listed on the `<public-IP>` line. Replace `$CLUSTER_NAME` with your cluster name unless you have this environment variable set.
 
@@ -72,7 +78,7 @@ that has already been built and uploaded to DockerHub under the name
 
    We can see that our `<public-IP>` is `173.193.99.136`.
 
-1. Now that you have both the address and the port, you can now access the application in the web browser
+5. Now that you have both the address and the port, you can now access the application in the web browser
    at `<public-IP>:<nodeport>`. In the example case this is `173.193.99.136:31208`.
 
 Congratulations, you've now deployed an application to Kubernetes!
