@@ -84,7 +84,7 @@ operator-sdk version
 | [Lab: Source-to-Image (S2I)](generatedContent/ddc-cloud-native-security-labs.git/lab-03/README.md) | S2I with Custom Builder and Runtime Image
 | BREAK | |
 | [Lecture: Overview of Tekton Pipelines](https://ibm.box.com/s/kisshn88w4a79jzz557o5h6c5k55o9ze) | Tekton Overview Lecture|
-| [Lab: Tekton on OpenShift](generatedContent/tekton-tutorial-openshift/README.md) | Tekton Pipelines in OpenShift Lab
+| [Lab: Tekton on OpenShift](tekton-setup/README.md) | Tekton Pipelines in OpenShift Lab
 | LUNCH | |
 | Overview of Multi-Cloud Management and Policy Governance by Greg | |
 | RECAP and Survey | |

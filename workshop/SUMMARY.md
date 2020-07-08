@@ -38,7 +38,9 @@
 
 * [Lab - Source-to-Image (S2I)](generatedContent/ddc-cloud-native-security-labs.git/lab-03/README.md)
 
-* [Lab: Tekton on OpenShift](generatedContent/tekton-tutorial-openshift/README.md)
+* Tekton Lab
+    * [Setup](tekton-setup/README.md)
+    * [Lab - Tekton Pipelines](generatedContent/tekton-tutorial-openshift/README.md)
 
 ### Resources
 
