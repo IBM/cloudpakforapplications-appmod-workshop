@@ -762,13 +762,13 @@ In this section, you are going to deploy an instance of MongoDB to your IKS clus
 2. Install MongoDB using helm with parameters, the flag `persistence.enabled=true` will enable storing your data to a PersistentVolume.
 
     ```
-    helm install mongodb bitnami/mongodb --set persistence.enabled=true --set persistence.existingClaim=my-iks-pvc --set livenessProbe.initialDelaySeconds=180 --set auth.rootPassword=passw0rd --set auth.username=user1 --set auth.password=passw0rd --set auth.database=mydb --set service.type=ClusterIP
+    helm install mongodb bitnami/mongodb --set persistence.enabled=true,persistence.existingClaim=my-iks-pvc,livenessProbe.initialDelaySeconds=180,auth.rootPassword=passw0rd,auth.username=user1,auth.password=passw0rd,auth.database=mydb,service.type=ClusterIP
     ```
 
     Outputs:
 
     ```
-    $ helm install mongodb bitnami/mongodb --set persistence.enabled=true --set persistence.existingClaim=my-iks-pvc --set livenessProbe.initialDelaySeconds=180 --set auth.rootPassword=passw0rd --set auth.username=user1 --set auth.password=passw0rd --set auth.database=mydb --set service.type=ClusterIP
+    $ helm install mongodb bitnami/mongodb --set persistence.enabled=true,persistence.existingClaim=my-iks-pvc,livenessProbe.initialDelaySeconds=180,auth.rootPassword=passw0rd,auth.username=user1,auth.password=passw0rd,auth.database=mydb,service.type=ClusterIP
 
     NAME: mongodb
     LAST DEPLOYED: Wed Jul  8 01:50:05 2020
@@ -803,7 +803,6 @@ In this section, you are going to deploy an instance of MongoDB to your IKS clus
         kubectl port-forward --namespace default svc/mongodb 27017:27017 &
         mongo --host 127.0.0.1 --authenticationDatabase admin -p $MONGODB_ROOT_PASSWORD
     ```
-
 
 3. Note: if you used the same cluster for lab1 and lab2, then you can uninstall the existing `MongoDB` instance from lab1 by typing `helm uninstall mongodb`. Wait a few minutes, to give Kubernetes time to terminate all resources associated with the chart.
 
@@ -860,105 +859,12 @@ In this section, you are going to deploy an instance of MongoDB to your IKS clus
     mongodb    ClusterIP    172.21.131.154   <none>    27017/TCP    41s
     ```
 
-### Verify MongoDB Deployment
+9.  Your mongodb is now saving values, and if your Cloud Object Storage and bucket were configured correctly, your customer information is now securely stored.
 
-To verify MongoDB deployment,
-
-1. In `Cloud Shell`, retrieve pod ID.
-
-    ```
-    $ kubectl get pod
-
-    NAME    READY    STATUS    RESTARTS    AGE
-    mongodb-9f76c9485-sjtqx    1/1    Running    0    5m40s
-    ```
-
-2. Start an interactive terminal to the pod, you need to use your own unique pod name with the hashes.
-
-    ```
-    $ kubectl exec -it <your pod name> bash
-
-    I have no name!@<your pod name>:/$
-    ```
-
-3. Start a MongoDB CLI session.
-
-    ```
-    $ mongo --host 127.0.0.1 --authenticationDatabase admin -p $MONGODB_ROOT_PASSWORD
-
-    MongoDB shell version v4.2.7
-    connecting to: mongodb://127.0.0.1:27017/?authSource=admin&compressors=disabled&gssapiServiceName=mongodb
-    Implicit session: session { "id" : UUID("a638b7d1-d00d-4de2-954b-ee6309c251b2") }
-    MongoDB server version: 4.2.7
-    Welcome to the MongoDB shell.
-    For interactive help, type "help".
-    For more comprehensive documentation, see
-        http://docs.mongodb.org/
-    Questions? Try the support group
-        http://groups.google.com/group/mongodb-user
-    2020-05-30T04:27:20.416+0000 I  STORAGE  [main] In File::open(), ::open for '//.mongorc.js' failed with Permission denied
-    > 
-    ```
-
-4. Switch to your database.
-
-    ```
-    > use mydb
-
-    switched to db mydb
-    ```
-
-5. Authenticate a MongoDB connection.
-
-    ```
-    > db.auth("user1", "passw0rd")
-    1
-    ```
-
-6. Create a `collection`.
-
-    ```
-    > db.createCollection("customer")
-
-    { "ok" : 1 }
-    ```
-
-7. Verify the collection creation.
-
-    ```
-    > db.getCollection('customer')
-    
-    mydb.customer
-    ```
-
-8. Create one data entry in MongoDB.
-
-    ```
-    > db.customer.insertOne( { firstName: "John", lastName: "Smith" } )
-
-    {
-        "acknowledged" : true,
-        "insertedId" : ObjectId("5ed1e4319bdb52022d624bdf")
-    }
-    ```
-
-9. Retrieve the data entry in the MongoDB.
-
-    ```
-    > db.customer.find({ lastName: "Smith" })
-
-    { "_id" : ObjectId("5ed1e4319bdb52022d624bdf"), "firstName" : "John", "lastName" : "Smith" }
-    ```
-
-10. Type `exit` twice to back to the `Cloud Shell`.
-
-11. Your mongodb is now saving values, and if your Cloud Object Storage and bucket were configured correctly, your customer information is now securely stored.
-
-12. If you review the bucket in your Object Storage, MongoDB should now be writing its data files to the object storage.
+10. If you review the bucket in your Object Storage, MongoDB should now be writing its data files to the object storage.
 
     ![COS data files](../.gitbook/images/ibmcloud-cos-bucket-datafiles.png)
 
 
 
-
-1. Continue to [Lab 3](../lab-03/README.md) or go back to the [Summary](../SUMMARY.md).
+11. Continue to [Lab 3](../lab-03/README.md) or go back to the [Summary](../SUMMARY.md).
