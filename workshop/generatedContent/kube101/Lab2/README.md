@@ -174,9 +174,16 @@ To update and roll back:
    ```
 
    You can then use this command to see the status:
+   
    ```shell
    kubectl rollout status deployment/guestbook
    ``` 
+
+   You can review rollout history,
+
+   ```
+   kubectl rollout history deployment/guestbook
+   ```
 
 1. When doing a rollout, you see references to *old* replicas and *new* replicas.
    The *old* replicas are the original 10 pods deployed when we scaled the application.

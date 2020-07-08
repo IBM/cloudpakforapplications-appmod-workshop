@@ -8,7 +8,6 @@ Before starting the exercise, you need to have
 - an instance of IBM Cloud Object Storage (https://cloud.ibm.com/catalog/services/cloud-object-storage)
 - access to the IBM Cloud Shell,
 
-
 ## Overview of IBM Cloud Object Storage
 
 An important part of data security and persistence on Kubernetes depends on physical storage outside the container orchestration engine that Kubernetes is. You can use PersistentVolume and PersistentVolumeClaim to map data directories to external physical storage. But also, data persistence on a stateless platform like Kubernetes should require extra attention.
@@ -38,7 +37,6 @@ The content can only be re-assembled through IBM Cloud’s `Accesser` technology
 
 You also have a choice to use integration capabilities with IBM Cloud Key Management Services like IBM Key Protect (using FIPS 140-2 Level 3 certified hardware security modules (HSMs)) and Hyper Protect Crypto Services (built on FIPS 140-2 Level 4-certified hardware) for enhanced security features and compliance.
 
-
 ## Overview of IBM Cloud Object Storage Plugin
 
 This lab uses the [IBM Cloud Object Storage plugin](https://github.com/IBM/ibmcloud-object-storage-plugin) to connect an encrypted Object Storage to the Kubernetes cluster via `PersistentVolume`. A MongoDB database is setup that persists its data to a highly encrypted IBM `Cloud Object Storage` through PersistentVolume. A sample Java Spring Boot application stores its data in the MongoDB database and its data gets encrypted and persisted.
@@ -49,7 +47,6 @@ This lab uses the [IBM Cloud Object Storage plugin](https://github.com/IBM/ibmcl
 
 ![](../.gitbook/images/cos-plugin-architecture.png)
 
-
 ### web-terminal
 
 The web-terminal that is used as the client is based on a custom implementation of the [ttyd](https://hub.docker.com/r/tsl0922/ttyd/) image by tsl0922. We have created a [custom Dockerfile](https://github.com/IBMAppModernization/web-terminal/blob/master/Dockerfile-s2i-oc-tekton-operator) using the ttyd image to support different client cli tools for this workshop, found at https://github.com/IBMAppModernization/web-terminal.
@@ -58,23 +55,35 @@ The web-terminal that is used as the client is based on a custom implementation 
 
 1. Login to [IBM Cloud](https://cloud.ibm.com).
 
-2. Start an instance of `Cloud Shell` by either clicking its icon at the top-right corner of the screen or using the url `https://shell.cloud.ibm.com` in a new browser tab.
+2. Start an instance of the web-terminal
 
-    > Note: most of steps in this exercise will be performed in `Cloud Shell`.
+    > Important: if a web-terminal session times out or the web-terminal container is restarted, you'll lose every work that was performed during the session, if it's not persistent. It is helpful, to save certain environment variables also in a separate text file, so you can quickly copy-paste the environment variables to reset the environment.
 
-    > Important: A `Cloud Shell` session times out after it's idle for more than 60 minutes. When a `Cloud Shell` session times out, you'll lose every work that was performed during the session, if it's not persistent. For example, any CLI tool installation in a `Cloud Shell` will be lost after the session expires. Cloud Shell is a shell environment running in a container.
-
-3. In the `Cloud Shell`, login to IBM Cloud from the CLI tool.
+3. In the web-terminal, go to your $HOME directory, 
 
     ```
-    $ ibmcloud login
+    cd $HOME
     ```
+
+4. login to IBM Cloud from the CLI tool.
+
+    ```
+    ibmcloud login
+    ```
+
     or if using Single Sign On,
+    
     ```
-    $ ibmcloud login -sso
+    ibmcloud login -sso
     ```
 
-4. Retieve your cluster information.
+5. Retieve your cluster information.
+
+    ```
+    ibmcloud ks clusters
+    ```
+
+    Outputs:
 
     ```
     $ ibmcloud ks clusters
@@ -83,13 +92,19 @@ The web-terminal that is used as the client is based on a custom implementation 
     yourcluster                       br78vuhd069a00er8s9g   normal   1 day ago      1         Dallas            1.16.10_1533              default               classic   
     ```
 
-5. For your convenience, store your IKS cluster name in a environment variable `CLUSTERNAME` for future reference.
+6. For your convenience, store your IKS cluster name in a environment variable `CLUSTERNAME` for future reference.
 
     ```
-    $ export CLUSTERNAME=<your cluster name>
+    export CLUSTERNAME=<your cluster name>
     ```
 
-6. Connect to your cluster instance.
+7. Connect to your cluster instance.
+
+    ```
+    ibmcloud ks cluster config --cluster $CLUSTERNAME
+    ```
+
+    Outputs:
 
     ```
     $ ibmcloud ks cluster config --cluster $CLUSTERNAME
@@ -98,29 +113,29 @@ The web-terminal that is used as the client is based on a custom implementation 
     You can now execute 'kubectl' commands against your cluster. For example, run 'kubectl get nodes'.
     ```
 
-7. Verify the connection to your cluster.
+8. Verify the connection to your cluster.
 
     ```
-    $ kubectl config current-context
-    $ kubectl get nodes
+    kubectl config current-context
+    kubectl get nodes
     ```
 
 ### Helm v3
 
 For this lab, you need Helm v3 to install `IBM Cloud Object Storage Plugin` and MongoDB. Check which version is installed in your web-terminal.
 
-```
-helm version --short
-```
+    ```
+    helm version --short
+    ```
 
 If you see version 2 of Helm, you need to add Helm v3.
 
-```
-curl -LO https://raw.githubusercontent.com/remkohdev/setup/master/install-helm.sh
-chmod 755 install-helm.sh
-./install-helm.sh
-helm version --short
-```
+    ```
+    curl -LO https://raw.githubusercontent.com/remkohdev/setup/master/install-helm.sh
+    chmod 755 install-helm.sh
+    ./install-helm.sh
+    helm version --short
+    ```
 
 ### Preparing IBM Cloud Object Storage Service Instance
 
@@ -128,7 +143,7 @@ helm version --short
  
 But for this section, we will use a Cloud Object Storage (COS) service on your personal account. So you need to create another web-terminal session by opening a new tab and loading the same URL to your web-terminal, but this time you log in to your personal account. 
 
-1. From your current web-terminal browser, copy the URL, e.g. `https://remkohdev-huntington-cl-2bef1f4b4097001da9502000c44fc2b2-0000.us-south.containers.appdomain.cloud/term100`. 
+1. From your current web-terminal browser, copy the URL, e.g. `https://remkohdev-huntington-cl-2bef1f4b4097001da9502000c44fc2b2-0000.us-east.containers.appdomain.cloud/term100`. 
 
 1. Open a new tab in your browser, and paste the URL to open a new web-terminal session,
 
@@ -185,6 +200,12 @@ Now you are good to continue. Make sure that when you execute `kubectl` commands
     For example,
 
     ```
+    ibmcloud resource service-instance-create cos-securityconference cloud-object-storage Lite global -g Default
+    ```
+
+    Outputs:
+
+    ```
     $ ibmcloud resource service-instance-create cos-securityconference cloud-object-storage Lite global -g Default
 
     OK
@@ -208,46 +229,49 @@ Now you are good to continue. Make sure that when you execute `kubectl` commands
 
 1. Now you need to add credentials. 
 
+    ```
+    export COS_CREDENTIALS=my-cos-lab2-credentials
+
 1. You can do this from the CLI,
     ```
-    $ ibmcloud resource service-key-create my-cos-lab2-credentials Writer --instance-name "cos-securityconference" --parameters '{"HMAC":true}'
+    ibmcloud resource service-key-create $COS_CREDENTIALS Writer --instance-name "cos-securityconference" --parameters '{"HMAC":true}'
 
-    $ ibmcloud resource service-key my-cos-lab2-credentials
+    ibmcloud resource service-key $COS_CREDENTIALS
     ```   
 
-1. Or via the web UI. In a browser, navigate to `https://cloud.ibm.com/resources` which shows a list of your services providioned in your cloud account.
+2. Or via the web UI. In a browser, navigate to `https://cloud.ibm.com/resources` which shows a list of your services providioned in your cloud account.
 
-1. Expand the `Storage` section. 
+3. Expand the `Storage` section. 
 
-1. Locate and select your `IBM Cloud Object Storage` service instance.
+4. Locate and select your `IBM Cloud Object Storage` service instance.
 
     ![](../.gitbook/images/cos-01.png)
 
-1. Navigate to the `Service credentials` tab.
+5. Navigate to the `Service credentials` tab.
 
     ![](../.gitbook/images/cos-02.png)
 
-1. Click on `New credential` button. 
+6. Click on `New credential` button. 
 
-1. Change the name to reference the Cloud Object Storage, e.g. `my-cos-lab2-credentials`
+7. Change the name to reference the Cloud Object Storage, e.g. `my-cos-lab2-credentials`
 
-1. For `Role` accept `Writer`,
+8. For `Role` accept `Writer`,
 
-1. Accept all other default settings, and select `Add` to create a new one.
+9. Accept all other default settings, and select `Add` to create a new one.
 
-1. Expand your new service credentials, you will need the credentials to configure the persistent volume later, and take a note of 
+10. Expand your new service credentials, you will need the credentials to configure the persistent volume later, and take a note of 
     - `apikey` in your `Service credential` and 
     - `name` of your `IBM Cloud Object Storage` service instance.
 
     ![](../.gitbook/images/cos-03.png)
 
-1. For your convenience, in the `Cloud Shell` store information in environment variables, store the Object Storage service name in `COS_SERVICE` and the credentials apikey in `COS_APIKEY`. Store each environment variable in cloud shell sessions for both accounts if you are using both your personal account and the pre-created account. 
+11. For your convenience, in the `Cloud Shell` store information in environment variables, store the Object Storage service name in `COS_SERVICE` and the credentials apikey in `COS_APIKEY`. Store each environment variable in cloud shell sessions for both accounts if you are using both your personal account and the pre-created account. 
 
 In the `Cloud Shell`, 
 
     ```
-    $ export COS_SERVICE=cos-securityconference
-    $ export COS_APIKEY=H4pWU7tKDIA0D95xQrDPmjwvA5JB4CuHXbCAn6I6bg5H
+    export COS_SERVICE=cos-securityconference
+    export COS_APIKEY=<your-cos-apikey>
     ```
 
     > Note: replace the example values with your own! 
@@ -255,15 +279,21 @@ In the `Cloud Shell`,
 1. Retrieve `GUID` of your `IBM Cloud Object Storage` service instance. Note, that you should open a separate session in the cloud shell and be logged in to your own personal account. You have to be logged in to the account where the COS instance was created.
 
     ```
+    ibmcloud resource service-instance $COS_SERVICE | grep GUID
+    ```
+
+    Outputs:
+
+    ```
     $ ibmcloud resource service-instance $COS_SERVICE | grep GUID
 
     GUID:                  fef2d369-5f88-4dcc-bbf1-9afffcd9ccc7
     ```
 
-1. For your convenience, store information in environment variable `COS_GUID`.
+2. For your convenience, store information in environment variable `COS_GUID`.
 
     ```
-    $ export COS_GUID=fef2d369-5f88-4dcc-bbf1-9afffcd9ccc7
+    export COS_GUID=<your GUID>
     ```
 
     > Note: replace the example value with your own GUID.
@@ -280,13 +310,12 @@ In the `Cloud Shell`,
     ```
 
     > Note: replace the example value with your own GUID.
+    > Note: it is recommended when working with the web-terminal to keep a separate text file with environment variable settings, so when your session loses connection or the container restarts you can paste back your settings quickly.
 
-2. Create a `Kubernetes Secret` to store the COS service credentials named `cos-write-access`.
+1. Create a `Kubernetes Secret` to store the COS service credentials named `cos-write-access`.
 
     ```
-    $ kubectl create secret generic cos-write-access --type=ibm/ibmc-s3fs --from-literal=api-key=$COS_APIKEY --from-literal=service-instance-id=$COS_GUID
-
-    secret/cos-write-access created
+    kubectl create secret generic cos-write-access --type=ibm/ibmc-s3fs --from-literal=api-key=$COS_APIKEY --from-literal=service-instance-id=$COS_GUID
     ```
 
 ### Installing IBM Cloud Object Storage Plugin
@@ -296,15 +325,19 @@ You are going to install the `IBM Cloud Object Storage Plugin` in your cluster, 
 1. In the `Cloud Shell` with access to your remote cluster, add a Helm repository where `IBM Cloud Object Storage Plugin` chart resides.
 
     ```
-    $ helm repo add ibm-charts https://icr.io/helm/ibm-charts
+    helm repo add ibm-charts https://icr.io/helm/ibm-charts
+    ```
 
-    `ibm-charts` has been added to your repositories
+    Outputs:
+
+    ```
+    helm repo add ibm-charts https://icr.io/helm/ibm-charts
     ```
 
 1. Refresh your local Helm repository.
 
     ```
-    $ helm repo update
+    helm repo update
 
     Hang tight while we grab the latest from your chart repositories...
     ...Successfully got an update from the "ibm-charts" chart repository
@@ -314,23 +347,21 @@ You are going to install the `IBM Cloud Object Storage Plugin` in your cluster, 
 1. Download and unzip the `IBM Cloud Object Storage` plugin to your client, then install the plugin to your cluster from local client.
 
     ```
-    $ helm pull --untar ibm-charts/ibm-object-storage-plugin
-    $ ls -al
-    $ helm plugin install ./ibm-object-storage-plugin/helm-ibmc
-
-    Installed plugin: ibmc
+    helm pull --untar ibm-charts/ibm-object-storage-plugin
+    ls -al
+    helm plugin install ./ibm-object-storage-plugin/helm-ibmc
     ```
 
 1. Housekeeping to allow execution of the `ibmc.sh` script by making the file executable.
 
     ```
-    $ chmod 755 $HOME/.local/share/helm/plugins/helm-ibmc/ibmc.sh
+    chmod 755 $HOME/.local/share/helm/plugins/helm-ibmc/ibmc.sh
     ```
 
 1. Verify the `IBM Cloud Object Storage` installation. The plugin usage information should be displayed when running the command below.
 
     ```
-    $ helm ibmc --help
+    helm ibmc --help
     ```
 
 ### Configuring IBM Cloud Object Storage Plugin
@@ -340,7 +371,7 @@ Before using the `IBM Cloud Object Storage Plugin`, configuration changes are re
 1. In the `Cloud Shell` where you downloaded the IBM Cloud Object Storage plugin, navigate to the templates folder of the `IBM Cloud Object Storage Plugin` installation.
 
     ```
-    $ cd ibm-object-storage-plugin/templates && ls -al
+    cd ibm-object-storage-plugin/templates && ls -al
     ```
 
 1. Make sure the `provisioner-sa.yaml` file is present and configure it to access the COS service using the COS service credentials secret `cos-write-access` that you created in the previous section.
@@ -348,7 +379,7 @@ Before using the `IBM Cloud Object Storage Plugin`, configuration changes are re
 - Open file `provisioner-sa.yaml` in a editor.
 
     ```
-    $ vi provisioner-sa.yaml
+    vi provisioner-sa.yaml
     ```
 
 - Search for content `ibmcloud-object-storage-secret-reader` in the file. To move to the right section in the file, in the `vi` editor,
@@ -384,10 +415,16 @@ Now, install the configured storage classes for `IBM Cloud Object Storage`,
 1. In the `Cloud Shell`, navigate back to the user root folder.
 
     ```
-    $ cd $HOME
+    cd $HOME
     ```
 
-2. Install the configured storage classes for `IBM Cloud Object Storage`, which will use the edited template file.
+1. Install the configured storage classes for `IBM Cloud Object Storage`, which will use the edited template file.
+
+    ```
+    helm ibmc install ibm-object-storage-plugin ./ibm-object-storage-plugin
+    ```
+
+    Outputs:
 
     ```
     $ helm ibmc install ibm-object-storage-plugin ./ibm-object-storage-plugin
@@ -409,6 +446,12 @@ Now, install the configured storage classes for `IBM Cloud Object Storage`,
 3. Verify that the storage classes are created successfully.
 
     ```
+    kubectl get storageclass | grep 'ibmc-s3fs'
+    ```
+
+    Outputs:
+
+    ```
     $ kubectl get storageclass | grep 'ibmc-s3fs'
 
     ibmc-s3fs-cold-cross-region            ibm.io/ibmc-s3fs   43h
@@ -427,6 +470,11 @@ Now, install the configured storage classes for `IBM Cloud Object Storage`,
 
 4. Verify that plugin pods are in "Running" state and indicate `READY` state of `1/1`:
 
+    ```
+    kubectl get pods -n kube-system -o wide | grep object
+    ```
+
+    Outputs:
     ```
     $ kubectl get pods -n kube-system -o wide | grep object
 
@@ -456,12 +504,18 @@ IBM Cloud Kubernetes Service provides pre-defined storage classes that you can u
 1. List available storage classes in IBM Cloud Kubernetes Service.
 
     ```
-    $ kubectl get storageclasses | grep s3
+    kubectl get storageclasses | grep s3
     ```
 
     The Lite service plan for Cloud Object Storage includes Regional and Cross Regional resiliency, flexible data classes, and built in security. For the sample application, I will choose the `standard` and `regional` options in the `ibmc-s3fs-standard-regional` storageclass that is typical for web or mobile apps and we don't need cross-regional resilience beyond resilience per zones for our workshop app, but the options to choose for usage strategies and therefor the pricing of storageclasses for the bucket is very granular.
 
 1. Review the detailed IBM Cloud Object Storage bucket configuration for a storage class.
+
+    ```
+    kubectl describe storageclass ibmc-s3fs-standard-regional
+    ```
+
+    Outputs:
 
     ```
     $ kubectl describe storageclass ibmc-s3fs-standard-regional
@@ -487,21 +541,33 @@ Data in the `IBM Cloud Object Storage` is stored and organized in so-called `buc
 1. In the `Cloud Shell` in the session logged in to the account that owns the Cloud Object Storage instance, assign a name to the new bucket.  The bucket name MUST be globally unique in the IBM Cloud. A simple way to ensure this is to use a random hash or your username as part of the name. If the bucket name is not globally unique, the command in the next step will fail.
 
     ```
-    $ export COS_BUCKET=<username>-bucket-lab2
+    export COS_BUCKET=<username>-bucket-lab2
     ```
 
 1. Create a new bucket.
+
+    ```
+    ibmcloud cos create-bucket --ibm-service-instance-id $COS_GUID --class Standard --bucket $COS_BUCKET
+    ```
+
+    Outputs:
 
     ```
     $ ibmcloud cos create-bucket --ibm-service-instance-id $COS_GUID --class Standard --bucket $COS_BUCKET
 
     OK
     Details about bucket <username>-bucket-lab2:
-    Region: us-south
+    Region: us-east
     Class: Standard
     ```
 
 1. Verify the new bucket was created successfully.
+
+    ```
+    ibmcloud cos list-buckets --ibm-service-instance-id $COS_GUID
+    ```
+
+    Outputs:
 
     ```
     $ ibmcloud cos list-buckets --ibm-service-instance-id $COS_GUID
@@ -516,10 +582,16 @@ Data in the `IBM Cloud Object Storage` is stored and organized in so-called `buc
 1. Get your object storage configurations,
 
     ```
+    ibmcloud cos config list
+    ```
+
+    Outputs:
+
+    ```
     $ ibmcloud cos config list
     Key                     Value   
     Last Updated               
-    Default Region          us-south   
+    Default Region          us-east   
     Download Location       /home/remkohdev/Downloads   
     CRN                        
     AccessKeyID                
@@ -535,11 +607,11 @@ Data in the `IBM Cloud Object Storage` is stored and organized in so-called `buc
     $ ibmcloud cos get-bucket-location --bucket $COS_BUCKET
     OK
     Details about bucket remkohdev123-bucket-lab2:
-    Region: us-south
+    Region: us-east
     Class: Standard
     ```
 
-    With your bucket's location, e.g. `us-south`, you can find your bucket's private endpoint here https://cloud.ibm.com/docs/cloud-object-storage?topic=cloud-object-storage-endpoints#advanced-endpoint-types, OR in the following steps you find it in your Cloud Object Storage's bucket configuration.
+    With your bucket's location, e.g. `us-east`, you can find your bucket's private endpoint here https://cloud.ibm.com/docs/cloud-object-storage?topic=cloud-object-storage-endpoints#advanced-endpoint-types, OR in the following steps you find it in your Cloud Object Storage's bucket configuration.
 
 2. In a browser, navigate to https://cloud.ibm.com/resources.
 
@@ -558,7 +630,7 @@ Data in the `IBM Cloud Object Storage` is stored and organized in so-called `buc
 8. For your convenience, store the information in environment variable. In the Cloud Shell,
 
     ```
-    $ export PRIVATE_ENDPOINT=s3.private.us-south.cloud-object-storage.appdomain.cloud
+    export PRIVATE_ENDPOINT=s3.private.us-east.cloud-object-storage.appdomain.cloud
     ```
     > Note: replace the endpoint with the one that you identied in the previous setp.
 
@@ -589,7 +661,7 @@ In this exercise, you are going to use an existing bucket when assigning persist
 2. Create the file,
 
 ```
-$ echo 'kind: PersistentVolumeClaim
+echo 'kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
     name: my-iks-pvc
@@ -599,7 +671,7 @@ metadata:
         ibm.io/auto-delete-bucket: "false"
         ibm.io/bucket: "<your-cos-bucket>"
         ibm.io/secret-name: "cos-write-access"
-        ibm.io/endpoint: "https://s3.private.us-south.cloud-object-storage.appdomain.cloud"
+        ibm.io/endpoint: "https://s3.private.us-east.cloud-object-storage.appdomain.cloud"
 spec:
     accessModes:
         - ReadWriteOnce
@@ -611,19 +683,31 @@ spec:
 
 3. Edit the file and set the right values if changes are still needed,
 
+    Echo your COS_BUCKET name to set in the PVC,
+
     ```
-    $ vi my-iks-pvc.yaml
+    echo $COS_BUCKET
+    ```
+
+    Edit the PVC specification,
+
+    ```
+    vi my-iks-pvc.yaml
     ```
 
 4. Create a `PersistentVolumeClaim`.
 
     ```
-    $ kubectl apply -f my-iks-pvc.yaml
-
-    persistentvolumeclaim/my-iks-pvc created
+    kubectl apply -f my-iks-pvc.yaml
     ```
 
 5. Verify the `PersistentVolumeClaim` and through the PVC also the `PersistentVolume` or PV was created successfully and that the PVC has `STATUS` of `Bound`.
+
+    ```
+    kubectl get pvc
+    ```
+
+    Outputs:
 
     ```
     $ kubectl get pvc
@@ -637,6 +721,12 @@ spec:
     > Note: If the state of the PVC stays as `Pending`, the problem must be resolved before you move to the next step.
 
 6. Verify a new `PersistentVolume` was also created successfully.
+
+    ```
+    kubectl get pv
+    ```
+
+    Outputs:
 
     ```
     $ kubectl get pv
@@ -654,7 +744,7 @@ In this section, you are going to deploy an instance of MongoDB to your IKS clus
 1. We will skip this step, but if you want to configure the MongoDB via a `values.yaml` file, or want to review the default values of the Helm chart, in the `Cloud Shell`, download the default `values.yaml` file from the bitnami/mongodb Helm chart, which is used to configure and deploy the MongoDB Helm chart. In this lab we will overwrite the values from the commandline when we install the chart.
 
     ```
-    $ wget https://raw.githubusercontent.com/bitnami/charts/master/bitnami/mongodb/values.yaml
+    wget https://raw.githubusercontent.com/bitnami/charts/master/bitnami/mongodb/values.yaml
     ```
 
 1. We will skip this step also, but if you want to review the configuration options, open the `values.yaml` file in a file editor and review the parameters that can be modified during mongdb deployment. In this exercise however, you'll overwrite the default values using Helm command parameters instead of a `values.yaml` file.
@@ -662,21 +752,26 @@ In this section, you are going to deploy an instance of MongoDB to your IKS clus
 1. Add the bitnami Helm repository.
 
     ```
-    $ helm repo add bitnami https://charts.bitnami.com/bitnami
-    
-    "bitnami" has been added to your repositories
-
-    $ helm repo update
-
+    helm repo add bitnami https://charts.bitnami.com/bitnami
     ```
 
-1. Install MongoDB using helm with parameters, the flag `persistence.enabled=true` will enable storing your data to a PersistentVolume.
+    ```
+    helm repo update
+    ```
+
+2. Install MongoDB using helm with parameters, the flag `persistence.enabled=true` will enable storing your data to a PersistentVolume.
 
     ```
-    $ helm install mongodb bitnami/mongodb --set persistence.enabled=true --set persistence.existingClaim=my-iks-pvc --set livenessProbe.initialDelaySeconds=180 --set mongodbRootPassword=passw0rd --set mongodbUsername=user1 --set mongodbPassword=passw0rd --set mongodbDatabase=mydb --set service.type=ClusterIP
+    helm install mongodb bitnami/mongodb --set persistence.enabled=true --set persistence.existingClaim=my-iks-pvc --set livenessProbe.initialDelaySeconds=180 --set auth.rootPassword=passw0rd --set auth.username=user1 --set auth.password=passw0rd --set auth.database=mydb --set service.type=ClusterIP
+    ```
+
+    Outputs:
+
+    ```
+    $ helm install mongodb bitnami/mongodb --set persistence.enabled=true --set persistence.existingClaim=my-iks-pvc --set livenessProbe.initialDelaySeconds=180 --set auth.rootPassword=passw0rd --set auth.username=user1 --set auth.password=passw0rd --set auth.database=mydb --set service.type=ClusterIP
 
     NAME: mongodb
-    LAST DEPLOYED: Sat May 23 21:04:44 2020
+    LAST DEPLOYED: Wed Jul  8 01:50:05 2020
     NAMESPACE: default
     STATUS: deployed
     REVISION: 1
@@ -684,46 +779,52 @@ In this section, you are going to deploy an instance of MongoDB to your IKS clus
     NOTES:
     ** Please be patient while the chart is being deployed **
 
-    MongoDB can be accessed via port 27017 on the following DNS name from within your cluster:
+    MongoDB can be accessed via port 27017 on the following DNS name(s) from within your cluster:
+
         mongodb.default.svc.cluster.local
 
     To get the root password run:
 
         export MONGODB_ROOT_PASSWORD=$(kubectl get secret --namespace default mongodb -o jsonpath="{.data.mongodb-root-password}" | base64 --decode)
 
-    To get the password for "my-user" run:
+    To get the password for "user1" run:
 
         export MONGODB_PASSWORD=$(kubectl get secret --namespace default mongodb -o jsonpath="{.data.mongodb-password}" | base64 --decode)
 
-    To connect to your database run the following command:
+    To connect to your database, create a MongoDB client container:
 
-        kubectl run --namespace default mongodb-client --rm --tty -i --restart='Never' --image docker.io/bitnami/mongodb:4.2.7-debian-10-r0 --command -- mongo admin --host mongodb --authenticationDatabase admin -u root -p $MONGODB_ROOT_PASSWORD
+        kubectl run --namespace default mongodb-client --rm --tty -i --restart='Never' --image docker.io/bitnami/mongodb:4.2.8-debian-10-r25 --command -- bash
+    
+    Then, run the following command:
+        mongo admin --host "mongodb" --authenticationDatabase admin -u root -p $MONGODB_ROOT_PASSWORD
 
     To connect to your database from outside the cluster execute the following commands:
 
-        kubectl port-forward --namespace default svc/mongodb 27017:27017 & mongo --host 127.0.0.1 --authenticationDatabase admin -p $MONGODB_ROOT_PASSWORD
+        kubectl port-forward --namespace default svc/mongodb 27017:27017 &
+        mongo --host 127.0.0.1 --authenticationDatabase admin -p $MONGODB_ROOT_PASSWORD
     ```
 
 
-1. Note: if you used the same cluster for lab1 and lab2, then you can uninstall the existing `MongoDB` instance from lab1 by typing `helm uninstall mongodb`. Wait a few minutes, to give Kubernetes time to terminate all resources associated with the chart.
+3. Note: if you used the same cluster for lab1 and lab2, then you can uninstall the existing `MongoDB` instance from lab1 by typing `helm uninstall mongodb`. Wait a few minutes, to give Kubernetes time to terminate all resources associated with the chart.
 
-1. Note, the service type for MongoDB is set to `ClusterIP` with the Helm parameter `--set service.type=ClusterIP`, so that MongoDB can only be accessed within the cluster.
+4. Note, the service type for MongoDB is set to `ClusterIP` with the Helm parameter `--set service.type=ClusterIP`, so that MongoDB can only be accessed within the cluster.
 
-1. Retrieve and save MongoDB passwords in environment variables.
+5. Retrieve and save MongoDB passwords in environment variables.
 
     ```
-    $ export MONGODB_ROOT_PASSWORD=$(kubectl get secret --namespace default mongodb -o jsonpath="{.data.mongodb-root-password}" | base64 --decode)
-
-    $ export MONGODB_PASSWORD=$(kubectl get secret --namespace default mongodb -o jsonpath="{.data.mongodb-password}" | base64 --decode)
-
-    $ echo $MONGODB_ROOT_PASSWORD
-    passw0rd
-
-    $ echo $MONGODB_PASSWORD
-    passw0rd
+    export MONGODB_ROOT_PASSWORD=$(kubectl get secret --namespace default mongodb -o jsonpath="{.data.mongodb-root-password}" | base64 --decode)
+    export MONGODB_PASSWORD=$(kubectl get secret --namespace default mongodb -o jsonpath="{.data.mongodb-password}" | base64 --decode)
+    echo $MONGODB_ROOT_PASSWORD
+    echo $MONGODB_PASSWORD
     ```
 
-1. Verify the MongoDB deployment.
+6. Verify the MongoDB deployment.
+
+    ```
+    kubectl get deployment
+    ```
+
+    Outputs:
 
     ```
     $ kubectl get deployment
@@ -734,7 +835,13 @@ In this section, you are going to deploy an instance of MongoDB to your IKS clus
 
     > Note: It may take several minutes until the deployment is completed and the container initialized, wait till the `READY` state is `1/1`.
 
-1.  Verify that pods are running.
+7.  Verify that pods are running.
+
+    ```
+    kubectl get pod
+    ```
+
+    Outputs:
 
     ```
     $ kubectl get pod
@@ -745,7 +852,7 @@ In this section, you are going to deploy an instance of MongoDB to your IKS clus
 
     > Note: It may take a few minutes until the deployment is completed and pod turns to `Running` state.
 
-1. Verify that the internal MongoDB port 27017 within the container is not exposed externally,
+8. Verify that the internal MongoDB port 27017 within the container is not exposed externally,
 
     ```
     $  kubectl get svc mongodb
