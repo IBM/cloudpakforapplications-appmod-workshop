@@ -2,19 +2,12 @@
 
 This section is broken up into the following steps:
 
-1. [Access the Cloud Shell](#1-access-the-cloud-shell)
 1. [Log into OpenShift](#2-log-into-openshift)
 1. [Install Tekton CLI](#3-install-tekton-cli)
 
-## 1. Access the Cloud Shell
+## 1. Log into OpenShift
 
-From the [IBM Cloud Home Page](https://cloud.ibm.com), select the terminal icon in the upper lefthand menu.
-
-![Terminal Button](../images/access-cloud-shell.png)
-
-## 2. Log into OpenShift
-
-Optionally, if you would like to use OpenShift for this lab, then you will need to authenticate with the OpenShift console before continuing.
+You will need to authenticate with the OpenShift console before continuing.
 
 From the [IBM Cloud Home Page](https://cloud.ibm.com), make sure you are in the IBM Cloud account where your cluster is located. Select from the dropdown menu in the upper right.
 
@@ -38,7 +31,7 @@ Follow the instructions including logging in using your IBM ID to get the comman
 oc login --token=... --server=...
 ```
 
-## 3. Install Tekton CLI
+## 2. Install Tekton CLI
 
 Run the commands below to install `tkn` the Tekton CLI that we will be using in this lab
 
