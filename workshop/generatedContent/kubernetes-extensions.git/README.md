@@ -90,7 +90,36 @@ Another benefit of adding a Custom Resource is to view your types in the Kuberne
 If you want to deploy a Guestbook instance as a Kubernetes API object and let the Kubernetes API Server handle the lifecycle events of the Guestbook deployment, you can create a Custom Resource Definition (CRD) for the Guestbook object as follows. That way you can deploy multiple Guestbooks with different titles and let each be managed by Kubernetes.
 
 ```
-c
+cat <<EOF >>guestbook-crd.yaml
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  name: guestbooks.apps.ibm.com
+spec:
+  group: apps.ibm.com
+  versions:
+    - name: v1
+      served: true
+      storage: true
+      schema:
+        openAPIV3Schema:
+          type: object
+          properties:
+            spec:
+              type: object
+              properties:
+                guestbookTitle:
+                  type: string
+                guestbookSubtitle:
+                  type: string
+  scope: Namespaced
+  names:
+    plural: guestbooks
+    singular: guestbook
+    kind: Guestbook
+    shortNames:
+    - gb
+EOF
 ```
 
 - You can see that the `apiVersion` is part of the `apiextensions.k8s.io/v1` API Group in Kubernetes, which is the API that enables extensions, and the `kind` is set to `CustomResourceDefinition`.
