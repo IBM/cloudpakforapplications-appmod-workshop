@@ -13,38 +13,57 @@
 
 ## Access the web-terminal
 
-When running the lab for Kubernetes Extensions, you can make use of a web-terminal. The Dockerfile to use is located in https://github.com/IBMAppModernization/web-terminal, and named [Dockerfile-s2i-oc-tekton-operator](https://github.com/IBMAppModernization/web-terminal/blob/master/Dockerfile-s2i-oc-tekton-operator).
-
-To run on localhost as a Docker container,
-```
-git clone https://github.com/IBMAppModernization/web-terminal.git
-cd web-terminal
-docker build --no-cache -t web-terminal:latest -f Dockerfile-s2i-oc-tekton-operator .
-docker run -d --restart always --name terminal -p 7681:7681 -v $HOME/dev/tmp:/root/dev web-terminal
-docker ps -a
-CONTAINER ID    IMAGE    COMMAND    CREATED    STATUS    PORTS    NAMES
-85edc0b0ec27    web-terminal    "ttyd -p 7681 bash"    17 minutes ago    Up 17 minutes    0.0.0.0:7681->7681/tcp   terminal
-```
-
-The volume mapping will write all files under the working directory to the host directory `$HOME/dev/tmp`. So suppose my host's user home directory is `/Users/remkohdev@us.ibm.com/`. If I open the terminal in the browser, the working directory for the user is `/root`. Any file that is created under `/root` is created on the host's directory `$HOME/dev/tmp`. Similarly if I create a file in `$HOME/dev/tmp` it is available in the container's `/root` directory.
-
-Open the web-terminal in a browser and go to http://0.0.0.0:7681.
-
-![web-terminal in browser](images/web-terminal-browser.png)
-
-If Go, Operator SDK
+Go to the URL for your web-terminal, given to you by the instructor team.
 
 ## Login
 
 ```
-export CLUSTERNAME=remkohdev-roks-labs-3n-cluster
+export CLUSTERNAME=<your clustername>
 ibmcloud login 
 ```
 
-Go to the OpenShift web console
-Copy Login command
 ```
-oc login --token=_12AbcD345kIPDIRg2jYpCuZ-g5SM5Im9irY2tol4Q8 --server=https://c100-e.us-south.containers.cloud.ibm.com:30712
+ibmcloud login 
+API endpoint: https://cloud.ibm.com
+
+Email> a.newell1@remkoh.dev
+
+Password> 
+Authenticating...
+OK
+
+Select an account:
+1. A Newell's Account (ed69e4e9e2d74660b6cc45d0e47cd8b7)
+2. Advowork (e2b54d0c3bbe4180b1ee63a0e2a7aba4) <-> 1840867
+Enter a number> 2
+Targeted account Advowork (e2b54d0c3bbe4180b1ee63a0e2a7aba4) <-> 1840867
+
+
+Select a region (or press enter to skip):
+1. au-syd
+2. in-che
+3. jp-osa
+4. jp-tok
+5. kr-seo
+6. eu-de
+7. eu-gb
+8. us-south
+9. us-south-test
+10. us-east
+Enter a number> 10
+Targeted region us-east
+```
+
+Connect to your cluster by downloading the cluster config,
+```
+ibmcloud ks cluster config --cluster $CLUSTERNAME
+```
+
+Check you can access the cluster,
+
+```
+kubectl config current-context
+kubectl get nodes
 ```
 
 ## Create a Custom Resource (CR)
@@ -71,36 +90,7 @@ Another benefit of adding a Custom Resource is to view your types in the Kuberne
 If you want to deploy a Guestbook instance as a Kubernetes API object and let the Kubernetes API Server handle the lifecycle events of the Guestbook deployment, you can create a Custom Resource Definition (CRD) for the Guestbook object as follows. That way you can deploy multiple Guestbooks with different titles and let each be managed by Kubernetes.
 
 ```
-cat <<EOF >>guestbook-crd.yaml
-apiVersion: apiextensions.k8s.io/v1
-kind: CustomResourceDefinition
-metadata:
-  name: guestbooks.apps.ibm.com
-spec:
-  group: apps.ibm.com
-  versions:
-    - name: v1
-      served: true
-      storage: true
-      schema:
-        openAPIV3Schema:
-          type: object
-          properties:
-            spec:
-              type: object
-              properties:
-                guestbookTitle:
-                  type: string
-                guestbookSubtitle:
-                  type: string
-  scope: Namespaced
-  names:
-    plural: guestbooks
-    singular: guestbook
-    kind: Guestbook
-    shortNames:
-    - gb
-EOF
+c
 ```
 
 - You can see that the `apiVersion` is part of the `apiextensions.k8s.io/v1` API Group in Kubernetes, which is the API that enables extensions, and the `kind` is set to `CustomResourceDefinition`.
@@ -111,12 +101,12 @@ EOF
 Create the Custom Resource for the Guestbook witht he command,
 
 ```
-oc create -f guestbook-crd.yaml
+kubectl create -f guestbook-crd.yaml
 ```
 
 When run in the terminal,
 ```
-$ oc create -f guestbook-crd.yaml
+$ kubectl create -f guestbook-crd.yaml
 customresourcedefinition.apiextensions.k8s.io/guestbooks.apps.ibm.com created
 ```
 
@@ -139,25 +129,23 @@ EOF
 And to create the `my-guestbook` resource, run the command
 
 ```
-oc create -f my-guestbook.yaml
+kubectl create -f my-guestbook.yaml
 ```
 
 When run in the terminal,
 ```
-$ oc create -f my-guestbook.yaml
+$ kubectl create -f my-guestbook.yaml
 guestbook.apps.ibm.com/my-guestbook created
 ```
 
 If you list all Kubernetes resources, only the default Kubernetes service is listed. To list your Custom Resources, add the extended type to your command.
 
 ```
-$ oc get all
+$ kubectl get all
 NAME    TYPE    CLUSTER-IP    EXTERNAL-IP    PORT(S)    AGE
 service/kubernetes    ClusterIP    172.21.0.1    <none>    443/TCP    5d14h
-service/openshift    ExternalName    <none>    kubernetes.default.svc.cluster.local    <none>    5d14h
-service/openshift-apiserver    ClusterIP    172.21.6.8    <none>    =443/TCP    5d14h
 
-$ oc get guestbook 
+$ kubectl get guestbook 
 NAME    AGE
 my-guestbook    8m32s
 ```
@@ -165,7 +153,7 @@ my-guestbook    8m32s
 To read the details for the `my-guestbook` of type `Guestbook`, describe the instance,
 
 ```
-$ oc describe guestbook my-guestbook
+$ kubectl describe guestbook my-guestbook
 
 Name:         my-guestbook
 Namespace:    default
@@ -188,7 +176,7 @@ Events:                <none>
 Or retrieve the resource information by specifying the type,
 
 ```
-$ oc get Guestbook -o yaml
+$ kubectl get Guestbook -o yaml
 apiVersion: v1
 items:
 - apiVersion: apps.ibm.com/v1
@@ -210,12 +198,19 @@ metadata:
   selfLink: ""
 ```
 
-In the OpenShift web console, you can browse to Administration > Custom Resource Definitions and find the Guestbook CRD at `/k8s/cluster/customresourcedefinitions/guestbooks.apps.ibm.com`.
+In the Kubernetes Dashboard web console, you can browse to Custom Resource Definitions and find the Guestbook CRD.
 
-![Administration > Custom Resource Definitions](images/openshift-admin-crd.png)
+![Administration > Custom Resource Definitions](images/kubernetes-dashboard-crd.png)
+
 
 You have now created a new type or Custom Resource (CR) and created an instance of your new type. But just having a new type and a new instance of the type, does not add as much control over the instances yet, we can basically only create and delete a static type with some descriptive meta-data. With a custom controller or `Operator` you can over-write the methods that are triggered at certain lifecycle events.
 
+### Cleanup
+
+```
+kubectl delete guestbook my-guestbook
+kubectl delete customresourcedefinition guestbooks.apps.ibm.com
+```
 
 ## Operators
 
@@ -262,23 +257,42 @@ The following workflow is for a new Go operator:
 
 ### Install sdk-operator
 
+The following section uses the `sdk-operator` cli, which depends on `Go` to be installed. Check if both tools are installed in your web-terminal,
+
+```
+go version
+operator-sdk version
+```
+
+If you see a `command not found` error, install both now.
+
 For detailed installation instructions go [here](https://sdk.operatorframework.io/docs/install-operator-sdk/).
 
 To install the Operator SDK in Ubuntu, you need to install the Go tools and the Operator SDK.
 
 ```
-$ curl -LO https://golang.org/dl/go1.14.4.linux-amd64.tar.gz 
-$ tar -C /usr/local -xzf go1.14.4.linux-amd64.tar.gz 
-$ export PATH=$PATH:/usr/local/go/bin
+curl -LO https://golang.org/dl/go1.14.4.linux-amd64.tar.gz 
+tar -C /usr/local -xzf go1.14.4.linux-amd64.tar.gz 
+export PATH=$PATH:/usr/local/go/bin
+go version
+```
 
-$ curl -LO https://github.com/operator-framework/operator-sdk/releases/download/v0.18.2/operator-sdk-v0.18.2-x86_64-linux-gnu 
-$ chmod +x operator-sdk-v0.18.2-x86_64-linux-gnu 
-$ sudo mkdir -p /usr/local/bin/ 
-$ sudo cp operator-sdk-v0.18.2-x86_64-linux-gnu /usr/local/bin/operator-sdk 
-$ rm operator-sdk-v0.18.2-x86_64-linux-gnu
+Install the Operator SDK,
 
-$ go version
-$ operator-sdk version
+```
+curl -LO https://github.com/operator-framework/operator-sdk/releases/download/v0.18.2/operator-sdk-v0.18.2-x86_64-linux-gnu 
+chmod +x operator-sdk-v0.18.2-x86_64-linux-gnu 
+sudo mkdir -p /usr/local/bin/ 
+sudo cp operator-sdk-v0.18.2-x86_64-linux-gnu /usr/local/bin/operator-sdk 
+rm operator-sdk-v0.18.2-x86_64-linux-gnu
+operator-sdk version
+```
+
+Check again,
+
+```
+go version
+operator-sdk version
 ```
 
 ### Create the Operator 
@@ -288,20 +302,21 @@ $ operator-sdk version
 Create a [new Operator](https://docs.openshift.com/container-platform/4.3/operators/operator_sdk/osdk-cli-reference.html#osdk-cli-reference-new_osdk-cli-reference) project,
 
 ```
-$ export DOCKER_USERNAME=<your-docker-username>
+export DOCKER_USERNAME=<your-docker-username>
+```
 
-$ export OPERATOR_NAME=guestbook-operator
-$ export OPERATOR_PROJECT=guestbook-project
-$ export OPERATOR_GROUP=guestbook.remkoh.dev
-$ export OPERATOR_VERSION=v1
-$ export CRD_KIND=Guestbook
+and 
 
-$ go version
-$ operator-sdk version
+```
+export OPERATOR_NAME=guestbook-operator
+export OPERATOR_PROJECT=guestbook-project
+export OPERATOR_GROUP=guestbook.ibm.com
+export OPERATOR_VERSION=v1
+export CRD_KIND=Guestbook
 
-$ operator-sdk new $OPERATOR_PROJECT --type go --repo github.com/$DOCKER_USERNAME/$OPERATOR_NAME
+operator-sdk new $OPERATOR_PROJECT --type go --repo github.com/$DOCKER_USERNAME/$OPERATOR_NAME
 
-$ cd $OPERATOR_PROJECT
+cd $OPERATOR_PROJECT
 ```
 
 The scaffolding of a new project will create an operator, an api and a controller.
@@ -313,7 +328,7 @@ The scaffolding of a new project will create an operator, an api and a controlle
 Add a new API definition for a new Custom Resource under `pkg/apis` and generate the Custom Resource Definition (CRD) and Custom Resource (CR) files under `deploy/crds`.
 
 ```
-$ operator-sdk add api --api-version=$OPERATOR_GROUP/$OPERATOR_VERSION --kind=$CRD_KIND
+operator-sdk add api --api-version=$OPERATOR_GROUP/$OPERATOR_VERSION --kind=$CRD_KIND
 ```
 
 The command will create a new API, a Custom Resource (CR), a Custom Resource Definition (CRD).
@@ -424,7 +439,7 @@ spec:
 Add a new controller under `pkg/controller/<kind>`. 
 
 ```
-$ operator-sdk add controller --api-version=$OPERATOR_GROUP/$OPERATOR_VERSION --kind=$CRD_KIND
+operator-sdk add controller --api-version=$OPERATOR_GROUP/$OPERATOR_VERSION --kind=$CRD_KIND
 ```
 
 This command creates two files in `pkg/controller`:
@@ -452,9 +467,14 @@ func (r *ReconcileGuestbook) Reconcile(request reconcile.Request) (reconcile.Res
 The operator-sdk build command compiles the code and builds the executables. fter you built the image, push it to your image registry, e.g. Docker hub.
 
 ```
-$ operator-sdk build docker.io/$DOCKER_USERNAME/$OPERATOR_NAME
-$ docker login docker.io -u $DOCKER_USERNAME
-$ docker push docker.io/$DOCKER_USERNAME/$OPERATOR_NAME
+operator-sdk build docker.io/$DOCKER_USERNAME/$OPERATOR_NAME
+```
+
+And push the build image to your image repository,
+
+```
+docker login docker.io -u $DOCKER_USERNAME
+docker push docker.io/$DOCKER_USERNAME/$OPERATOR_NAME
 ```
 
 #### 5. Deploy the Operator
@@ -468,39 +488,44 @@ $ sed -i "s|REPLACE_IMAGE|docker.io/$DOCKER_USERNAME/$OPERATOR_NAME|g" deploy/op
 Make sure you are connected to the OpenShift cluster (see above how to connect), and deploy the operator with the following template code.
 
 ```
-$ oc create sa $OPERATOR_PROJECT
-$ oc create -f deploy/role.yaml
-$ oc create -f deploy/role_binding.yaml
-$ oc create -f deploy/crds/${OPERATOR_GROUP}_${CRD_KIND,,}s_crd.yaml
-$ oc create -f deploy/operator.yaml
-$ oc create -f deploy/crds/${OPERATOR_GROUP}_${OPERATOR_VERSION}_${CRD_KIND,,}_cr.yaml
-$ oc get deployment $OPERATOR_PROJECT
-$ oc get pod -l app=example-${CRD_KIND,,}
-$ oc describe ${CRD_KIND,,}s.${OPERATOR_GROUP} example-${CRD_KIND,,}
+kubectl create sa $OPERATOR_PROJECT
+kubectl create -f deploy/role.yaml
+kubectl create -f deploy/role_binding.yaml
+kubectl create -f deploy/crds/${OPERATOR_GROUP}_${CRD_KIND,,}s_crd.yaml
+kubectl create -f deploy/operator.yaml
+kubectl create -f deploy/crds/${OPERATOR_GROUP}_${OPERATOR_VERSION}_${CRD_KIND,,}_cr.yaml
+```
+
+Verify the deployment,
+
+```
+kubectl get deployment $OPERATOR_PROJECT
+kubectl get pod -l app=example-${CRD_KIND,,}
+kubectl describe ${CRD_KIND,,}s.${OPERATOR_GROUP} example-${CRD_KIND,,}
 ```
 
 For our example Guestbook project the above templates should resolve as follows,
 
 ```
-$ oc create sa guestbook-project
-$ oc create -f deploy/role.yaml
-$ oc create -f deploy/role_binding.yaml
-$ oc create -f deploy/crds/guestbook.remkoh.dev_guestbooks_crd.yaml
-$ oc create -f deploy/operator.yaml
-$ oc create -f deploy/crds/guestbook.remkoh.dev_v1_guestbook_cr.yaml
-$ oc get deployment guestbook-project
-$ oc get pod -l app=example-guestbook
-$ oc describe guestbooks.guestbook.remkoh.dev example-guestbook
+$ kubectl create sa guestbook-project
+$ kubectl create -f deploy/role.yaml
+$ kubectl create -f deploy/role_binding.yaml
+$ kubectl create -f deploy/crds/guestbook.remkoh.dev_guestbooks_crd.yaml
+$ kubectl create -f deploy/operator.yaml
+$ kubectl create -f deploy/crds/guestbook.remkoh.dev_v1_guestbook_cr.yaml
+$ kubectl get deployment guestbook-project
+$ kubectl get pod -l app=example-guestbook
+$ kubectl describe guestbooks.guestbook.remkoh.dev example-guestbook
 ```
 
 ### Cleanup
 
 ```
-$ oc delete sa $OPERATOR_PROJECT
-$ oc delete role $OPERATOR_PROJECT
-$ oc delete rolebinding $OPERATOR_PROJECT
-$ oc delete customresourcedefinition ${CRD_KIND,,}s.${OPERATOR_GROUP}
-$ oc delete deployment $OPERATOR_PROJECT
+kubectl delete sa $OPERATOR_PROJECT
+kubectl delete role $OPERATOR_PROJECT
+kubectl delete rolebinding $OPERATOR_PROJECT
+kubectl delete customresourcedefinition ${CRD_KIND,,}s.${OPERATOR_GROUP}
+kubectl delete deployment $OPERATOR_PROJECT
 ```
 
 ## Application CRD

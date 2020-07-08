@@ -50,6 +50,32 @@ helm version --short
 | [Lab: Custom Resources and Operators](generatedContent/kubernetes-extensions.git/README.md) | |
 | RECAP and Survey | |
 
+**Install helm v3**
+```
+curl -LO https://raw.githubusercontent.com/remkohdev/setup/master/install-helm.sh
+chmod 755 install-helm.sh
+./install-helm.sh
+helm version --short
+```
+
+**Install Go**
+```
+curl -LO https://golang.org/dl/go1.14.4.linux-amd64.tar.gz 
+tar -C /usr/local -xzf go1.14.4.linux-amd64.tar.gz 
+export PATH=$PATH:/usr/local/go/bin
+go version
+```
+
+**Install the Operator SDK**
+```
+curl -LO https://github.com/operator-framework/operator-sdk/releases/download/v0.18.2/operator-sdk-v0.18.2-x86_64-linux-gnu 
+chmod +x operator-sdk-v0.18.2-x86_64-linux-gnu 
+sudo mkdir -p /usr/local/bin/ 
+sudo cp operator-sdk-v0.18.2-x86_64-linux-gnu /usr/local/bin/operator-sdk 
+rm operator-sdk-v0.18.2-x86_64-linux-gnu
+operator-sdk version
+```
+
 ## Day 3
 |  Topic | Description  |
 | - | - |
