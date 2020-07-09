@@ -31,25 +31,29 @@ The following prerequisites are needed:
 
 ### Setup
 
-For this lab we will need to use a docker-in-docker environment so that we can build our images. For this scenario we will be using the labs client of [IBM Skills Network](https://labs.cognitiveclass.ai/).
+For this lab you need to use a docker-in-docker environment so that you can build Docker images. You can use a web-terminal assigned to you for the workshop or you can use the labs client of [IBM Skills Network](https://labs.cognitiveclass.ai/). 
 
 1. Follow the instructions [here](skillsNetwork.md) to create your client environment.
 
-1. Clone this repository locally and navigate to the newly cloned directory.
+2. Clone this repository locally and navigate to the newly cloned directory.
 
     ```bash
     git clone https://github.com/IBM/s2i-open-liberty-workshop.git -b conference
     cd s2i-open-liberty-workshop
     ```
 
-1. Then we need to install Source to Image. Run the following command to start the installation script.
+3. To install Source to Image. Run the following commands
 
-    ```bash
-    chmod +x setup.sh
-    ./setup.sh
+    ```
+    cd $HOME
+    curl -L -O https://github.com/openshift/source-to-image/releases/download/v1.3.0/source-to-image-v1.3.0-eed2850f-linux-amd64.tar.gz
+    tar -xvf source-to-image-v1.3.0-eed2850f-linux-amd64.tar.gz
+    mv s2i /usr/local/bin
+    rm source-to-image-v1.3.0-eed2850f-linux-amd64.tar.gz
+    s2i version
     ```
 
-1. To make things easier, we are going to set some environment variables that we can reuse in later commands.
+4. To make things easier, we are going to set some environment variables that we can reuse in later commands.
 
     **Note**: Replace *Your Username* with your actual docker hub username. If you do not have one, go [here](https://hub.docker.com) to create one.
 
@@ -58,7 +62,7 @@ For this lab we will need to use a docker-in-docker environment so that we can b
     export DOCKER_USERNAME=<your-docker-username>
     ```
 
-1. Your root folder should be set to the root of the cloned repository, e.g. `/home/project/s2i-open-liberty-workshop`,
+5. Your root folder should be set to the root of the cloned repository, e.g. `/home/project/s2i-open-liberty-workshop`,
 
     ```
     echo $ROOT_FOLDER
