@@ -165,7 +165,7 @@ In this section, we will use S2I to build our application container image and th
 1. Run a multistage S2I build, to build the application.
 
     ```
-    ~/s2i/s2i build . $DOCKER_USERNAME/s2i-open-liberty-builder:0.1.0 authors --runtime-image $DOCKER_USERNAME/s2i-open-liberty:0.1.0 -a /tmp/src/target -a /tmp/src/server.xml
+    s2i build . $DOCKER_USERNAME/s2i-open-liberty-builder:0.1.0 authors --runtime-image $DOCKER_USERNAME/s2i-open-liberty:0.1.0 -a /tmp/src/target -a /tmp/src/server.xml
     ```
 
     Let's break down the above command:
@@ -175,13 +175,13 @@ In this section, we will use S2I to build our application container image and th
     - --runtime-image $DOCKER_USERNAME/s2i-open-liberty:0.1.0 - Take the output of the builder image and run it in this container.
     - -a /tmp/src/target -a /tmp/src/server.xml - The `runtime-artifact` flag specifies a file or directory to be copies from builder to runtime image. The runtime-artifact is where the builder output is located. These files will be passed into the runtime image.
 
-1. Run the newly built image to start the application on your local machine in the background,
+2. Run the newly built image to start the application on your local machine in the background,
 
     ```
     docker run -d --rm -p 9080:9080 authors
     ```
 
-1. Check the container is running successfully,
+3. Check the container is running successfully,
 
     ```
     docker ps -a
@@ -189,7 +189,7 @@ In this section, we will use S2I to build our application container image and th
     7ba756f5f45b    authors    "/opt/ol/helpers/run…"    5 seconds ago    Up 4 seconds    0.0.0.0:9080->9080/tcp, 9443/tcp    optimistic_elbakyan
     ```
 
-1. Retrieve the authors using curl,
+4. Retrieve the authors using curl,
 
     ```
     curl -X GET "http://localhost:9080/api/v1/getauthor" -H "accept: application/json"
