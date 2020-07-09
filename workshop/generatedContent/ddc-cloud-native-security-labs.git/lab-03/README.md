@@ -38,6 +38,7 @@ For this lab you need to use a docker-in-docker environment so that you can buil
 2. Clone this repository locally and navigate to the newly cloned directory.
 
     ```bash
+    cd $HOME
     git clone https://github.com/IBM/s2i-open-liberty-workshop.git -b conference
     cd s2i-open-liberty-workshop
     ```
@@ -45,7 +46,6 @@ For this lab you need to use a docker-in-docker environment so that you can buil
 3. To install Source to Image. Run the following commands
 
     ```
-    cd $HOME
     curl -L -O https://github.com/openshift/source-to-image/releases/download/v1.3.0/source-to-image-v1.3.0-eed2850f-linux-amd64.tar.gz
     tar -xvf source-to-image-v1.3.0-eed2850f-linux-amd64.tar.gz
     mv s2i /usr/local/bin
@@ -62,11 +62,11 @@ For this lab you need to use a docker-in-docker environment so that you can buil
     export DOCKER_USERNAME=<your-docker-username>
     ```
 
-5. Your root folder should be set to the root of the cloned repository, e.g. `/home/project/s2i-open-liberty-workshop`,
+5. Your root folder should be set to the root of the cloned repository, e.g. `/root/s2i-open-liberty-workshop`,
 
     ```
     echo $ROOT_FOLDER
-    /home/project/s2i-open-liberty-workshop
+    /root/s2i-open-liberty-workshop
     ```
 
 
