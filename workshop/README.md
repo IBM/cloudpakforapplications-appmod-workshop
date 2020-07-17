@@ -45,8 +45,8 @@ Also:
 | [Lecture: Overview of Tekton Pipelines](https://ibm.box.com/s/kisshn88w4a79jzz557o5h6c5k55o9ze) | Tekton Overview Lecture|
 | [Lab: Tekton on OpenShift](generatedContent/tekton-tutorial-openshift/README.md) | Tekton Pipelines in OpenShift Lab | |
 | BREAK | |
-| Managing Cloud-Native Applications across Cloud Environments  | |
-| IBM Garage | |
+| Introduction: Managing Cloud-Native Applications across Cloud Environments  | |
+| Introduction: IBM Garage | |
 | RECAP and Survey | |
 
 ## Technology Used
