@@ -25,9 +25,9 @@ Also:
 | [Lab: Kubernetes 101](generatedContent/digidevcon-iks/README.md) | Series of Kubernetes Labs |
 | BREAK | |
 | [Lecture: Helm](https://ibm.box.com/s/cluclg99642s5bgi6j2wixr37jg7nw96) | Helm Overview Lecture |
-| [Lab: Helm](generatedContent/helm101/README.md) | Series of Helm Labs 
+| [Lab: Helm Overview ](generatedContent/helm101/README.md) | Series of Helm Labs 
 | LUNCH	| |	
-| [Lecture: Helm](https://ibm.box.com/s/cluclg99642s5bgi6j2wixr37jg7nw96) | Operators Overview  |
+| [Lecture: Operators Overview ](https://ibm.box.com/s/cluclg99642s5bgi6j2wixr37jg7nw96) | Operators Overview  |
 | [Lab: Kubernetes with Operators](generatedContent/digidevcon-iks/README.md) | Series of Kubernetes Labs |
 | RECAP of Day 1 | |
 
@@ -35,6 +35,7 @@ Also:
 ## Day 2
 |  Topic | Description  |
 | - | - |
+| RECAP of Day 1 | |
 | [Lecture: S2I and Templates](https://ibm.box.com/s/orn1speymlos7w22n6haowq1kyyd0g5v) | Source to Image in OpenShift |
 | [Lab: S2I Open Liberty](generatedContent/s2i-open-liberty-workshop/README.md) | Source to Image lab |
 | BREAK | |
@@ -43,6 +44,9 @@ Also:
 | LUNCH	| |	
 | [Lecture: Overview of Tekton Pipelines](https://ibm.box.com/s/kisshn88w4a79jzz557o5h6c5k55o9ze) | Tekton Overview Lecture|
 | [Lab: Tekton on OpenShift](generatedContent/tekton-tutorial-openshift/README.md) | Tekton Pipelines in OpenShift Lab | |
+| BREAK | |
+| Managing Cloud-Native Applications across Cloud Environments  | |
+| IBM Garage | |
 | RECAP and Survey | |
 
 ## Technology Used
