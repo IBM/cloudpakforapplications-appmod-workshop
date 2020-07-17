@@ -57,7 +57,7 @@ Also:
 * IBM Kubernetes Service
 * Jenkins
 * Tekton
-* MCM
+* MCMz
 
 ## Presenters
 
