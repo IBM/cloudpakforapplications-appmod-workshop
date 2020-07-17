@@ -39,7 +39,7 @@ Also:
 | [Lecture: S2I and Templates](https://ibm.box.com/s/orn1speymlos7w22n6haowq1kyyd0g5v) | Source to Image in OpenShift |
 | [Lab: S2I Open Liberty](generatedContent/s2i-open-liberty-workshop/README.md) | Source to Image lab |
 | BREAK | |
-| [Lectrue: CI/CD and Jenkins in OpenShift ](generatedContent/kube101/README.md) |  |
+| [Lectrue: CI/CD and Jenkins in OpenShift ](https://ibm.box.com/s/s0zw5c2rg8klb7666ckei19pxt3cr9mh) |  |
 | [Lab: Jenkins Pipelines in OpenShift](generatedContent/app-modernization-openshift-cicd-lab-iks/README.md) | 
 | LUNCH	| |	
 | [Lecture: Overview of Tekton Pipelines](https://ibm.box.com/s/b9vr2024122zn8qe8cytizxd79wqh82w) | Tekton Overview Lecture|
