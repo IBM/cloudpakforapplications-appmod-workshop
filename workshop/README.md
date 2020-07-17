@@ -22,18 +22,21 @@ Also:
 | Welcome, Introductions, Objectives and Setup| - |
 | [Lecture: Overview of Docker](https://ibm.box.com/s/0mvlb8hvd8lx23smfvoaijdt9ex63go2)|  |
 | [Lecture: Overview of Kubernetes](https://ibm.box.com/s/p8jqmihxterlpsrvg5d35yihs0am4c8g) |  |
-| [Lab: Kubernetes 101](generatedContent/digidevcon-iks/README.md) | Series of Kubernetes Labs || BREAK | |
+| [Lab: Kubernetes 101](generatedContent/digidevcon-iks/README.md) | Series of Kubernetes Labs |
+| BREAK | |
 | [Lecture: Helm](https://ibm.box.com/s/cluclg99642s5bgi6j2wixr37jg7nw96) | Helm Overview Lecture |
 | [Lab: Helm](generatedContent/helm101/README.md) | Series of Helm Labs 
-| RECAP and Survey | |
 | LUNCH	| |	
 | [Lecture: Helm](https://ibm.box.com/s/cluclg99642s5bgi6j2wixr37jg7nw96) | Operators Overview  |
 | [Lab: Kubernetes with Operators](generatedContent/digidevcon-iks/README.md) | Series of Kubernetes Labs |
+| RECAP of Day 1 | |
 
 
 ## Day 2
-| [Lecture: S2I and Templates](https://ibm.box.com/s/orn1speymlos7w22n6haowq1kyyd0g5v) | Learn about S2I and Templates in OpenShift |
-| [Lab: S2I Open Liberty](generatedContent/s2i-open-liberty-workshop/README.md) | Write your own S2I Scripts for Open Liberty |
+|  Topic | Description  |
+| - | - |
+| [Lecture: S2I and Templates](https://ibm.box.com/s/orn1speymlos7w22n6haowq1kyyd0g5v) | Source to Image in OpenShift |
+| [Lab: S2I Open Liberty](generatedContent/s2i-open-liberty-workshop/README.md) | Source to Image lab |
 | BREAK | |
 | [Lectrue: CI/CD and Jenkins in OpenShift ](generatedContent/kube101/README.md) |  |
 | [Lab: Jenkins Pipelines in OpenShift](generatedContent/app-modernization-openshift-cicd-lab-iks/README.md) | 
