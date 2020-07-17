@@ -29,6 +29,7 @@
 ### Day 2
 
 * [Lab - S2I Open Liberty](generatedContent/s2i-open-liberty-workshop/README.md)
+* [app-modernization-openshift-cicd-lab-iks](generatedContent/app-modernization-openshift-cicd-lab-iks/README.md)
 * [Lab - Tekton on OpenShift](generatedContent/tekton-tutorial-openshift/README.md)
 
 

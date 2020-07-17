@@ -32,9 +32,10 @@ Also:
 
 ## Day 2
 | [Lecture: S2I and Templates](https://ibm.box.com/s/orn1speymlos7w22n6haowq1kyyd0g5v) | Learn about S2I and Templates in OpenShift |
-| [Lab: S2I Open Liberty](generatedContent/s2i-open-liberty-workshop/README.md) | Write your own S2I Scripts for Open Liberty
+| [Lab: S2I Open Liberty](generatedContent/s2i-open-liberty-workshop/README.md) | Write your own S2I Scripts for Open Liberty |
 | BREAK | |
-| [Lab: Kubernetes 101](generatedContent/kube101/README.md) | Deploying, Scaling, and Operators |
+| [Lectrue: CI/CD and Jenkins in OpenShift ](generatedContent/kube101/README.md) |  |
+| [Lab: Jenkins Pipelines in OpenShift](generatedContent/app-modernization-openshift-cicd-lab-iks/README.md) | 
 | LUNCH	| |	
 | [Lecture: Overview of Tekton Pipelines](https://ibm.box.com/s/kisshn88w4a79jzz557o5h6c5k55o9ze) | Tekton Overview Lecture|
 | [Lab: Tekton on OpenShift](generatedContent/tekton-tutorial-openshift/README.md) | Tekton Pipelines in OpenShift Lab | |
