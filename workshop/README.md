@@ -22,12 +22,13 @@ Also:
 | Welcome, Introductions, Objectives and Setup| - |
 | [Lecture: Overview of Docker](https://ibm.box.com/s/0mvlb8hvd8lx23smfvoaijdt9ex63go2)|  |
 | [Lecture: Overview of Kubernetes](https://ibm.box.com/s/p8jqmihxterlpsrvg5d35yihs0am4c8g) |  |
-| BREAK | |
-| [Lab: Kubernetes with Operators](generatedContent/digidevcon-iks/README.md) | Series of Kubernetes Labs |
-| LUNCH	| |	
+| [Lab: Kubernetes 101](generatedContent/digidevcon-iks/README.md) | Series of Kubernetes Labs || BREAK | |
 | [Lecture: Helm](https://ibm.box.com/s/cluclg99642s5bgi6j2wixr37jg7nw96) | Helm Overview Lecture |
 | [Lab: Helm](generatedContent/helm101/README.md) | Series of Helm Labs 
 | RECAP and Survey | |
+| LUNCH	| |	
+| [Lecture: Helm](https://ibm.box.com/s/cluclg99642s5bgi6j2wixr37jg7nw96) | Operators Overview  |
+| [Lab: Kubernetes with Operators](generatedContent/digidevcon-iks/README.md) | Series of Kubernetes Labs |
 
 
 ## Day 2
