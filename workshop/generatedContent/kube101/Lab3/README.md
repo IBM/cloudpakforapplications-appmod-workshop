@@ -174,7 +174,7 @@ Deployment container spec.
   and
 
   ```shell 
-  ibmcloud cs workers --cluster $CLUSTER_NAME
+  ibmcloud ks workers --cluster $CLUSTER_NAME
   ```
 
 # 2. Connect to a back-end service.
@@ -354,17 +354,19 @@ spec:
 ```
 
 - Create the pod  running redis slave deployment.
- ```shell
-kubectl create -f redis-slave-deployment.yaml 
-```
+ 
+  ```shell
+  kubectl create -f redis-slave-deployment.yaml 
+  ```
 
  - Check if all the slave replicas are running
- ```console
-$ kubectl get pods -lapp=redis,role=slave
-NAME                READY     STATUS    RESTARTS   AGE
-redis-slave-kd7vx   1/1       Running   0          2d
-redis-slave-wwcxw   1/1       Running   0          2d
- ```
+
+  ```console
+  $ kubectl get pods -lapp=redis,role=slave
+  NAME                READY     STATUS    RESTARTS   AGE
+  redis-slave-kd7vx   1/1       Running   0          2d
+  redis-slave-wwcxw   1/1       Running   0          2d
+  ```
 
 - And then go into one of those pods and look at the database to see
   that everything looks right. Replace the pod name `redis-slave-kd7vx` with your own pod name. If you get the back `(empty list or set)` when you print the keys, go to the guestbook application and add an entry!
@@ -417,7 +419,7 @@ spec:
     
 - Test guestbook app using a browser of your choice using the url `<your-cluster-ip>:<node-port>`, or by simply refreshing the page if you have the app open in another window.
 
-That's the end of the lab. Before deleting this environment, check with your instructor if you will also be using the guestbook deployment for the helm101 lab. If you will not, delete the deployment with these commands:
+That's the end of the lab. Now let's clean-up our environment:
 
 ```console
 kubectl delete -f guestbook-deployment.yaml

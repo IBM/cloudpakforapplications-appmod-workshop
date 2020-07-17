@@ -176,3 +176,12 @@ THIS FILE CONTAINS ALL THE SUMMARY.MDs OF THE GENERATED CONTENT PREFIXED WITH RI
 
 
 
+###############################
+##  SUMMARY.md for app-modernization-openshift-cicd-lab-iks
+################################
+
+# Home Page for Gitbook 
+* [app-modernization-openshift-cicd-lab-iks](generatedContent/app-modernization-openshift-cicd-lab-iks/README.md)
+
+
+

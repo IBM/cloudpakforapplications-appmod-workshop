@@ -107,9 +107,9 @@ To update and roll back:
 
 1. To check the status of the rollout, run:
 
-```shell
-kubectl rollout status deployment/guestbook
-```
+   ```shell
+   kubectl rollout status deployment/guestbook
+   ```   
 
   The rollout might occur so quickly that the following messages
    might _not_ display:
