@@ -28,7 +28,7 @@ Also:
 | [Lab: Helm Overview ](generatedContent/helm101/README.md) | Series of Helm Labs 
 | LUNCH	| |	
 | [Lecture: Operators Overview ](https://ibm.box.com/s/rajb8h19recje5e13tbknlxu3emy7iff) | Operators Overview  |
-| [Lab: Operators 101](generatedContent/kubernetes-extensions/README.md) | Series of Kubernetes Labs |
+| [Lab: Kubernetes Extensions](generatedContent/kubernetes-extensions/README.md) | Operator Labs |
 | RECAP of Day 1 | |
 
 
