@@ -1,5 +1,9 @@
 # IBM Skills Network Access
 
+## Access IBM Skills Network
+
+If you have registered your account, you can skip the rest of this section and access the lab environment at **https://labs.cognitiveclass.ai/**.
+
 ## Create an account
 
 1. Navigate to https://labs.cognitiveclass.ai/register,
