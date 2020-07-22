@@ -23,11 +23,7 @@
     * [Lab 3 - Revisions](generatedContent/helm101/Lab3/README.md)
     * [Lab 4 - Helm Repositories](generatedContent/helm101/Lab4/README.md)
 
-* [Lab: Operator  101](generatedContent/kube101/README.md)
-    * [Excercise - 0](generatedContent/kube101/Lab0/README.md)
-    * [Excercise - 1](generatedContent/kube101/Lab1/README.md)
-    * [Excercise - 2](generatedContent/kube101/Lab2/README.md)
-    * [Excercise - 3](generatedContent/kube101/Lab3/README.md)
+* [Lab: Kubernetes Extensions](generatedContent/kubernetes-extensions/README.md)
 
 
 ### Day 2
