@@ -3,8 +3,9 @@
 This section will guide you through the pre-requisites and setup of the environment used in this workshop labs. It is broken up into the following steps:
 
 1. [Sign up for IBM Cloud](#1-sign-up-for-ibm-cloud)
-1. [Access a cluster](#2-kubernetes-cluster)
-1. [Configure CLI Tools](#3-command-line-tools-/-cloud-shell)
+1. [Login to IBM Cloud](#2-login-to-ibm-cloud)
+1. [Open Cloud Shell](#3-open-cloud-shell)
+1. [Connect to OpenShift Cluster](#4-connect-to-openShift-cluster)
 
 ## 1. Sign up for IBM Cloud
 
