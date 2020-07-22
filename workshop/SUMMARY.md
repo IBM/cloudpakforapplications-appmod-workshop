@@ -6,7 +6,8 @@
 
 ### Setup
 
-* [Cloud Workshop + Cloud Shell Setup Instructions](pre-work/README.md)
+* [Cloud Shell Setup Instructions](pre-work/README.md)
+* [Access IBM Skills Network](pre-work/skillsNetwork.md)
 
 ### Day 1
 
