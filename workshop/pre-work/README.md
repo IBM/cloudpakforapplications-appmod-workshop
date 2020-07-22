@@ -5,7 +5,7 @@ This section will guide you through the pre-requisites and setup of the environm
 1. [Sign up for IBM Cloud](#1-sign-up-for-ibm-cloud)
 1. [Login to IBM Cloud](#2-login-to-ibm-cloud)
 1. [Open Cloud Shell](#3-open-cloud-shell)
-1. [Connect to OpenShift Cluster](#4-connect-to-openShift-cluster)
+1. [Connect to OpenShift Cluster](#4-connect-to-openshift-cluster)
 
 ## 1. Sign up for IBM Cloud
 
