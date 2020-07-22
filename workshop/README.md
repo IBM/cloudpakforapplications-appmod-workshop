@@ -51,6 +51,7 @@ Also:
 
 ## Technology Used
 
+* Containers
 * Kubernetes
 * Helm
 * RedHat OpenShift
