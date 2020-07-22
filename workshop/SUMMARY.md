@@ -6,15 +6,13 @@
 
 ### Setup
 
-* Setup instructions TBD
+* [Access IBM Skills Network](pre-work/skillsNetwork.md)
 
 ### Session 1
 
 * [Lab: Docker101](generatedContent/docker101/README.md)
-    * [Pre-work](generatedContent/docker101/lab-0/README.md)
     * [Lab 1](generatedContent/docker101/lab-1/README.md)
     * [Lab 2](generatedContent/docker101/lab-2/README.md)
-    * [Lab 3](generatedContent/docker101/lab-3/README.md)
 
 * [Lab: Kubernetes 101](generatedContent/kube101/README.md)
     * [Lab 1 - Deploy Application](generatedContent/kube101/Lab1/README.md)
