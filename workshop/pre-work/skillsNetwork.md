@@ -2,9 +2,7 @@
 
 ## Access IBM Skills Network
 
-If you have registered your account, you can skip the rest of this section and access the lab environment at **https://labs.cognitiveclass.ai/**.
-
-## Create an account
+1. If you have registered your account, you can access the lab environment at **https://labs.cognitiveclass.ai/** and go directly to step 6.
 
 1. Navigate to https://labs.cognitiveclass.ai/register,
 
@@ -16,23 +14,23 @@ If you have registered your account, you can skip the rest of this section and a
 
 1. Click `Create an Account`,
 
-2. Fill in your Email, Full Name, Public Username and password, click on the check boxes next to the `Privacy Notice` and `Terms of Service` to accept them. Then click on `Create Account`.
+1. Fill in your Email, Full Name, Public Username and password, click on the check boxes next to the `Privacy Notice` and `Terms of Service` to accept them. Then click on `Create Account`.
 
-3. You will then be taken to a page with a list of sandbox environments. Click on the option for **Theia - Cloud IDE (With OpenShift)**
+1. You will then be taken to a page with a list of sandbox environments. Click on the option for **Theia - Cloud IDE (With OpenShift)**
 
     ![sandbox list](../.gitbook/images/lab-03/sandboxList.png)
 
-4. Wait a few minutes while your environment is created.
+1. Wait a few minutes while your environment is created.
 
     ![waiting](../.gitbook/images/lab-03/waiting.png)
 
-5. You will be taken to a blank editor page once your environment is ready.
+1. You will be taken to a blank editor page once your environment is ready.
 
-6.  What we really need is access to the terminal. Click on the Terminal tab near the top of the page and select **New Terminal**
+1.  What we really need is access to the terminal. Click on the Terminal tab near the top of the page and select **New Terminal**
 
     ![New Terminal](../.gitbook/images/lab-03/newTerminal.png)
 
-7.  You can then click and drag the top of the terminal section upwards to make the terminal section bigger.
+1.  You can then click and drag the top of the terminal section upwards to make the terminal section bigger.
 
     ![bigger terminal](../.gitbook/images/lab-03/biggerTerminal.png)
 
