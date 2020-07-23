@@ -11,38 +11,45 @@
     - Cleanup
 - Application CRD
 
-## Access the web-terminal
+## Install the operator-sdk
 
-When running the lab for Kubernetes Extensions, you can make use of a web-terminal. The Dockerfile to use is located in https://github.com/IBMAppModernization/web-terminal, and named [Dockerfile-s2i-oc-tekton-operator](https://github.com/IBMAppModernization/web-terminal/blob/master/Dockerfile-s2i-oc-tekton-operator).
-
-To run on localhost as a Docker container,
 ```
-git clone https://github.com/IBMAppModernization/web-terminal.git
-cd web-terminal
-docker build --no-cache -t web-terminal:latest -f Dockerfile-s2i-oc-tekton-operator .
-docker run -d --restart always --name terminal -p 7681:7681 -v $HOME/dev/tmp:/root/dev web-terminal
-docker ps -a
-CONTAINER ID    IMAGE    COMMAND    CREATED    STATUS    PORTS    NAMES
-85edc0b0ec27    web-terminal    "ttyd -p 7681 bash"    17 minutes ago    Up 17 minutes    0.0.0.0:7681->7681/tcp   terminal
+curl -LO https://golang.org/dl/go1.14.4.linux-amd64.tar.gz
+tar -C /usr/local -xzf go1.14.4.linux-amd64.tar.gz
+
+curl -LO https://github.com/operator-framework/operator-sdk/releases/download/v0.18.2/operator-sdk-v0.18.2-x86_64-linux-gnu 
+chmod +x operator-sdk-v0.18.2-x86_64-linux-gnu
+mkdir -p  /usr/local/operator-sdk/bin
+cp operator-sdk-v0.18.2-x86_64-linux-gnu operator-sdk
+
+echo 'export PATH=/home/project/:/usr/local/go/bin/:$PATH' > .bash_profile
+source .bash_profile
+
+go version
+operator-sdk version
 ```
 
-The volume mapping will write all files under the working directory to the host directory `$HOME/dev/tmp`. So suppose my host's user home directory is `/Users/remkohdev@us.ibm.com/`. If I open the terminal in the browser, the working directory for the user is `/root`. Any file that is created under `/root` is created on the host's directory `$HOME/dev/tmp`. Similarly if I create a file in `$HOME/dev/tmp` it is available in the container's `/root` directory.
+Should give you,
 
-Open the web-terminal in a browser and go to http://0.0.0.0:7681.
-
-![web-terminal in browser](images/web-terminal-browser.png)
-
-If Go, Operator SDK
+```
+$ go version
+go version go1.14.4 linux/amd64
+$ operator-sdk version
+operator-sdk version: "v0.18.2", commit: "f059b5e17447b0bbcef50846859519340c17ffad", kubernetes version: "v1.18.2", go version: "go1.13.10 linux/amd64"
+```
 
 ## Login
 
+1. Define your clustername and login to IBM Cloud
+
 ```
-export CLUSTERNAME=remkohdev-roks-labs-3n-cluster
+export CLUSTERNAME=<your-cluster-name>
 ibmcloud login 
 ```
 
-Go to the OpenShift web console
-Copy Login command
+1. Go to the OpenShift web console
+2. Copy Login command
+
 ```
 oc login --token=_12AbcD345kIPDIRg2jYpCuZ-g5SM5Im9irY2tol4Q8 --server=https://c100-e.us-south.containers.cloud.ibm.com:30712
 ```
@@ -108,7 +115,7 @@ EOF
 - Only 1 version can be flagged as the storage version.
 - The `spec.names.kind` is used by your resource manifests and should be CamelCased.
 
-Create the Custom Resource for the Guestbook witht he command,
+Create the Custom Resource for the Guestbook with the command,
 
 ```
 oc create -f guestbook-crd.yaml
@@ -248,7 +255,6 @@ To write your own operator you can use existing tools:
 - [Metacontroller](https://metacontroller.app/) using custom WebHooks,
 - the [Operator Framework](https://github.com/operator-framework/getting-started).
 
-
 The Operator SDK provides the following workflow to develop a new Operator:
 
 The following workflow is for a new Go operator:
@@ -259,49 +265,41 @@ The following workflow is for a new Go operator:
 4. Write the reconciling logic for your Controller using the SDK and controller-runtime APIs
 5. Use the SDK CLI to build and generate the operator deployment manifests
 
-
-### Install sdk-operator
-
-For detailed installation instructions go [here](https://sdk.operatorframework.io/docs/install-operator-sdk/).
-
-To install the Operator SDK in Ubuntu, you need to install the Go tools and the Operator SDK.
-
-```
-$ curl -LO https://golang.org/dl/go1.14.4.linux-amd64.tar.gz 
-$ tar -C /usr/local -xzf go1.14.4.linux-amd64.tar.gz 
-$ export PATH=$PATH:/usr/local/go/bin
-
-$ curl -LO https://github.com/operator-framework/operator-sdk/releases/download/v0.18.2/operator-sdk-v0.18.2-x86_64-linux-gnu 
-$ chmod +x operator-sdk-v0.18.2-x86_64-linux-gnu 
-$ sudo mkdir -p /usr/local/bin/ 
-$ sudo cp operator-sdk-v0.18.2-x86_64-linux-gnu /usr/local/bin/operator-sdk 
-$ rm operator-sdk-v0.18.2-x86_64-linux-gnu
-
-$ go version
-$ operator-sdk version
-```
-
 ### Create the Operator 
 
 #### 1. Create a New Project
 
 Create a [new Operator](https://docs.openshift.com/container-platform/4.3/operators/operator_sdk/osdk-cli-reference.html#osdk-cli-reference-new_osdk-cli-reference) project,
 
+Set your docker username,
+
 ```
-$ export DOCKER_USERNAME=<your-docker-username>
+export DOCKER_USERNAME=<your-docker-username>
+```
 
-$ export OPERATOR_NAME=guestbook-operator
-$ export OPERATOR_PROJECT=guestbook-project
-$ export OPERATOR_GROUP=guestbook.remkoh.dev
-$ export OPERATOR_VERSION=v1
-$ export CRD_KIND=Guestbook
+Set your project and operator names,
 
-$ go version
-$ operator-sdk version
+```
+export OPERATOR_NAME=guestbook-operator
+export OPERATOR_PROJECT=guestbook-project
+export OPERATOR_GROUP=guestbook.remkoh.dev
+export OPERATOR_VERSION=v1
+export CRD_KIND=Guestbook
+```
 
-$ operator-sdk new $OPERATOR_PROJECT --type go --repo github.com/$DOCKER_USERNAME/$OPERATOR_NAME
+Check if Go and Operator-SDK are installed correctly,
 
-$ cd $OPERATOR_PROJECT
+```
+go version
+operator-sdk version
+```
+
+If not, follow the installation instructions at the beginning of the lab,
+
+```
+operator-sdk new $OPERATOR_PROJECT --type go --repo github.com/$DOCKER_USERNAME/$OPERATOR_NAME
+
+cd $OPERATOR_PROJECT
 ```
 
 The scaffolding of a new project will create an operator, an api and a controller.
@@ -313,7 +311,7 @@ The scaffolding of a new project will create an operator, an api and a controlle
 Add a new API definition for a new Custom Resource under `pkg/apis` and generate the Custom Resource Definition (CRD) and Custom Resource (CR) files under `deploy/crds`.
 
 ```
-$ operator-sdk add api --api-version=$OPERATOR_GROUP/$OPERATOR_VERSION --kind=$CRD_KIND
+operator-sdk add api --api-version=$OPERATOR_GROUP/$OPERATOR_VERSION --kind=$CRD_KIND
 ```
 
 The command will create a new API, a Custom Resource (CR), a Custom Resource Definition (CRD).
@@ -424,7 +422,7 @@ spec:
 Add a new controller under `pkg/controller/<kind>`. 
 
 ```
-$ operator-sdk add controller --api-version=$OPERATOR_GROUP/$OPERATOR_VERSION --kind=$CRD_KIND
+operator-sdk add controller --api-version=$OPERATOR_GROUP/$OPERATOR_VERSION --kind=$CRD_KIND
 ```
 
 This command creates two files in `pkg/controller`:
@@ -449,12 +447,17 @@ func (r *ReconcileGuestbook) Reconcile(request reconcile.Request) (reconcile.Res
 
 #### 4. Compile and Build the Code
 
-The operator-sdk build command compiles the code and builds the executables. fter you built the image, push it to your image registry, e.g. Docker hub.
+The `operator-sdk build` command compiles the code and builds the executables. 
 
 ```
-$ operator-sdk build docker.io/$DOCKER_USERNAME/$OPERATOR_NAME
-$ docker login docker.io -u $DOCKER_USERNAME
-$ docker push docker.io/$DOCKER_USERNAME/$OPERATOR_NAME
+operator-sdk build docker.io/$DOCKER_USERNAME/$OPERATOR_NAME
+```
+
+After you built the image, push it to your image registry, e.g. Docker hub.
+
+```
+docker login docker.io -u $DOCKER_USERNAME
+docker push docker.io/$DOCKER_USERNAME/$OPERATOR_NAME
 ```
 
 #### 5. Deploy the Operator
@@ -462,45 +465,56 @@ $ docker push docker.io/$DOCKER_USERNAME/$OPERATOR_NAME
 First replace the image attribute in the operator resource with the built image,
 
 ```
-$ sed -i "s|REPLACE_IMAGE|docker.io/$DOCKER_USERNAME/$OPERATOR_NAME|g" deploy/operator.yaml
+sed -i "s|REPLACE_IMAGE|docker.io/$DOCKER_USERNAME/$OPERATOR_NAME|g" deploy/operator.yaml
+```
+
+To check if the replace was correctly executed, run `cat`
+
+```
+cat deploy/operator.yaml
 ```
 
 Make sure you are connected to the OpenShift cluster (see above how to connect), and deploy the operator with the following template code.
 
 ```
-$ oc create sa $OPERATOR_PROJECT
-$ oc create -f deploy/role.yaml
-$ oc create -f deploy/role_binding.yaml
-$ oc create -f deploy/crds/${OPERATOR_GROUP}_${CRD_KIND,,}s_crd.yaml
-$ oc create -f deploy/operator.yaml
-$ oc create -f deploy/crds/${OPERATOR_GROUP}_${OPERATOR_VERSION}_${CRD_KIND,,}_cr.yaml
-$ oc get deployment $OPERATOR_PROJECT
-$ oc get pod -l app=example-${CRD_KIND,,}
-$ oc describe ${CRD_KIND,,}s.${OPERATOR_GROUP} example-${CRD_KIND,,}
+oc create sa $OPERATOR_PROJECT
+oc create -f deploy/role.yaml
+oc create -f deploy/role_binding.yaml
+oc create -f deploy/crds/${OPERATOR_GROUP}_${CRD_KIND,,}s_crd.yaml
+oc create -f deploy/operator.yaml
+oc create -f deploy/crds/${OPERATOR_GROUP}_${OPERATOR_VERSION}_${CRD_KIND,,}_cr.yaml
+```
+
+Check if the installation was successful. You might have to wait a few minutes for the deployment to complete before you see all resources successfully listed.
+
+```
+oc get deployment $OPERATOR_PROJECT
+oc get pod -l app=example-${CRD_KIND,,}
+oc describe ${CRD_KIND,,}s.${OPERATOR_GROUP} example-${CRD_KIND,,}
 ```
 
 For our example Guestbook project the above templates should resolve as follows,
 
 ```
-$ oc create sa guestbook-project
-$ oc create -f deploy/role.yaml
-$ oc create -f deploy/role_binding.yaml
-$ oc create -f deploy/crds/guestbook.remkoh.dev_guestbooks_crd.yaml
-$ oc create -f deploy/operator.yaml
-$ oc create -f deploy/crds/guestbook.remkoh.dev_v1_guestbook_cr.yaml
-$ oc get deployment guestbook-project
-$ oc get pod -l app=example-guestbook
-$ oc describe guestbooks.guestbook.remkoh.dev example-guestbook
+oc create sa guestbook-project
+oc create -f deploy/role.yaml
+oc create -f deploy/role_binding.yaml
+oc create -f deploy/crds/guestbook.remkoh.dev_guestbooks_crd.yaml
+oc create -f deploy/operator.yaml
+oc create -f deploy/crds/guestbook.remkoh.dev_v1_guestbook_cr.yaml
+oc get deployment guestbook-project
+oc get pod -l app=example-guestbook
+oc describe guestbooks.guestbook.remkoh.dev example-guestbook
 ```
 
 ### Cleanup
 
 ```
-$ oc delete sa $OPERATOR_PROJECT
-$ oc delete role $OPERATOR_PROJECT
-$ oc delete rolebinding $OPERATOR_PROJECT
-$ oc delete customresourcedefinition ${CRD_KIND,,}s.${OPERATOR_GROUP}
-$ oc delete deployment $OPERATOR_PROJECT
+oc delete sa $OPERATOR_PROJECT
+oc delete role $OPERATOR_PROJECT
+oc delete rolebinding $OPERATOR_PROJECT
+oc delete customresourcedefinition ${CRD_KIND,,}s.${OPERATOR_GROUP}
+oc delete deployment $OPERATOR_PROJECT
 ```
 
 ## Application CRD
