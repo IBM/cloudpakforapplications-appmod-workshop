@@ -194,3 +194,12 @@ THIS FILE CONTAINS ALL THE SUMMARY.MDs OF THE GENERATED CONTENT PREFIXED WITH RI
 
 
 
+###############################
+##  SUMMARY.md for app-modernization-openshift-templates-lab-iks
+################################
+
+# Home Page for Gitbook 
+* [app-modernization-openshift-templates-lab-iks](generatedContent/app-modernization-openshift-templates-lab-iks/README.md)
+
+
+

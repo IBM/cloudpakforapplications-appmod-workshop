@@ -3,8 +3,9 @@
 This section will guide you through the pre-requisites and setup of the environment used in this workshop labs. It is broken up into the following steps:
 
 1. [Sign up for IBM Cloud](#1-sign-up-for-ibm-cloud)
-1. [Access a cluster](#2-kubernetes-cluster)
-1. [Configure CLI Tools](#3-command-line-tools-/-cloud-shell)
+1. [Login to IBM Cloud](#2-login-to-ibm-cloud)
+1. [Open Cloud Shell](#3-open-cloud-shell)
+1. [Connect to OpenShift Cluster](#4-connect-to-openshift-cluster)
 
 ## 1. Sign up for IBM Cloud
 
@@ -12,82 +13,62 @@ You will need an IBM Cloud ID for the workshop. If you already have an IBM Cloud
 
 * Follow the steps outlined in [NEWACCOUNT](NEWACCOUNT.md).
 
-## 2. Kubernetes Cluster
+## 2. Login to IBM Cloud
 
-For the hands-on labs, you will be given access to a temporary free kubernetes cluster that was pre-created for the purpose of the workshop. The cluster will be deleted after the workshop. To gain access to this cluster:
+To login to IBM Cloud,
 
-* Open the URL that was provided to you by the instructor to access your cluster.
+1. Go to https://cloud.ibm.com in your browser and login.
 
-![Welcome to IBM Cloud](../.gitbook/images/grant-cluster/welcome-to-ibm-cloud.png)
+1. Make sure that you are in the correct account#.
 
-* Enter the workshop code provided by the workshop instructor and your IBM Cloud account IBM id. Select the terms and conditions checkbox and click the **`Submit`** button
+    ![Account Number](../.gitbook/generic/account-number.png)
 
-* You will be added to a cloud account where a cluster has been pre-provisioned for you. Click on the link in the instructions which ask you to `Log in to this IBM Cloud account`.
+>Note: you may not have access to your OpenShift cluster if you are not in the right account#.
 
-![Congratulations, You have been assigned a kubernetes cluster](../.gitbook/images/grant-cluster/congratulations.png)
+## 3. Open Cloud Shell
 
-* If you previously logged in to the IBM Cloud, the browser will direct you to the IBM Cloud resource list view (if you have not logged in previously, you will be asked to log in using your IBM Cloud ID). Expand the `Clusters` section and select the cluster assigned to you (the name will vary).
+Most of the labs will run CLI commands. The IBM Cloud Shell is preconfigured with the full IBM Cloud CLI and tons of plug-ins and tools that you can use to manage apps, resources, and infrastructure.
 
-![Clusters](../.gitbook/images/grant-cluster/clusters-clustername.png)
+1. From the [IBM Cloud Home Page](https://cloud.ibm.com), select the terminal icon in the upper right hand menu.
 
-* Details for your cluster will load. Click on the `Access` menu item in the left navigation column, where you can find instructions to access your cluster from the command line client.
+    ![Terminal Button](../.gitbook/generic/access-cloud-shell.png)
 
-![Cluster Access](../.gitbook/images/grant-cluster/cluster-access.png)
+1. It might take a few moments to create the instance and a new session which automatically logs you in through the IBM Cloud CLI.
 
-* Note the name of your cluster, you will use this cluster for this lab.
+    ![Cloud Shell](../.gitbook/images/grant-cluster/cloud-shell.png)
 
-## 3. Command Line Tools / Cloud Shell
+    > *Note: Ensure the cloud shell is using the same account where your cluster is provisioned. Check that the account name shown in the top right of the screen, next to `Current account` is the correct one.*
 
-Many of the labs will involve interacting with your cluster using command line tools. If you want to install the CLI tools directly on your machine follow the instructions on the `Access` page opened in the last section. If you do not have the command line tools installed on your machine, we recommend you use the [IBM Cloud Shell - https://shell.cloud.ibm.com/](https://shell.cloud.ibm.com/). The IBM Cloud Shell is preconfigured with the full IBM Cloud CLI and tons of plug-ins and tools that you can use to manage apps, resources, and infrastructure.
+## 4. Connect to OpenShift Cluster
 
-* From the [IBM Cloud Home Page](https://cloud.ibm.com), select the terminal icon in the upper right hand menu.
+1. In a new browser tab, go to https://cloud.ibm.com/kubernetes/clusters?platformType=openshift.
 
-![Terminal Button](../.gitbook/generic/access-cloud-shell.png)
+1. Select your cluster instance and open it.
 
-* It might take a few moments to create the instance and a new session which automatically logs you in through the IBM Cloud CLI.
+1. Click `OpenShift web console` button on the top.
 
-![Cloud Shell](../.gitbook/images/grant-cluster/cloud-shell.png)
+1. Click on your username in the upper right and select `Copy Login Command` option.
 
-   > *Note: Ensure the cloud shell is using the same account where your cluster is provisioned. Check that the account name shown in the top right of the screen, next to `Current account` is the correct one.*
+    ![Terminal Button](../.gitbook/generic/copy-openshift-cmd.png)
 
-* Run the `ibmcloud ks clusters` command to view your cluster
+1. Click the `Display Token` link.
 
-   ```shell
-   ibmcloud ks clusters
-   ```
+1. Copy the contents of the field `Log in with this token` to the clipboard. It provides a login command with a valid token for your username.
 
-   > *Note: If no clusters are shown, make sure you are targeting the correct IBM account in the top right corner.*
+1. Go to the `Cloud Shell` tab.
 
-* For convenience, export your cluster name as an environment variable.
+1. Paste the `oc login command` in the IBM Cloud Shell terminal and run it.
+
+1. After login to your cluster, set an environment variable for your cluster.
 
    ```shell
    export CLUSTER_NAME=<your_cluster_name>
    ```
 
-* We can now configure the `kubectl` cli available within the terminal for access to your cluster. If you stored your cluster name to an environment variable (ie. `$CLUSTER_NAME`), use that variable, otherwise copy and paste your cluster name from the previous commands output to the `$CLUSTER_NAME` portion below.
+1. Verify you connect to the right cluster.
 
    ```shell
-   ibmcloud ks cluster config --cluster $CLUSTER_NAME
+   kubectl get pod
    ```
 
-* Verify access to the Kubernetes API by getting the namespaces.
 
-   ```shell
-   kubectl get namespace
-   ```
-
-* You should see output similar to the following, if so, then your're ready to continue.
-
-```text
-NAME              STATUS   AGE
-default           Active   125m
-ibm-cert-store    Active   121m
-ibm-system        Active   124m
-kube-node-lease   Active   125m
-kube-public       Active   125m
-kube-system       Active   125m
-```
-
-You should now be read to start with labs.
-
-> Note: Every time you log in to the Cloud Shell (or your CLI tools), you must run the above commands to connect with the cluster in IBM Cloud.

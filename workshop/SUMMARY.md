@@ -6,12 +6,12 @@
 
 ### Setup
 
-* [Cloud Workshop + Cloud Shell Setup Instructions](pre-work/README.md)
+* [Cloud Shell Setup Instructions](pre-work/README.md)
+* [Access IBM Skills Network](pre-work/skillsNetwork.md)
 
 ### Day 1
 
 * [Lab: Kubernetes 101](generatedContent/kube101/README.md)
-    * [Excercise - 0](generatedContent/kube101/Lab0/README.md)
     * [Excercise - 1](generatedContent/kube101/Lab1/README.md)
     * [Excercise - 2](generatedContent/kube101/Lab2/README.md)
     * [Excercise - 3](generatedContent/kube101/Lab3/README.md)
@@ -29,7 +29,9 @@
 ### Day 2
 
 * [Lab - S2I Open Liberty](generatedContent/s2i-open-liberty-workshop/README.md)
-* [Lab - Creating a CI/CD Pipeline for deployment to OpenShift  using Jenkins](generatedContent/app-modernization-openshift-cicd-lab-iks/README.md)
+* [Lab - CI/CD Pipeline with Jenkins on OpenShift]()
+    * [Lab 1 - Deploy application to OpenShift via s2i](generatedContent/app-modernization-openshift-templates-lab-iks/README.md)
+    * [Lab 2 - Deploy application to OpenShift via CI/CD Pipeline with Jenkins](generatedContent/app-modernization-openshift-cicd-lab-iks/README.md)
 * [Lab - Tekton on OpenShift](generatedContent/tekton-tutorial-openshift/README.md)
 
 
