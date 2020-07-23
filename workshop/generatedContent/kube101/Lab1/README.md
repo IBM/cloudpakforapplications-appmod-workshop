@@ -5,32 +5,7 @@ the IBM Container Service.
 
 ## 0. Prerequisites
 
-Make sure you have access to an OpenShift v4 cluster and log in to your cluster using the login command from the OpenShift web console.
-
-1. Open your OpenShift Web Console from the IBM Cloud cluster overview page,
-
-![OpenShift WebConsole](../images/openshift-access-webconsole.png)
-
-1. Copy Login Command from the OpenShift Web Console,
-
-![OpenShift Copy Login Command](../images/openshift-copy-login-command.png)
-
-1. Copy the log in command and token,
-
-![OpenShift Copy Login Command and token](../images/openshift-token.png)
-
-1. Access the terminal, go to https://labs.cognitiveclass.ai/ and create an instance of the `Theia - Cloud IDE (With Docker)` option.
-
-![Cognitive Class - Theia with Docker](../images/theia-with-docker.png)
-
-1. Open a new terminal,
-
-1. Run the login command in your terminal,
-
-```
-oc login --token=o49rT03XtMyZW4-XK5N2r1hobKjt1u6j5a1WSivwYIo --server=https://c107-e.us-south.containers.cloud.ibm.com:31256
-```
-
+Make sure you satisfy the prerequisites as outlined in [Lab 0](../Lab0/README.md)
 
 ## 1. Deploy the guestbook application
 

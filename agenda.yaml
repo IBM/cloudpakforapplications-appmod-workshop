@@ -18,4 +18,5 @@ repos:
     - url: https://github.com/IBMAppModernization/kube101
     - url: https://github.com/lee-zhg/app-modernization-openshift-cicd-lab-iks
     - url: https://github.com/remkohdev/kubernetes-extensions
+    - url: https://github.com/lee-zhg/app-modernization-openshift-templates-lab-iks
     
