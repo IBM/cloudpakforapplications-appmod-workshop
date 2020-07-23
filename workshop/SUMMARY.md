@@ -30,8 +30,8 @@
 
 * [Lab - S2I Open Liberty](generatedContent/s2i-open-liberty-workshop/README.md)
 * [Lab - CI/CD Pipeline with Jenkins in OpenShift]()
-    * [Lab - Deploy application to OpenShift via s2i](generatedContent/app-modernization-openshift-templates-lab-iks/README.md)
-    * [Lab - Deploy application to OpenShift via CI/CD Pipeline with Jenkins](generatedContent/app-modernization-openshift-cicd-lab-iks/README.md)
+    * [Lab 1 - Deploy application to OpenShift via s2i](generatedContent/app-modernization-openshift-templates-lab-iks/README.md)
+    * [Lab 2 - Deploy application to OpenShift via CI/CD Pipeline with Jenkins](generatedContent/app-modernization-openshift-cicd-lab-iks/README.md)
 * [Lab - Tekton on OpenShift](generatedContent/tekton-tutorial-openshift/README.md)
 
 
