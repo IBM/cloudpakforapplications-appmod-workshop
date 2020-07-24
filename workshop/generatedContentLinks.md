@@ -110,15 +110,12 @@ THIS FILE CONTAINS ALL THE SUMMARY.MDs OF THE GENERATED CONTENT PREFIXED WITH RI
 
 
 ###############################
-##  SUMMARY.md for tekton-tutorial-openshift
+##  SUMMARY.md for tekton-tutorial
 ################################
 
 # Home Page for Gitbook 
-* [tekton-tutorial-openshift](generatedContent/tekton-tutorial-openshift/README.md)
+* [tekton-tutorial](generatedContent/tekton-tutorial/README.md)
 
-# Table of contents
-
-* [Lab - Tekton Pipelines](generatedContent/tekton-tutorial-openshift/README.md)
 
 
 ###############################

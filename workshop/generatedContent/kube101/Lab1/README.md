@@ -5,49 +5,7 @@ the IBM Container Service.
 
 ## 0. Prerequisites
 
-Make sure you have access to an OpenShift v4 cluster and log in to your cluster using the login command from the OpenShift web console.
-
-1. Open your OpenShift Web Console from the IBM Cloud cluster overview page,
-
-![OpenShift WebConsole](../images/openshift-access-webconsole.png)
-
-1. Copy Login Command from the OpenShift Web Console,
-
-![OpenShift Copy Login Command](../images/openshift-copy-login-command.png)
-
-1. Copy the log in command and token,
-
-![OpenShift Copy Login Command and token](../images/openshift-token.png)
-
-1. Access the terminal, go to https://labs.cognitiveclass.ai/ and create an instance of the `Theia - Cloud IDE (With Docker)` option.
-
-![Cognitive Class - Theia with Docker](../images/theia-with-docker.png)
-
-1. Open a new terminal,
-
-1. Run the login command in your terminal,
-
-```
-oc login --token=o49rT03XtMyZW4-XK5N2r1hobKjt1u6j5a1WSivwYIo --server=https://c107-e.us-south.containers.cloud.ibm.com:31256
-```
-
-1. You may create a new project using your username,
-
-```
-oc new-project <username>
-```
-
-1. Check you are using the new project,
-
-```
-oc project
-```
-
-1. For admin commands on IBM Cloud you need to use the `ibmcloud` cli. To access your account information you need permissions to the account and be logged in to your account with the ibmcloud cli.
-
-```
-ibmcloud login
-```
+Make sure you satisfy the prerequisites as outlined in [Lab 0](../Lab0/README.md)
 
 ## 1. Deploy the guestbook application
 
@@ -102,11 +60,8 @@ that has already been built and uploaded to DockerHub under the name
    and could be different for you.
 
 1. `guestbook` is now running on your cluster, and exposed to the internet. We need to find out where it is accessible.
-   The worker nodes running in the container service get external IP addresses. 
-   
-   You can retrieve the public IP addresses of your worker nodes via your cluster overview page. Find your cluster from https://cloud.ibm.com/kubernetes/clusters to access the cluster overview page, and select the `worker nodes` from the navigation menu.
-
-   Get the workers for your cluster via hte `ibmcloud` cli and note one (any one) of the public IPs listed on the `<public-IP>` line. Replace `$CLUSTER_NAME` with your cluster name unless you have this environment variable set.
+   The worker nodes running in the container service get external IP addresses.
+   Get the workers for your cluster and note one (any one) of the public IPs listed on the `<public-IP>` line. Replace `$CLUSTER_NAME` with your cluster name unless you have this environment variable set.
 
    ```console
    $ ibmcloud ks workers --cluster $CLUSTER_NAME

@@ -8,11 +8,9 @@ repos:
     - url: https://github.com/IBMAppModernization/app-modernization-openshift-cicd-lab-shared
     - url: https://github.com/IBMAppModernization/app-modernization-ta-explore-lab-openshift4
     - url: https://github.com/IBM/s2i-open-liberty-workshop
-    - url: https://github.com/IBM/tekton-tutorial-openshift
-      branch: beta-update
+    - url: https://github.com/odrodrig/tekton-tutorial
     - url: https://github.com/IBM/istio101
-    - 
-      url: https://github.com/IBMAppModernization/app-modernization-cicd-lab-iks
+    - url: https://github.com/IBMAppModernization/app-modernization-cicd-lab-iks
       branch: guestbook-app
     - url: https://github.com/lee-zhg/spring-boot-microservices-on-kubernetes
     - url: https://github.com/IBMAppModernization/kube101
