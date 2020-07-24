@@ -1,11 +1,6 @@
 # Lab 3: Scale and update apps natively, building multi-tier applications.
 
-In this lab you'll learn how to deploy the same guestbook application we
-deployed in the previous labs, however, instead of using the `kubectl`
-command line helper functions we'll be deploying the application using
-configuration files. The configuration file mechanism allows you to have more
-fine-grained control over all of resources being created within the
-Kubernetes cluster.
+In this lab you'll learn how to deploy the same guestbook application we deployed in the previous labs, however, instead of using the `kubectl` command line helper functions we'll be deploying the application using configuration files. The configuration file mechanism allows you to have more fine-grained control over all of resources being created within the Kubernetes cluster.
 
 Before we work with the application we need to clone a github repo:
 
@@ -13,10 +8,10 @@ Before we work with the application we need to clone a github repo:
 git clone https://github.com/IBM/guestbook.git
 ```
 
-This repo contains multiple versions of the guestbook application
-as well as the configuration files we'll use to deploy the pieces of the application.
+This repo contains multiple versions of the guestbook application as well as the configuration files we'll use to deploy the pieces of the application.
 
 Change directory by running the command 
+
 ```shell
 cd guestbook/v1
 ```
@@ -25,23 +20,11 @@ configurations files for this exercise in this directory.
 
 ## 1. Scale apps natively
 
-Kubernetes can deploy an individual pod to run an application but when you
-need to scale it to handle a large number of requests a `Deployment` is the
-resource you want to use.
-A Deployment manages a collection of similar pods. When you ask for a specific number of replicas
-the Kubernetes Deployment Controller will attempt to maintain that number of replicas at all times.
+Kubernetes can deploy an individual pod to run an application but when you need to scale it to handle a large number of requests a `Deployment` is the resource you want to use. A Deployment manages a collection of similar pods. When you ask for a specific number of replicas the Kubernetes Deployment Controller will attempt to maintain that number of replicas at all times.
 
-Every Kubernetes object we create should provide two nested object fields
-that govern the object’s configuration: the object `spec` and the object
-`status`. Object `spec` defines the desired state, and object `status`
-contains Kubernetes system provided information about the actual state of the
-resource. As described before, Kubernetes will attempt to reconcile
-your desired state with the actual state of the system.
+Every Kubernetes object we create should provide two nested object fields that govern the object’s configuration: the object `spec` and the object `status`. Object `spec` defines the desired state, and object `status` contains Kubernetes system provided information about the actual state of the resource. As described before, Kubernetes will attempt to reconcile your desired state with the actual state of the system.
 
-For Object that we create we need to provide the `apiVersion` you are using
-to create the object, `kind` of the object we are creating and the `metadata`
-about the object such as a `name`, set of `labels` and optionally `namespace`
-that this object should belong.
+For Object that we create we need to provide the `apiVersion` you are using to create the object, `kind` of the object we are creating and the `metadata` about the object such as a `name`, set of `labels` and optionally `namespace` that this object should belong.
 
 Consider the following deployment configuration for guestbook application
 
@@ -74,11 +57,7 @@ spec:
           containerPort: 3000
 ```
 
-The above configuration file create a deployment object named 'guestbook'
-with a pod containing a single container running the image
-`ibmcom/guestbook:v1`.  Also the configuration specifies replicas set to 3
-and Kubernetes tries to make sure that at least three active pods are running at
-all times.
+The above configuration file create a deployment object named 'guestbook' with a pod containing a single container running the image `ibmcom/guestbook:v1`.  Also the configuration specifies replicas set to 3 and Kubernetes tries to make sure that at least three active pods are running at all times.
 
 - Create guestbook deployment
 
@@ -100,27 +79,19 @@ all times.
    kubectl get pods -l app=guestbook
    ```
 
-When you change the number of replicas in the configuration, Kubernetes will
-try to add, or remove, pods from the system to match your request. To can
-make these modifications by using the following command:
+When you change the number of replicas in the configuration, Kubernetes will try to add, or remove, pods from the system to match your request. To can make these modifications by using the following command:
 
    ```console
    kubectl edit deployment guestbook-v1
    ```
 
-This will retrieve the latest configuration for the Deployment from the
-Kubernetes server and then load it into an editor for you. You'll notice
-that there are a lot more fields in this version than the original yaml
-file we used. This is because it contains all of the properties about the
-Deployment that Kubernetes knows about, not just the ones we chose to
-specify when we create it. Also notice that it now contains the `status`
-section mentioned previously.
+You can specify the editor with your EDITOR or KUBE_EDITOR environment variables or the command will fall back to `vi`. The cognitiveclass terminal does not have an editor installed by default, so you can skip this step.
+
+With an editor installed, this will retrieve the latest configuration for the Deployment from the Kubernetes server and then load it into an editor for you. You'll notice that there are a lot more fields in this version than the original yaml file we used. This is because it contains all of the properties about the Deployment that Kubernetes knows about, not just the ones we chose to specify when we create it. Also notice that it now contains the `status` section mentioned previously.
 
 To exit the `vi` editor, type `:q!`, of if you made changes that you want to see reflected, save them using `:wq`.
 
-You can also edit the deployment file we used to create the Deployment
-to make changes. You should use the following command to make the change
-effective when you edit the deployment locally.
+You can also edit the deployment file we used to create the Deployment to make changes. You should use the following command to make the change effective when you edit the deployment locally.
 
    ```console
    kubectl apply -f guestbook-deployment.yaml
