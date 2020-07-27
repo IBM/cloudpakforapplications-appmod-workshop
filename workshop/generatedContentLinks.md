@@ -110,15 +110,12 @@ THIS FILE CONTAINS ALL THE SUMMARY.MDs OF THE GENERATED CONTENT PREFIXED WITH RI
 
 
 ###############################
-##  SUMMARY.md for tekton-tutorial-openshift
+##  SUMMARY.md for tekton-tutorial
 ################################
 
 # Home Page for Gitbook 
-* [tekton-tutorial-openshift](generatedContent/tekton-tutorial-openshift/README.md)
+* [tekton-tutorial](generatedContent/tekton-tutorial/README.md)
 
-# Table of contents
-
-* [Lab - Tekton Pipelines](generatedContent/tekton-tutorial-openshift/README.md)
 
 
 ###############################
@@ -173,6 +170,33 @@ THIS FILE CONTAINS ALL THE SUMMARY.MDs OF THE GENERATED CONTENT PREFIXED WITH RI
 
 # Home Page for Gitbook 
 * [kube101](generatedContent/kube101/README.md)
+
+
+
+###############################
+##  SUMMARY.md for app-modernization-openshift-cicd-lab-iks
+################################
+
+# Home Page for Gitbook 
+* [app-modernization-openshift-cicd-lab-iks](generatedContent/app-modernization-openshift-cicd-lab-iks/README.md)
+
+
+
+###############################
+##  SUMMARY.md for kubernetes-extensions
+################################
+
+# Home Page for Gitbook 
+* [kubernetes-extensions](generatedContent/kubernetes-extensions/README.md)
+
+
+
+###############################
+##  SUMMARY.md for app-modernization-openshift-templates-lab-iks
+################################
+
+# Home Page for Gitbook 
+* [app-modernization-openshift-templates-lab-iks](generatedContent/app-modernization-openshift-templates-lab-iks/README.md)
 
 
 

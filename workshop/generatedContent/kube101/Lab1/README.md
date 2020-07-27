@@ -3,6 +3,10 @@
 Learn how to deploy an application to a Kubernetes cluster hosted within
 the IBM Container Service.
 
+## 0. Prerequisites
+
+Make sure you satisfy the prerequisites as outlined in [Lab 0](../Lab0/README.md)
+
 ## 1. Deploy the guestbook application
 
 In this part of the lab we will deploy an application called `guestbook`
