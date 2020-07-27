@@ -33,8 +33,6 @@ In the workshop you will learn about foundational open source technologies and i
 | [Lecture: Intro to OpenShift](https://ibm.box.com/s/orn1speymlos7w22n6haowq1kyyd0g5v) | Learn about Developer Experience in OpenShift |
 | [Lab: S2I and Templates](generatedContent/app-modernization-openshift-s2i-templates-lab-shared/README.md) | Deploy Cloud Native Applications using S2I |
 
-Session #1Overview of Docker presentation Demo: Docker 101Overview of Kubernetes presentationHands on Lab: Kubernetes 101Session #2Kubernetes Landscape: Istio, Helm,  and OperatorsDemo: Using opensource to solve microservice problemsIntroduction to OpenShiftHands on Lab: Deploy Cloud  Native Applications using S2I and TemplatesSession #3Overview of CI/CD for Microservices presentationHands on Lab: Tekton101Session #4App  Development Governance presentationHands on Lab: Creating a Custom Stack 101
-
 ## Session 3
 |   |   |
 | - | - |
