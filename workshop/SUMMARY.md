@@ -7,6 +7,7 @@
 ### Setup
 
 * [Access IBM Skills Network](pre-work/skillsNetwork.md)
+* [Access your OpenShift Cluster](pre-work/server-openshift.md)
 
 ### Session 1
 
@@ -24,6 +25,8 @@
 
 ### Session 3
 
+#### Tekton Lab
+* [Install tkn](pre-work/tools-install-tekton.md)
 * [Lab: Tekton on OpenShift](generatedContent/tekton-tutorial-openshift/README.md)
 
 ### Session 4

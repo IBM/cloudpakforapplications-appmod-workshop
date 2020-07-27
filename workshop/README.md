@@ -15,7 +15,8 @@ In the workshop you will learn about foundational open source technologies and i
 ## Setup 
 |   |   |
 | - | - |
-| [Setup Instructions](TBD) | Run these steps to setup your environment for the labs
+| [Access IBM Skills Network](pre-work/skillsNetwork.md) | Your client (CLI) environment
+| [Access your OpenShift Cluster](pre-work/server-openshift.md) | Your server (OpenShift) environment
 
 ## Session 1
 |   |   |
