@@ -1,6 +1,6 @@
 # IBM Skills Network Access
 
-## Access IBM Skills Network
+## 1. Access IBM Skills Network
 
 1. If you have registered your account, you can access the lab environment at **https://labs.cognitiveclass.ai/** and go directly to step 6.
 
@@ -34,7 +34,41 @@
 
     ![bigger terminal](../.gitbook/generic/biggerTerminal.png)
 
-## Install s2i CLI tool
+
+## 2. Connect to OpenShift Cluster
+
+1. In a new browser tab, go to https://cloud.ibm.com/kubernetes/clusters?platformType=openshift.
+
+1. Select your cluster instance and open it.
+
+1. Click `OpenShift web console` button on the top.
+
+1. Click on your username in the upper right and select `Copy Login Command` option.
+
+    ![Terminal Button](../.gitbook/generic/copy-openshift-cmd.png)
+
+1. Click the `Display Token` link.
+
+1. Copy the contents of the field `Log in with this token` to the clipboard. It provides a login command with a valid token for your username.
+
+1. Go to the `Cloud Shell` tab.
+
+1. Paste the `oc login command` in the IBM Cloud Shell terminal and run it.
+
+1. After login to your cluster, set an environment variable for your cluster.
+
+   ```shell
+   export CLUSTER_NAME=<your_cluster_name>
+   ```
+
+1. Verify you connect to the right cluster.
+
+   ```shell
+   kubectl get pod
+   ```
+
+
+## 3. Install s2i CLI tool
 
 To install s2i CLI tool,
 
