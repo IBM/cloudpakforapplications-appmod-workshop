@@ -30,7 +30,7 @@ In the workshop you will learn about foundational open source technologies and i
 | - | - |
 | [Lecture: Kubernetes Landscape](TBD) | Istio, Helm,  and Operators |
 | [Demo: Using opensource to solve microservice problems](TBD) | Series of Docker Labs |
-| [Lecture: Intro to OpenShift](https://ibm.box.com/s/orn1speymlos7w22n6haowq1kyyd0g5v) | Learn about Developer Experience in OpenShift |
+| [Lecture: Intro to OpenShift](https://ibm.box.com/s/p58z1r3bswrwsaw6lzetzl1br1vm2yde) | Learn about Developer Experience in OpenShift |
 | [Lab: S2I and Templates](generatedContent/app-modernization-openshift-s2i-templates-lab-shared/README.md) | Deploy Cloud Native Applications using S2I |
 
 ## Session 3
