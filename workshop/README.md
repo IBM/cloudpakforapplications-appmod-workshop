@@ -21,7 +21,7 @@ In the workshop you will learn about foundational open source technologies and O
 ## Session 1
 |   |   |
 | - | - |
-| [Lecture: Docker](https://ibm.box.com/s/0mvlb8hvd8lx23smfvoaijdt9ex63go2) | What is Docker? |
+| [Lecture: Docker](https://ibm.box.com/s/bc2sj53nasgjbfr7v3kuo59ydaq5nltt) | What is Docker? |
 | [Lab: Docker](generatedContent/docker101/README.md) | Series of Docker Labs |
 | [Lecture: Kubernetes](https://ibm.box.com/s/migr539izuf8d686shemct1na0gyvl6v) | What is Kubernetes? |
 | [Lab: Kubernetes 101](generatedContent/kube101/README.md) | Kubernetes Introduction Labs (Deploying & Scaling Apps) |
