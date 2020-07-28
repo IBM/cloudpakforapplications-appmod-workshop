@@ -217,7 +217,7 @@ For this method, we will deploy our application by creating a kubernetes deploym
 1. Review the `application.yaml` file,
 
     ```bash
-    sed -i "s|APPLICATION_IMAGE|$IMAGE|" application.yaml
+    sed "s|APPLICATION_IMAGE|$IMAGE|" application.yaml
     cat application.yaml
     ```
 
