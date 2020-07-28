@@ -42,19 +42,19 @@ Optionally, if you would like to use OpenShift for this lab, then you will need 
 
 From the [IBM Cloud Home Page](https://cloud.ibm.com), make sure you are in the IBM Cloud account where your cluster is located. Select from the dropdown menu in the upper right.
 
-![correct account](../images/ibm-cloud-account.png)
+![correct account](../images/ibm-cloud-account2.png)
 
 Next, find your clusters by navigating to **Kubernetes->Clusters** in the upper lefthand menu
 
-![Kubernetes Menu](../images/kubernetes-menu.png)
+![Kubernetes Menu](../images/kubernetes-menu2.png)
 
 Select your cluster to get to the cluster home page. Then, select the **OpenShift Web Console** Button
 
-![cluster homepage](../images/cluster-homepage.png)
+![cluster homepage](../images/cluster-homepage2.png)
 
 From the OpenShift console, in the upper righthand menu, select **Copy Login Command**
 
-![copy login command](../images/copy-login-command.png)
+![copy login command](../images/copy-login-command2.png)
 
 Follow the instructions including logging in using your IBM ID to get the command to login. Run the command in your IBM Cloud Shell environment
 
