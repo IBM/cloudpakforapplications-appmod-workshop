@@ -32,7 +32,7 @@
 * [Lab - CI/CD Pipeline with Jenkins on OpenShift]()
     * [Lab 1 - Deploy application to OpenShift via s2i](generatedContent/app-modernization-openshift-templates-lab-iks/README.md)
     * [Lab 2 - Deploy application to OpenShift via CI/CD Pipeline with Jenkins](generatedContent/app-modernization-openshift-cicd-lab-iks/README.md)
-* [Lab - Tekton on OpenShift](generatedContent/tekton-tutorial/README.md)
+<!-- * [Lab - Tekton on OpenShift](generatedContent/tekton-tutorial-openshift/README.md) -->
 
 
 ### Resources

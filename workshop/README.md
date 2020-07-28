@@ -43,7 +43,7 @@ Also:
 | [Lab: Jenkins Pipelines in OpenShift](generatedContent/app-modernization-openshift-cicd-lab-iks/README.md) | 
 | LUNCH	| |	
 | [Lecture: Overview of Tekton Pipelines](https://ibm.box.com/s/epsgivs13ekjg9xvqmqm2bdrx2m6a1e6) | Tekton Overview Lecture|
-| [Lab: Tekton on OpenShift](generatedContent/tekton-tutorial-openshift/README.md) | Tekton Pipelines in OpenShift Lab | |
+<!-- | [Lab: Tekton on OpenShift](generatedContent/tekton-tutorial-openshift/README.md) | Tekton Pipelines in OpenShift Lab | -->|
 | BREAK | |
 | Introduction: Managing Cloud-Native Applications across Cloud Environments  | |
 | Introduction: IBM Garage | |

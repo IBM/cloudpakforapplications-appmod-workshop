@@ -226,7 +226,7 @@ For this method, we will deploy our application by creating a kubernetes deploym
 1. Review the `application.yaml` file,
 
     ```bash
-    cat application.yaml
+    sed "s|APPLICATION_IMAGE|$IMAGE|" application.yaml
     ```
 
     This command will add your newly pushed authors image to the deployment yaml file.
@@ -235,31 +235,31 @@ For this method, we will deploy our application by creating a kubernetes deploym
     sed -i "s|APPLICATION_IMAGE|$IMAGE|" application.yaml
     ```
 
-1. Apply the `application.yaml` file using the `oc` cli to create our Deployment, Service, and Route.
+2. Apply the `application.yaml` file using the `oc` cli to create our Deployment, Service, and Route.
 
     ```bash
     oc apply -f application.yaml
     ```
 
-1. Now let's visit the deployed application. Run the following to get the route to access the application.
+3. Now let's visit the deployed application. Run the following to get the route to access the application.
 
     ```bash
     oc get routes -l app=authors -o go-template='{{range .items}}{{.spec.host}}{{end}}'
     ```
 
-1. Copy and paste the output of the previous command to set a variable $APP_URL,
+4. Copy and paste the output of the previous command to set a variable $APP_URL,
 
     ```
     APP_URL=<get-routes-output>
     ```
 
-1. Test the application using curl
+5. Test the application using curl
 
     ```
     curl -X GET "http://$APP_URL/api/v1/getauthor" -H "accept: application/json"
     ```
 
-1. Or use the route to your app and paste it into your web browser and add the following to the end of the route:
+6. Or use the route to your app and paste it into your web browser and add the following to the end of the route:
 
     ```bash
     /openapi/ui
