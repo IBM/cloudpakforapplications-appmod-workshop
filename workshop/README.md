@@ -15,7 +15,7 @@ In the workshop you will learn about foundational open source technologies and O
 ## Setup 
 |   |   |
 | - | - |
-| [Access IBM Skills Network](pre-work/skillsNetwork.md) | Your client (CLI) environment
+| [Access IBM Skills Network](pre-work/client-skillsNetwork.md) | Your client (CLI) environment
 | [Access your OpenShift Cluster](pre-work/server-openshift.md) | Your server (OpenShift) environment
 
 ## Session 1
