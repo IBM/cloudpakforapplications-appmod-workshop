@@ -12,9 +12,9 @@ You will need an IBM Cloud ID for the workshop. If you already have an IBM Cloud
 
 * Follow the steps outlined in [NEWACCOUNT](NEWACCOUNT.md).
 
-## 2. Kubernetes Cluster
+## 2. OpenShift Cluster
 
-For the hands-on labs, you will be given access to a temporary free kubernetes cluster that was pre-created for the purpose of the workshop. The cluster will be deleted after the workshop. To gain access to this cluster:
+For the hands-on labs, you will be given access to a temporary free OpenShift cluster that was pre-created for the purpose of the workshop. The cluster will be deleted after the workshop. To gain access to this cluster:
 
 * Open the URL that was provided to you by the instructor to access your cluster.
 
@@ -30,15 +30,12 @@ For the hands-on labs, you will be given access to a temporary free kubernetes c
 
 ![Clusters](../.gitbook/images/grant-cluster/clusters-clustername.png)
 
-* Details for your cluster will load. Click on the `Access` menu item in the left navigation column, where you can find instructions to access your cluster from the command line client.
-
-![Cluster Access](../.gitbook/images/grant-cluster/cluster-access.png)
 
 * Note the name of your cluster, you will use this cluster for this lab.
 
 ## Log into OpenShift
 
-Optionally, if you would like to use OpenShift for this lab, then you will need to authenticate with the OpenShift console before continuing.
+Once you have a cluster, you will need to authenticate with the OpenShift console before continuing.
 
 From the [IBM Cloud Home Page](https://cloud.ibm.com), make sure you are in the IBM Cloud account where your cluster is located. Select from the dropdown menu in the upper right.
 

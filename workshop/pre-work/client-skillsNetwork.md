@@ -31,7 +31,3 @@
 7.  You can then click and drag the top of the terminal section upwards to make the terminal section bigger.
 
     ![bigger terminal](../.gitbook/generic/biggerTerminal.png)
-
-With that done, you can return back to the lab.
-
-<- [Back to the lab](./README.md)
