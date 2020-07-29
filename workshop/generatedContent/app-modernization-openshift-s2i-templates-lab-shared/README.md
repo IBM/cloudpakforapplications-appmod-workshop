@@ -8,38 +8,7 @@ In this lab you'll use these capabilities to deploy a small legacy Java EE app t
 
 ### Step 1: Logon into the OpenShift Web Console and to the OpenShift CLI
 
-1.1 Login into the OpenShift web console using the user credentials provided to you
-    * Access the OpenShift console via the url link provided by the workshop instructors
-    * Select `clouddragons-ldap` login option
-    ![Login options](images/loginoptions.png)
-    * Login with the username and password provided by the workshop instructors
-
-1.2 From the OpenShift web console click on your username in the upper right and select **Copy Login Command**
-
-   ![Copy Login Command](images/ss0.png)
-
-1.3 You are prompted to login to the OpenShift console again. Repeat the same login procedure above to login.
-
-1.4 Click **Display Token** link.
-
-1.5 Copy the contents in the field **Log in with this token**. It provides a valid login command with an alive token.
-
-1.6 Paste the login command in a terminal window and run it (Note: leave the web console browser tab open as you'll need it later on in the lab)
-
-1.7 If prompted with `Use insecure connections? (y/n):`, enter **y**.
-
-1.8 Set an environment variable for your *studentid* based on your user identifier from the instructor (e.g. **user001**)
-
-    ```bash
-    export STUDENTID=userNNN
-    ```
-
-1.9 Create a new OpenShift project for this lab
-
-   ```bash
-   oc new-project pbw-$STUDENTID
-   ```
-
+Follow the [setup steps](../../pre-work/server-openshift.md) to gain access to the OpenShift Web Console And CLI
 
 ### Step 2: Clone the WebSphere Liberty S2I image source, create a Docker image,  and push it to the OpenShift internal registry
 
@@ -54,12 +23,6 @@ In this lab you'll use these capabilities to deploy a small legacy Java EE app t
 
   ```
    export INTERNAL_REG_HOST=`oc get route default-route --template='{{ .spec.host }}' -n openshift-image-registry`
-  ```
-
-2.3 Create a new OpenShift project for this lab (**Note:** your project name must be unique. Combine your lab STUDENT ID with the prefix `pbw-` to create a unique project name like `pbw-user???` where `user???` is your username e.g. `user012`)
-
-  ```
-   oc new-project pbw-user???
   ```
 
 2.4 Build the S2I Liberty image and tag it appropriately for the internal registry
