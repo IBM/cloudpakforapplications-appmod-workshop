@@ -45,9 +45,9 @@ Follow the [setup steps](../../pre-work/server-openshift.md) to gain access to t
 
 ### Step 3: Install MariaDB from the OpenShift template catalog
 
-3.1 In your Web console browser tab select the **Developer** role at the top left and make sure your project (ie *pbw-user???*) is selected.
+3.1 In your Web console browser tab select the **Developer** role at the top left and make sure the **default** project is selected. Next, click **Add** on the lefthand menu.
 
-   ![View All](images/ss4.png)
+   ![Openshift Project](images/openshift-default-project.png)
 
 3.2 Click on the **Database** tile
 
