@@ -176,3 +176,12 @@ THIS FILE CONTAINS ALL THE SUMMARY.MDs OF THE GENERATED CONTENT PREFIXED WITH RI
 
 
 
+###############################
+##  SUMMARY.md for kubernetes-extensions.git
+################################
+
+# Home Page for Gitbook 
+* [kubernetes-extensions.git](generatedContent/kubernetes-extensions.git/README.md)
+
+
+

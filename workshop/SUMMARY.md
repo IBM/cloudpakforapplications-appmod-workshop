@@ -34,7 +34,8 @@
     * [Lab 3 - Expose the Service Mesh with Istio Ingress Gateway](istio101/exercise-5/README.md)
     * [Lab 4 - Perform Traffic Management](istio101/exercise-6/README.md)
 
-* [Extra Credit: Kubernetes Extensions](https://github.com/remkohdev/kubernetes-extensions.git)
+# Home Page for Gitbook 
+* [Extra Credit: Kubernetes Extensions](generatedContent/kubernetes-extensions.git/README.md)
 
 * [Lab: Openshift S2I and Templates](generatedContent/app-modernization-openshift-s2i-templates-lab-shared/README.md)
 
