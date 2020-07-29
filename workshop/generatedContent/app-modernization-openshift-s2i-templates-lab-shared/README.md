@@ -28,19 +28,19 @@ Follow the [setup steps](../../pre-work/server-openshift.md) to gain access to t
 2.4 Build the S2I Liberty image and tag it appropriately for the internal registry
 
   ```
-   podman build -t $INTERNAL_REG_HOST/`oc project -q`/s2i-liberty-javaee7:1.0 .
+   docker build -t $INTERNAL_REG_HOST/`oc project -q`/s2i-liberty-javaee7:1.0 .
   ```
 
 2.5 Login to the internal registry
 
   ```
-   podman login -u `oc whoami` -p `oc whoami -t` $INTERNAL_REG_HOST
+   docker login -u `oc whoami` -p `oc whoami -t` $INTERNAL_REG_HOST
   ```
 
 2.6 Push the S2I Liberty image to the internal registry
 
   ```
-    podman push $INTERNAL_REG_HOST/`oc project -q`/s2i-liberty-javaee7:1.0
+    docker push $INTERNAL_REG_HOST/`oc project -q`/s2i-liberty-javaee7:1.0
   ```
 
 ### Step 3: Install MariaDB from the OpenShift template catalog
