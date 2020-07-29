@@ -33,7 +33,7 @@ In the workshop you will learn about foundational open source technologies and O
 | [Demo: Helm 101](generatedContent/helm101/README.md) | Helm 101 |
 | [Extra Credit: Operators](https://github.com/remkohdev/kubernetes-extensions.git) | Create a Custom Kubernetes Operator |
 | [Extra Credit: Istio 101](istio101/README.md) | Lab on features of Istio |
-| [Lecture: Intro to OpenShift](https://ibm.box.com/s/p58z1r3bswrwsaw6lzetzl1br1vm2yde) | Learn about Developer Experience in OpenShift |
+| [Lecture: Intro to OpenShift](https://ibm.box.com/s/njzc97ocf80ss2rhhscc7pp03dipbcc4) | Learn about Developer Experience in OpenShift |
 | [Lab: S2I and Templates](generatedContent/app-modernization-openshift-s2i-templates-lab-shared/README.md) | Deploy Cloud Native Applications using S2I |
 
 ## Session 3
