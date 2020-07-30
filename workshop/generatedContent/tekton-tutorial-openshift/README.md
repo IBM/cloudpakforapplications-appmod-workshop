@@ -14,9 +14,17 @@ Also, check out this [very good tutorial](https://github.com/openshift/pipelines
 
 ## Prerequisites
 
-Before you start the tutorial you must set up a OpenShift environment with Tekton installed.
+### 1. Install OpenShift Pipelines
 
-Follow [this guide on installing OpenShift Pipelines](https://github.com/openshift/pipelines-tutorial/blob/master/install-operator.md)
+From the OpenShift UI, make sure you are in the **Administrator View** in the upper left. Select **Operators->OperatorHub** on the lefthand menu. Search for **Pipelines** and select the **OpenShift Pipelines Operator** (the **non**-community version)
+
+![operatorhub](images/install-pipelines.png)
+
+Click **Install** on the next screen. Select **Preview** channel. Then click **Subscribe**
+
+![preview channel](images/pipelines-preview-channel.png)
+
+### 2. Create a route for the OpenShift registry
 
 Create a route for the OpenShift registry if you have not done so already.
 
