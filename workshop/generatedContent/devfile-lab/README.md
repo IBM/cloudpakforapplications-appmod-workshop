@@ -1,11 +1,16 @@
 # Portable Development Environments using Devfiles
 
 ## Introduction
+In this lab we will explore how we can create portable development environments using CodeReady Workspaces and the concept of devfiles.
+
+The devfiles offer developers a starting point for building applications by offering containerized runtime environments, starting applications with additional functionality built in, and tools to aid in development. 
+
+For the lab today we will be using CodeReady Workspaces which is a browser based code editor that runs on OpenShift.
 
 ## Prereqs
 
-## Steps
-
+- An IBM Cloud Account
+- A GitHub account
 
 ## Using devfiles in CodeRedy Workspaces
 
@@ -55,7 +60,7 @@
 
 1. On the next page, leave everything as it is and click on the **Create** button at the bottom. This will begin the process of creating the necessary resources to bring up CodeReady Workspaces.
 
-    This process will take about 5 minutes to complete.
+    This process will take about 2-5 minutes to complete.
 
 ### Creating a DevFile in CodeReady Workspaces
 
@@ -75,13 +80,13 @@
 
 1. Click on the **Custom Workspace** tab at the top of the page.
 
-1. For *Workspace Name* enter **node-workspace**.
+1. For *Workspace Name* enter **Node-Example**.
 
-1. For the *URL of devfile* box in the *Devfile* section enter **https://raw.githubusercontent.com/odrodrig/nodejs-ex/master/devfile.yaml**
+1. For the *URL of devfile* box in the *Devfile* section enter **https://raw.githubusercontent.com/odrodrig/nodejs-ex/master/devfile.yaml** and then click on **Load devfile**.
 
 1. Click on **Create and Open** at the bottom of the page. The button might be hidden so you might need to scroll down to see it.
 
-    The workspace will take a minute or two to create so let's get our own copy of the code that we will be using for the rest of the lab.
+    The workspace will take a few minutes to create so let's get our own copy of the code that we will be using for the rest of the lab.
 
 1. In a new browser window, navigate to **https://github.com/odrodrig/nodejs-ex** and click on the **Fork** button at the top right of the page.
 
@@ -307,69 +312,73 @@ commands:
 With that done your new devfile has been pushed to GitHub and can be shared with other developers using CodeReady Workspaces.
 
 
+## EXTRA CREDIT: Local deployment of devfile with odo
 
-<!-- ### Deploying a devfile using odo
+In this section we will explore how we can take the devfile we created earlier and use it to develop our application locally.
 
-1. Get Ingress subdomain
-1. Export environment variables
+This section requires a local terminal environment, Docker, and [the odo cli](https://docs.openshift.com/container-platform/4.2/cli_reference/openshift_developer_cli/installing-odo.html).
 
-    ```bash
-    export HOST=\<ingress subdomain\>
-    ```
+<!-- 1. First we need to install the OpenShift developer cli called **odo**. You can install this  -->
 
-1. log into openshift
+<!-- 1. If you haven't already, get access to a terminal environment by following [these instructions].(https://github.com/IBM/ddc-cloud-native-security-labs/blob/master/workshop/lab-03/skillsNetwork.md). -->
 
-    ```bash
-    oc login --token=4aRqkcYoCUuIBCfPsRFvw-LAKsTpV8R-VMhR4CCTy1k --server=https://c100-e.us-east.containers.cloud.ibm.com:30068
-    ```
+1. Then, we need to clone the repository locally. Run the following command in that terminal environment:
 
-1. Create a new project
+```bash
+git clone https://github.com/odrodrig/nodejs-ex.git
+cd nodejs-ex
+```
 
-    ```bash
-    odo project create devfile-lab
-    ```
+<!-- 1. Next, we need to run the installation script for odo
 
-1. Enable experimental features
+```bash
+chmod 755 ./install_odo.sh
+bash install_odo.sh
+``` -->
+
+1. In order to use devfiels with odo, we need to enable experimental features. Run the following:
 
     ```bash
     odo preference set experimental true
     ```
 
-1. View the catalog of components and devfiles in odo
+1. Next let's target docker as our deploytment target
 
     ```bash
-    odo catalog list components
+    odo preference set pushtarget docker
     ```
 
-1. Clone the sample project locally
+1. Then, we will create a url which will allow us to expose our application to traffic. This is essentially creating a way for us to communicate with the application once we deploy it.
 
     ```bash
-    git clone https://github.com/odo-devfiles/springboot-ex
-    cd springboot-ex
+    odo url create --port 3000
     ```
 
-1. Create a component configuration
-
-    ```bash
-    odo create java-spring-boot myspring
-    ```
-
-1. Create a url for the component
-
-    ```bash
-    odo url create --host $HOST
-    ```
-
-1. Deploy the component configuration to OpenShift
+1. Now we can deploy the application to docker using **odo push**.
 
     ```bash
     odo push
     ```
 
-1. Navigate to the application URL
+1. Next, we need to find out what port our application was exposed on. Although we specified that the application listens on port 3000, that is not the port that will be exposed on the host machine. To find the correct port, run the following command:
 
     ```bash
-    echo myspring-devfile-lab.$HOST
-    ``` -->
+    docker ps
+    ```
+
+    You should see something like this:
+
+    ```bash
+    CONTAINER ID        IMAGE                                      COMMAND                  CREATED             STATUS              PORTS                                 NAMES
+    1623815845bf        quay.io/eclipse/che-nodejs10-ubi:nightly   "/opt/odo/bin/superv…"   27 seconds ago      Up 26 seconds       8080/tcp, 127.0.0.1:51750->3000/tcp   naughty_wu
+    ```
+
+1. Look for the port binding under the *PORTS* column. It should be something like `8080/tcp, 127.0.0.1:51750->3000/tcp`. the `51750` is the port that the application is exposed on.
+
+1. Navigate to the application by opening your browser and going to **localhost:\<port\>** where port is the external port retrieved in the previous step. For example, my application is exposed at **localhost:51750**
+
+1. You can see the same application that we started with in CodeReady Workspaces is deployed locally in Docker.
+
+1. You can also run **odo watch** and have code changes propagated to the running container automatically.
 
 ## Conclusion
