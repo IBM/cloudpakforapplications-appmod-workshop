@@ -46,7 +46,8 @@ In the workshop you will learn about foundational open source technologies and O
 |   |   |
 | - | - |
 | [Lecture: OpenShift Developer Experience](https://ibm.box.com/s/kisshn88w4a79jzz557o5h6c5k55o9ze) | Lecture on OpenShift Developer Experience|
-| [Lab: Custom Dev Stacks](generatedContent/tekton-tutorial-openshift/README.md) | Building a custom stack for a portable development environment using devfiles
+| [Lab: Custom Dev Stacks](generatedContent/devfile-lab/README.md) | Building a custom stack for a portable development environment using devfiles
+
 
 ## Technology Used
 

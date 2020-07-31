@@ -185,3 +185,12 @@ THIS FILE CONTAINS ALL THE SUMMARY.MDs OF THE GENERATED CONTENT PREFIXED WITH RI
 
 
 
+###############################
+##  SUMMARY.md for devfile-lab
+################################
+
+# Home Page for Gitbook 
+* [devfile-lab](generatedContent/devfile-lab/README.md)
+
+
+

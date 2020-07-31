@@ -46,7 +46,7 @@
 
 ### Session 4
 
-* Lab TBD
+* [Lab: Dev Files](generatedContent/devfile-lab/README.md)
 
 ### Resources
 
