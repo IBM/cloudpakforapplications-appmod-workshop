@@ -11,13 +11,13 @@ THIS FILE CONTAINS ALL THE SUMMARY.MDs OF THE GENERATED CONTENT PREFIXED WITH RI
 
 ## Getting Started
 
-* [Pre-work](generatedContent/docker101/getting-started/lab-0.md)
+* [Pre-work](generatedContent/docker101/lab-0/README.md)
 
 ## Docker 101
 
-* [Lab 1](generatedContent/docker101/docker-101/lab-1.md)
-* [Lab 2](generatedContent/docker101/docker-101/lab-2.md)
-* [Lab 3](generatedContent/docker101/docker-101/lab-3.md)
+* [Lab 1](generatedContent/docker101/lab-1/README.md)
+* [Lab 2](generatedContent/docker101/lab-2/README.md)
+* [Lab 3](generatedContent/docker101/lab-3/README.md)
 
 ## Resources
 
@@ -58,55 +58,6 @@ THIS FILE CONTAINS ALL THE SUMMARY.MDs OF THE GENERATED CONTENT PREFIXED WITH RI
 ### Resources
 
 * [IBM Developer](generatedContent/helm101/https://developer.ibm.com)
-
-
-###############################
-##  SUMMARY.md for app-modernization-openshift-s2i-templates-lab-shared
-################################
-
-# Home Page for Gitbook 
-* [app-modernization-openshift-s2i-templates-lab-shared](generatedContent/app-modernization-openshift-s2i-templates-lab-shared/README.md)
-
-# Table of contents
-
-* [Lab - Working with S2I and Templates](generatedContent/app-modernization-openshift-s2i-templates-lab-shared/README.md)
-
-
-
-###############################
-##  SUMMARY.md for app-modernization-openshift-cicd-lab-shared
-################################
-
-# Home Page for Gitbook 
-* [app-modernization-openshift-cicd-lab-shared](generatedContent/app-modernization-openshift-cicd-lab-shared/README.md)
-
-# Table of contents
-
-* [Lab - Openshift CI/CD Lab](generatedContent/app-modernization-openshift-cicd-lab-shared/README.md)
-
-
-###############################
-##  SUMMARY.md for app-modernization-ta-explore-lab-openshift4
-################################
-
-# Home Page for Gitbook 
-* [app-modernization-ta-explore-lab-openshift4](generatedContent/app-modernization-ta-explore-lab-openshift4/README.md)
-
-# Table of contents
-
-* [Lab - Explore Transformation Advisor](generatedContent/app-modernization-ta-explore-lab-openshift4/README.md)
-
-
-###############################
-##  SUMMARY.md for s2i-open-liberty-workshop
-################################
-
-# Home Page for Gitbook 
-* [s2i-open-liberty-workshop](generatedContent/s2i-open-liberty-workshop/README.md)
-
-# Table of contents
-
-* [Lab - S2I Open Liberty](generatedContent/s2i-open-liberty-workshop/README.md)
 
 
 ###############################
@@ -159,6 +110,15 @@ THIS FILE CONTAINS ALL THE SUMMARY.MDs OF THE GENERATED CONTENT PREFIXED WITH RI
 
 
 ###############################
+##  SUMMARY.md for app-modernization-openshift-cicd-lab-iks
+################################
+
+# Home Page for Gitbook 
+* [app-modernization-openshift-cicd-lab-iks](generatedContent/app-modernization-openshift-cicd-lab-iks/README.md)
+
+
+
+###############################
 ##  SUMMARY.md for spring-boot-microservices-on-kubernetes
 ################################
 
@@ -173,6 +133,48 @@ THIS FILE CONTAINS ALL THE SUMMARY.MDs OF THE GENERATED CONTENT PREFIXED WITH RI
 
 # Home Page for Gitbook 
 * [kube101](generatedContent/kube101/README.md)
+
+
+
+###############################
+##  SUMMARY.md for ddc-cloud-native-security-labs.git
+################################
+
+# Home Page for Gitbook 
+* [ddc-cloud-native-security-labs.git](generatedContent/ddc-cloud-native-security-labs.git/README.md)
+
+# Summary
+
+### Getting Started
+
+* [Create an IBM Cloud account](generatedContent/ddc-cloud-native-security-labs.git/lab-00/NEWACCOUNT.md)
+* [Setup](generatedContent/ddc-cloud-native-security-labs.git/lab-00/README.md)
+
+### Workshop
+
+* [Lab0 - Setup](generatedContent/ddc-cloud-native-security-labs.git/lab-00/README.md)
+* [Lab1 - Kubernetes Networking](generatedContent/ddc-cloud-native-security-labs.git/lab-01/README.md)
+* [Lab2 - Adding Secure Storage](generatedContent/ddc-cloud-native-security-labs.git/lab-02/README.md)
+* [Lab3 - Source-to-Image (S2I)](generatedContent/ddc-cloud-native-security-labs.git/lab-03/README.md)
+
+### Resources
+
+- [Cloud Native Computing Foundation](generatedContent/ddc-cloud-native-security-labs.git/https://www.cncf.io/)
+- [Cloud Native Security Conference](generatedContent/ddc-cloud-native-security-labs.git/https://developer.ibm.com/conferences/digital-developer-conference-security/)
+- [IBM Developer](generatedContent/ddc-cloud-native-security-labs.git/https://developer.ibm.com)
+
+
+### Survey
+
+* [Tell us how we did](generatedContent/ddc-cloud-native-security-labs.git/http://ibm.biz/workshop-survey-generic)
+
+
+###############################
+##  SUMMARY.md for kubernetes-extensions.git
+################################
+
+# Home Page for Gitbook 
+* [kubernetes-extensions.git](generatedContent/kubernetes-extensions.git/README.md)
 
 
 
