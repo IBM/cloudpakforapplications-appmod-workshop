@@ -23,6 +23,8 @@ Refer to [Helm Status](../README.md#helm-status) for more details.
 * Have a running Kubernetes cluster. See the [IBM Cloud Kubernetes Service](https://cloud.ibm.com/docs/containers/cs_tutorials.html#cs_cluster_tutorial) or [Kubernetes Getting Started Guide](https://kubernetes.io/docs/setup/) for details about creating a cluster.
 * Have Helm installed and initialized with the Kubernetes cluster. See [Installing Helm on IBM Cloud Kubernetes Service](Lab0/README.md) or the [Helm Quickstart Guide](https://helm.sh/docs/intro/quickstart/) for getting started with Helm.
 
+> *Note: For the workshop we will be using the pre-provisioned IKS clusters, so these requirements have already been met.*
+
 ## Helm Overview
 
 Helm is a tool that streamlines installation and management of Kubernetes applications. It uses a packaging format called "charts", which are a collection of files that describe Kubernetes resources. It can run anywhere (laptop, CI/CD, etc.) and is available for various operating systems, like OSX, Linux and Windows.
@@ -44,5 +46,3 @@ Helm terms :
 * helm - Helm client. It renders charts into manifest files. It interacts directly with the [Kubernetes API](https://kubernetes.io/docs/concepts/overview/kubernetes-api/) server to install, upgrade, query, and remove Kubernetes resources.
 * Release - An instance of a chart running in a Kubernetes cluster.
 * Repository - Place where charts reside and can be shared with others.
-
-To get started, head on over to [Lab 1](Lab1/README.md).
