@@ -11,8 +11,8 @@
 ### Day 1
 
 * [Lab: Kubernetes 101](generatedContent/kube101/README.md)
-    * [Lab 1 - Deploy Application](generatedContent/kube101/Lab1/README.md)
-    * [Lab 2 - Scale Application](generatedContent/kube101/Lab2/README.md)
+    * [Lab 1 - Deploy Application](kube101/Lab1/README.md)
+    * [Lab 2 - Scale Application](kube101/Lab2/README.md)
     * [Lab 3 - Multi-tier Application](generatedContent/kube101/Lab3/README.md)
 
 * [Lab: Helm 101](generatedContent/helm101/README.md)
