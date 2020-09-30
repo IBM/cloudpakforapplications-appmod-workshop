@@ -22,7 +22,7 @@ In the workshop you will learn about foundational open source technologies and i
 | [Lecture: Helm](https://ibm.box.com/s/cluclg99642s5bgi6j2wixr37jg7nw96) | Helm Overview Lecture |
 | [Lab: Helm](generatedContent/helm101/README.md) | Deploy Cloud Native Applications using Helm |
 | BREAK | |
-| [Lecture: CI/CD Options for Kubernetes](https://ibm.box.com/s/corz4h3v7t03x0fl3av6f1r4ei54j8dj) | Covers briefly... why CICD for microservices, Jenkins, Jenkins X, Tekton, and ArgoCD|
+| [Lecture: CI/CD Options for Kubernetes](https://ibm.box.com/s/m9m0c3uxp8detksw6ycbsff90wimj1nu) | Covers briefly... why CICD for microservices, Jenkins, Jenkins X, Tekton, and ArgoCD|
 | [Lab: CI/CD for Kubernetes](generatedContent/app-modernization-cicd-lab-iks/README.md) | Jenkins Pipelines in IKS Lab|
 | BREAK | |
 | [Lecture: 12 Factors](https://ibm.box.com/s/mhn0ff94xq0lwewfebgruxya44nmhm08) | Cloud Native Development – 12 Factor |
