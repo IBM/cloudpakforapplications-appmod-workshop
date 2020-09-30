@@ -29,6 +29,7 @@
 * [Lab: Deploy Microservices on IKS](generatedContent/spring-boot-microservices-on-kubernetes/README_deployment.md)
 
 * Lab: Kubernetes Extensions
+    * [Access Cognitive Class](generatedContent/workshop-setup/pre-work/COGNITIVECLASS.md)
     * [Setup Tools](operator-sdk-setup/README.md)
     * [Custom Resources and Operators](generatedContent/kubernetes-extensions.git/README.md)
 

@@ -14,3 +14,4 @@ repos:
     - url: https://github.com/IBMAppModernization/kube101
     - url: https://github.com/IBM/ddc-cloud-native-security-labs.git
     - url: https://github.com/remkohdev/kubernetes-extensions.git
+    - url: https://github.com/IBMAppModernization/workshop-setup
