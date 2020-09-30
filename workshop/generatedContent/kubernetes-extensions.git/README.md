@@ -9,7 +9,7 @@
   - Cleanup
 - Application CRD
 
-## Access the web-terminal
+## Access the Cluster
 
 Before continuing, make sure you can access your kubernetes cluster. Either through the cloud shell or through the web-terminal
 
@@ -204,7 +204,7 @@ kubectl delete customresourcedefinition guestbooks.apps.ibm.com
 
 https://kubernetes.io/docs/concepts/extend-kubernetes/operator/
 
-Operators are clients of the Kubernetes API that act as controllers for a Custom Resource. 
+Operators are clients of the Kubernetes API that act as controllers for a Custom Resource.
 
 To write applications that use the Kubernetes REST API, you can use one of the following supported client libraries:
 
@@ -244,65 +244,49 @@ The following workflow is for a new Go operator:
 
 ### Install sdk-operator
 
-The following section uses the `sdk-operator` cli, which depends on `Go` to be installed. Check if both tools are installed in your web-terminal,
+The following section uses the `operator-sdk` cli, which depends on `Go` to be installed. Make sure you have completed the [operator-sdk-setup](../../operator-sdk-setup/README.md) instructions to esnure both tools are installed in your terminal or cloud shell.
 
 ```shell
-go version
 operator-sdk version
 ```
 
-If you see a `command not found` error, install both now.
-
-For detailed installation instructions go [here](https://sdk.operatorframework.io/docs/install-operator-sdk/).
-
-To install the Operator SDK in Ubuntu, you need to install the Go tools and the Operator SDK.
-
-```
-curl -LO https://golang.org/dl/go1.14.4.linux-amd64.tar.gz 
-tar -C /usr/local -xzf go1.14.4.linux-amd64.tar.gz 
-export PATH=$PATH:/usr/local/go/bin
-go version
-```
-
-Install the Operator SDK,
-
-```
-curl -LO https://github.com/operator-framework/operator-sdk/releases/download/v0.18.2/operator-sdk-v0.18.2-x86_64-linux-gnu 
-chmod +x operator-sdk-v0.18.2-x86_64-linux-gnu 
-sudo mkdir -p /usr/local/bin/ 
-sudo cp operator-sdk-v0.18.2-x86_64-linux-gnu /usr/local/bin/operator-sdk 
-rm operator-sdk-v0.18.2-x86_64-linux-gnu
-operator-sdk version
-```
-
-Check again,
-
-```
-go version
-operator-sdk version
-```
-
-### Create the Operator 
+### Create the Operator
 
 #### 1. Create a New Project
 
 Create a [new Operator](https://docs.openshift.com/container-platform/4.3/operators/operator_sdk/osdk-cli-reference.html#osdk-cli-reference-new_osdk-cli-reference) project,
 
-```
+```shell
 export DOCKER_USERNAME=<your-docker-username>
 ```
 
-and 
+and
 
-```
+```shell
 export OPERATOR_NAME=guestbook-operator
+```
+
+```shell
 export OPERATOR_PROJECT=guestbook-project
+```
+
+```shell
 export OPERATOR_GROUP=guestbook.ibm.com
+```
+
+```shell
 export OPERATOR_VERSION=v1
+```
+
+```shell
 export CRD_KIND=Guestbook
+```
 
+```shell
 operator-sdk new $OPERATOR_PROJECT --type go --repo github.com/$DOCKER_USERNAME/$OPERATOR_NAME
+```
 
+```shell
 cd $OPERATOR_PROJECT
 ```
 
@@ -310,11 +294,11 @@ The scaffolding of a new project will create an operator, an api and a controlle
 
 ![new project directory structure](images/new-project-dir-structure.png)
 
-#### 2. Create a new API 
+#### 2. Create a new API
 
 Add a new API definition for a new Custom Resource under `pkg/apis` and generate the Custom Resource Definition (CRD) and Custom Resource (CR) files under `deploy/crds`.
 
-```
+```shell
 operator-sdk add api --api-version=$OPERATOR_GROUP/$OPERATOR_VERSION --kind=$CRD_KIND
 ```
 
@@ -323,6 +307,7 @@ The command will create a new API, a Custom Resource (CR), a Custom Resource Def
 ![new project directory structure](images/new-api-dir-structure.png)
 
 One file is created in `pkg/apis` called `addtoscheme_guestbook_v1.go` that registers the new schema. One new file is created in `pkg/apis/guestbook` called `group.go` that defines the package. Four new files are created in `pkg/apis/guestbook/v1`:
+
 - doc.go,
 - guestbook_types.go,
 - register.go,
@@ -330,7 +315,7 @@ One file is created in `pkg/apis` called `addtoscheme_guestbook_v1.go` that regi
 
 The `guestbook_types.go` file,
 
-```
+```console
 package v1
 
 import (
@@ -366,7 +351,8 @@ func init() {
 ```
 
 The Custom Resource (CR) in file `deploy/crds/guestbook.remkoh.dev_v1_guestbook_cr`,
-```
+
+```console
 apiVersion: guestbook.remkoh.dev/v1
 kind: Guestbook
 metadata:
@@ -377,7 +363,8 @@ spec:
 ```
 
 The Custom Resource Definition (CRD) in file `deploy/crds/guestbook.remkoh.dev_guestbooks_crd.yaml`,
-```
+
+```console
 apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
@@ -423,19 +410,20 @@ spec:
 
 #### 3. Create a new Controller
 
-Add a new controller under `pkg/controller/<kind>`. 
+Add a new controller under `pkg/controller/<kind>`.
 
-```
+```shell
 operator-sdk add controller --api-version=$OPERATOR_GROUP/$OPERATOR_VERSION --kind=$CRD_KIND
 ```
 
 This command creates two files in `pkg/controller`:
+
 - `add_guestbook.go`, which registers the new controller, and
 - `guestbook/guestbook_controller.go`, which is the actual custom controller logic.
 
 The file `guestbook/guestbook_controller.go` defines the `Reconcile` function,
 
-```
+```console
 // Reconcile reads state of the cluster for a Guestbook object and makes changes based on the state read and what is in the Guestbook.Spec
 // TODO(user): User must modify this Reconcile function to implement their own Controller logic.  This example creates a Pod as an example
 func (r *ReconcileGuestbook) Reconcile(request reconcile.Request) (reconcile.Result, error) {
@@ -453,14 +441,17 @@ func (r *ReconcileGuestbook) Reconcile(request reconcile.Request) (reconcile.Res
 
 The operator-sdk build command compiles the code and builds the executables. fter you built the image, push it to your image registry, e.g. Docker hub.
 
-```
+```shell
 operator-sdk build docker.io/$DOCKER_USERNAME/$OPERATOR_NAME
 ```
 
 And push the build image to your image repository,
 
-```
+```shell
 docker login docker.io -u $DOCKER_USERNAME
+```
+
+```shell
 docker push docker.io/$DOCKER_USERNAME/$OPERATOR_NAME
 ```
 
@@ -468,32 +459,53 @@ docker push docker.io/$DOCKER_USERNAME/$OPERATOR_NAME
 
 First replace the image attribute in the operator resource with the built image,
 
-```
-$ sed -i "s|REPLACE_IMAGE|docker.io/$DOCKER_USERNAME/$OPERATOR_NAME|g" deploy/operator.yaml
+```shell
+sed -i "s|REPLACE_IMAGE|docker.io/$DOCKER_USERNAME/$OPERATOR_NAME|g" deploy/operator.yaml
 ```
 
 Make sure you are connected to the OpenShift cluster (see above how to connect), and deploy the operator with the following template code.
 
-```
+```shell
 kubectl create sa $OPERATOR_PROJECT
+```
+
+```shell
 kubectl create -f deploy/role.yaml
+```
+
+```shell
 kubectl create -f deploy/role_binding.yaml
+```
+
+```shell
 kubectl create -f deploy/crds/${OPERATOR_GROUP}_${CRD_KIND,,}s_crd.yaml
+```
+
+```shell
 kubectl create -f deploy/operator.yaml
+```
+
+```shell
 kubectl create -f deploy/crds/${OPERATOR_GROUP}_${OPERATOR_VERSION}_${CRD_KIND,,}_cr.yaml
 ```
 
 Verify the deployment,
 
-```
+```shell
 kubectl get deployment $OPERATOR_PROJECT
+```
+
+```shell
 kubectl get pod -l app=example-${CRD_KIND,,}
+```
+
+```shell
 kubectl describe ${CRD_KIND,,}s.${OPERATOR_GROUP} example-${CRD_KIND,,}
 ```
 
 For our example Guestbook project the above templates should resolve as follows,
 
-```
+```console
 $ kubectl create sa guestbook-project
 $ kubectl create -f deploy/role.yaml
 $ kubectl create -f deploy/role_binding.yaml
@@ -507,7 +519,7 @@ $ kubectl describe guestbooks.guestbook.remkoh.dev example-guestbook
 
 ### Cleanup
 
-```
+```shell
 kubectl delete sa $OPERATOR_PROJECT
 kubectl delete role $OPERATOR_PROJECT
 kubectl delete rolebinding $OPERATOR_PROJECT
@@ -518,17 +530,18 @@ kubectl delete deployment $OPERATOR_PROJECT
 ## Application CRD
 
 The [Application CRD (Custom Resource Definition)](https://github.com/kubernetes-sigs/application) and Controller provide the following:
-- Describe an applications metadata,
+
+- Describe an applications metadata.
 - A point to connect the infrastructure, such as Deployments, to as a root object.
-- 
 - Application level health checks.
 
 This could be used by:
-- Application operators,
-- Tools, such as Helm, and
+
+- Application operators.
+- Tools, such as Helm.
 - Dashboards.
 
-```
+```console
 apiVersion: app.k8s.io/v1beta1
 kind: Application
 metadata:
