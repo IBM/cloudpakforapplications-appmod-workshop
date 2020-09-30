@@ -16,30 +16,14 @@ If you do not already have it open from the workshop setup section, go ahead and
 
 > *Note: Ensure the cloud shell is using the same account where your cluster is provisioned. Ensure that the account name shown in the top right of the screen, next to `Current account` is the correct one.*
 
-## 2. Install Helm Version 3
+## 2. Alias Helm Version 3
 
-The version of Helm that comes pre-configured in the Cloud Shell needs to be updated:
+The Cloud Shell comes with both Helm 2 and Helm 3 versions. To make sure we use the Helm Version 3 variant, we will create an alias.
 
 1. Run the following commands to install Helm Version 3
 
 ```sh
-wget https://get.helm.sh/helm-v3.2.0-linux-amd64.tar.gz
-```
-
-```sh
-tar -zxvf helm-v3.2.0-linux-amd64.tar.gz
-```
-
-```sh
-ls -al
-```
-
-```sh
-echo 'export PATH=$HOME/linux-amd64:$PATH' > .bash_profile
-```
-
-```sh
-source .bash_profile
+alias helm=helm3
 ```
 
 ```sh
@@ -50,7 +34,7 @@ The result is that you should have Helm Version 3 installed.
 
 ```sh
 $ helm version --short
-v3.2.0+ge11b7ce
+v3.2.1+gfe51cd1
 ```
 
 ## 3. Configure Kubectl
