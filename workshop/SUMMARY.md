@@ -28,7 +28,9 @@
 
 * [Lab: Deploy Microservices on IKS](generatedContent/spring-boot-microservices-on-kubernetes/README_deployment.md)
 
-* [Lab: Custom Resources and Operators](generatedContent/kubernetes-extensions.git/README.md)
+* Lab: Kubernetes Extensions
+    * [Setup Tools](operator-sdk-setup/README.md)
+    * [Custom Resources and Operators](generatedContent/kubernetes-extensions.git/README.md)
 
 * [Lab: Istio 101](istio101/README.md)
     * [Setup Istio](istio101/setup.md)
