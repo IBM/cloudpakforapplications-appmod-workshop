@@ -1,68 +1,23 @@
 # Kubernetes Extensions
 
-- Access the web-terminal
-- Login 
 - Create a Custom Resource
 - Operators
   - Ready Made Operators
 - Create a Custom Resource and Operator using the Operator SDK
-    - Install sdk-operator
-    - Create the Operator
-    - Cleanup
+  - Install sdk-operator
+  - Create the Operator
+  - Cleanup
 - Application CRD
 
 ## Access the web-terminal
 
-Go to the URL for your web-terminal, given to you by the instructor team.
+Before continuing, make sure you can access your kubernetes cluster. Either through the cloud shell or through the web-terminal
 
-## Login
-
-```
-export CLUSTERNAME=<your clustername>
-ibmcloud login 
-```
-
-```
-ibmcloud login 
-API endpoint: https://cloud.ibm.com
-
-Email> a.newell1@remkoh.dev
-
-Password> 
-Authenticating...
-OK
-
-Select an account:
-1. A Newell's Account (ed69e4e9e2d74660b6cc45d0e47cd8b7)
-2. Advowork (e2b54d0c3bbe4180b1ee63a0e2a7aba4) <-> 1840867
-Enter a number> 2
-Targeted account Advowork (e2b54d0c3bbe4180b1ee63a0e2a7aba4) <-> 1840867
-
-
-Select a region (or press enter to skip):
-1. au-syd
-2. in-che
-3. jp-osa
-4. jp-tok
-5. kr-seo
-6. eu-de
-7. eu-gb
-8. us-south
-9. us-south-test
-10. us-east
-Enter a number> 10
-Targeted region us-east
-```
-
-Connect to your cluster by downloading the cluster config,
-```
-ibmcloud ks cluster config --cluster $CLUSTERNAME
-```
-
-Check you can access the cluster,
-
-```
+```shell
 kubectl config current-context
+```
+
+```shell
 kubectl get nodes
 ```
 
@@ -72,7 +27,7 @@ https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resou
 
 Custom Resource Definitions (CRD) were added in Kubernetes v1.7 in June 2017. A CRD defines Custom Resources (CR). A CR is an extension of the Kubernetes API that allows you to store your own API Objects and lets the API Server handle the lifecycle of a CR. On their own, CRs simply let you store and retrieve structured data.
 
-For instance, our Guestbook application consists of an object `Guestbook` with attributes `GuestbookTitle` and `GuestbookSubtitle`, and a Guestbook handles objectes of type `GuestbookMessage` with attributes `Message`, `Sender`. 
+For instance, our Guestbook application consists of an object `Guestbook` with attributes `GuestbookTitle` and `GuestbookSubtitle`, and a Guestbook handles objectes of type `GuestbookMessage` with attributes `Message`, `Sender`.
 
 You have to ask yourself if it makes sense if your objects are added as a Custom Resource to Kubernetes or not. If your API is a [Declarative API](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/#declarative-apis) you can consider adding a CR. 
 
@@ -89,7 +44,7 @@ Another benefit of adding a Custom Resource is to view your types in the Kuberne
 
 If you want to deploy a Guestbook instance as a Kubernetes API object and let the Kubernetes API Server handle the lifecycle events of the Guestbook deployment, you can create a Custom Resource Definition (CRD) for the Guestbook object as follows. That way you can deploy multiple Guestbooks with different titles and let each be managed by Kubernetes.
 
-```
+```shell
 cat <<EOF >>guestbook-crd.yaml
 apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
@@ -129,12 +84,13 @@ EOF
 
 Create the Custom Resource for the Guestbook witht he command,
 
-```
+```shell
 kubectl create -f guestbook-crd.yaml
 ```
 
-When run in the terminal,
-```
+When run in the terminal, the output would look like this:
+
+```console
 $ kubectl create -f guestbook-crd.yaml
 customresourcedefinition.apiextensions.k8s.io/guestbooks.apps.ibm.com created
 ```
@@ -143,7 +99,7 @@ You have now added a CR to the Kubernetes API, but you have not yet created a de
 
 Create a resource specification of type Guestbook named `my-guestbook`,
 
-```
+```shell
 cat <<EOF >>my-guestbook.yaml
 apiVersion: "apps.ibm.com/v1"
 kind: Guestbook
@@ -157,31 +113,32 @@ EOF
 
 And to create the `my-guestbook` resource, run the command
 
-```
+```shell
 kubectl create -f my-guestbook.yaml
 ```
 
-When run in the terminal,
-```
+When run in the terminal,the output would look like this:
+
+```console
 $ kubectl create -f my-guestbook.yaml
 guestbook.apps.ibm.com/my-guestbook created
 ```
 
 If you list all Kubernetes resources, only the default Kubernetes service is listed. To list your Custom Resources, add the extended type to your command.
 
-```
+```console
 $ kubectl get all
 NAME    TYPE    CLUSTER-IP    EXTERNAL-IP    PORT(S)    AGE
 service/kubernetes    ClusterIP    172.21.0.1    <none>    443/TCP    5d14h
 
-$ kubectl get guestbook 
+$ kubectl get guestbook
 NAME    AGE
 my-guestbook    8m32s
 ```
 
 To read the details for the `my-guestbook` of type `Guestbook`, describe the instance,
 
-```
+```console
 $ kubectl describe guestbook my-guestbook
 
 Name:         my-guestbook
@@ -204,7 +161,7 @@ Events:                <none>
 
 Or retrieve the resource information by specifying the type,
 
-```
+```console
 $ kubectl get Guestbook -o yaml
 apiVersion: v1
 items:
@@ -231,13 +188,15 @@ In the Kubernetes Dashboard web console, you can browse to Custom Resource Defin
 
 ![Administration > Custom Resource Definitions](images/kubernetes-dashboard-crd.png)
 
-
 You have now created a new type or Custom Resource (CR) and created an instance of your new type. But just having a new type and a new instance of the type, does not add as much control over the instances yet, we can basically only create and delete a static type with some descriptive meta-data. With a custom controller or `Operator` you can over-write the methods that are triggered at certain lifecycle events.
 
 ### Cleanup
 
-```
+```shell
 kubectl delete guestbook my-guestbook
+```
+
+```shell
 kubectl delete customresourcedefinition guestbooks.apps.ibm.com
 ```
 
@@ -248,6 +207,7 @@ https://kubernetes.io/docs/concepts/extend-kubernetes/operator/
 Operators are clients of the Kubernetes API that act as controllers for a Custom Resource. 
 
 To write applications that use the Kubernetes REST API, you can use one of the following supported client libraries:
+
 - [Go](github.com/kubernetes/client-go/),
 - [Python](github.com/kubernetes-client/python/),
 - [Java](github.com/kubernetes-client/java),
@@ -256,7 +216,6 @@ To write applications that use the Kubernetes REST API, you can use one of the f
 - [Haskell](github.com/kubernetes-client/haskell).
 
 In addition, there are many community-maintained [client libraries](https://kubernetes.io/docs/reference/using-api/client-libraries/).
-
 
 ### Ready made operators
 
@@ -267,11 +226,11 @@ At the [OperatorHub.io](https://operatorhub.io/), you find ready to use operator
 ## Create a Custom Resource and Operator using the Operator SDK
 
 To write your own operator you can use existing tools:
+
 - [KUDO](https://kudo.dev/) (Kubernetes Universal Declarative Operator),
 - [kubebuilder](https://book.kubebuilder.io/),
 - [Metacontroller](https://metacontroller.app/) using custom WebHooks,
 - the [Operator Framework](https://github.com/operator-framework/getting-started).
-
 
 The Operator SDK provides the following workflow to develop a new Operator:
 
@@ -283,12 +242,11 @@ The following workflow is for a new Go operator:
 4. Write the reconciling logic for your Controller using the SDK and controller-runtime APIs
 5. Use the SDK CLI to build and generate the operator deployment manifests
 
-
 ### Install sdk-operator
 
 The following section uses the `sdk-operator` cli, which depends on `Go` to be installed. Check if both tools are installed in your web-terminal,
 
-```
+```shell
 go version
 operator-sdk version
 ```
