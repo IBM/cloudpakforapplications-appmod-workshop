@@ -21,8 +21,8 @@ We will be installing Istio using the Istio Operator. The Istio operator will ma
 1.  Install the Istio `demo` configuration profile using the operator:
 
     ```shell
-    kubectl create ns istio-system
-    kubectl apply -f - <<EOF
+    $ kubectl create ns istio-system
+    $ kubectl apply -f - <<EOF
     apiVersion: install.istio.io/v1alpha1
     kind: IstioOperator
     metadata:
