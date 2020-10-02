@@ -22,14 +22,14 @@ We will be installing Istio using the Istio Operator. The Istio operator will ma
 
     ```shell
     $ kubectl create ns istio-system
-    $ kubectl apply -f - <<EOF
+    $ kubectl apply -f - <<EOF 
     apiVersion: install.istio.io/v1alpha1
     kind: IstioOperator
     metadata:
-    namespace: istio-system
-    name: example-istiocontrolplane
-    spec:
-    profile: demo
+        namespace: istio-system
+        name: example-istiocontrolplane
+        spec:
+            profile: demo
     EOF
     ```
 
