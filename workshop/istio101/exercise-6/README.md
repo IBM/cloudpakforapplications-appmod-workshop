@@ -159,7 +159,7 @@ spec:
 Test it:
 
 ```shell
-curl -H $INGRESS_IP
+curl $INGRESS_IP
 ```
 
 In the modified rule, the routed traffic is split between two different subsets of the guestbook service. In this manner, traffic to the modernized version 2 of guestbook is controlled on a percentage basis to limit the impact of any unforeseen bugs. This rule can be modified over time until eventually all traffic is directed to the newer version of the service.

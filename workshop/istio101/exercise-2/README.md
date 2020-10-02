@@ -1,6 +1,6 @@
 # Exercise 2 - Installing Istio on IBM Cloud Kubernetes Service
 
-We will be installing Istio using the Istio Operator. The Istio oeprator will manage the installation for you instead of you manually installing, upgrading, and uninstalling Istio on your cluster.
+We will be installing Istio using the Istio Operator. The Istio operator will manage the installation for you instead of you manually installing, upgrading, and uninstalling Istio on your cluster.
 
 1. Download the `istioctl` CLI and add it to your PATH:
 
@@ -21,8 +21,8 @@ We will be installing Istio using the Istio Operator. The Istio oeprator will ma
 1.  Install the Istio `demo` configuration profile using the operator:
 
     ```shell
-    $ kubectl create ns istio-system
-    $ kubectl apply -f - <<EOF
+    kubectl create ns istio-system
+    kubectl apply -f - <<EOF
     apiVersion: install.istio.io/v1alpha1
     kind: IstioOperator
     metadata:
