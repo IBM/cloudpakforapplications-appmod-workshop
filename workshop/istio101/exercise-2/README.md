@@ -33,7 +33,7 @@ We will be installing Istio using the Istio Operator. The Istio operator will ma
     EOF
     ```
 
-1. The install will take just a couple minutes. Verify the installation is complete by checking for the pods in the `istio-system` namespace.
+1. The install will take just a couple minutes. Give the operator a few minutes to start installing the pods in the following command. Verify the installation is complete by checking for the pods in the `istio-system` namespace.
 
     ```shell
     $ kubectl get pods -n istio-system
