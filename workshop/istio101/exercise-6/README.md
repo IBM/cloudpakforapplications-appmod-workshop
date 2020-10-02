@@ -73,10 +73,10 @@ spec:
 
 The `VirtualService` defines a rule that captures all HTTP traffic coming in through the Istio ingress gateway, `guestbook-gateway`, and routes 100% of the traffic to pods of the guestbook service with label "version: v1". A subset or version of a route destination is identified with a reference to a named service subset which must be declared in a corresponding `DestinationRule`. Since there are three instances matching the criteria of hostname `guestbook` and subset `version: v1`, by default Envoy will send traffic to all three instances in a round robin manner.
 
-View the guestbook application using the `$NLB_HOSTNAME` specified in [Exercise 5](../exercise-5/README.md) and enter it as a URL in Firefox or Chrome web browsers. You can use the echo command to get this value, if you don't remember it.
+View the guestbook application using the `$INGRESS_IP` specified in [Exercise 5](../exercise-5/README.md).
 
 ```shell
-echo $NLB_HOSTNAME
+curl $INGRESS_IP
 ```
 
 To enable the Istio service mesh for A/B testing against the new service version, modify the original `VirtualService` rule:
@@ -114,6 +114,14 @@ spec:
 
 ![guestbook app in chrome and firefox](../README_images/firefoxchrome.png)
 
+
+View the guestbook application using the `$INGRESS_IP` specified in [Exercise 5](../exercise-5/README.md). Pass in the `user-agent` into the curl command to get *V2*. Try without the `user-agent` to get *V1*.
+
+```shell
+curl -H "user-agent: Firefox" $INGRESS_IP
+```
+
+
 In Istio `VirtualService` rules, there can be only one rule for each service and therefore when defining multiple [HTTPRoute](https://istio.io/docs/reference/config/istio.networking.v1alpha3/#HTTPRoute) blocks, the order in which they are defined in the yaml matters. Hence, the original `VirtualService` rule is modified rather than creating a new rule. With the modified rule, incoming requests originating from `Firefox` browsers will go to the newer version of guestbook. All other requests fall-through to the next block, which routes all traffic to the original version of guestbook.
 
 ### Canary deployment
@@ -148,9 +156,13 @@ spec:
           weight: 20
 ```
 
-In the modified rule, the routed traffic is split between two different subsets of the guestbook service. In this manner, traffic to the modernized version 2 of guestbook is controlled on a percentage basis to limit the impact of any unforeseen bugs. This rule can be modified over time until eventually all traffic is directed to the newer version of the service.
+Test it:
 
-View the guestbook application using the `$NLB_HOSTNAME` specified in [Exercise 5](../exercise-5/README.md) and enter it as a URL in Firefox or Chrome web browsers. **Ensure that you are using a hard refresh (command + Shift + R on Mac or Ctrl + F5 on windows) to remove any browser caching.** You should notice that the guestbook should swap between V1 or V2 at about the weight you specified.
+```shell
+curl -H $INGRESS_IP
+```
+
+In the modified rule, the routed traffic is split between two different subsets of the guestbook service. In this manner, traffic to the modernized version 2 of guestbook is controlled on a percentage basis to limit the impact of any unforeseen bugs. This rule can be modified over time until eventually all traffic is directed to the newer version of the service.
 
 ### Route all traffic to v2
 
@@ -173,6 +185,12 @@ spec:
             host: guestbook
             subset: v2
 EOF
+```
+
+Curl the IP one more time to get all version 2...
+
+```shell
+curl $INGRESS_IP
 ```
 
 ### Implementing circuit breakers with destination rules

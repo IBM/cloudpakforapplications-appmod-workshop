@@ -35,7 +35,7 @@
 
 * [Lab: Istio 101](istio101/README.md)
     * [Setup Istio](istio101/setup.md)
-    * [Lab 1 - Installing Istio](generatedContent/istio101/exercise-2/README.md)
+    * [Lab 1 - Installing Istio](istio101/exercise-2/README.md)
     * [Lab 2 - Deploying Guestbook Application](istio101/exercise-3/README.md)
     * [Lab 3 - Expose the Service Mesh with Istio Ingress Gateway](istio101/exercise-5/README.md)
     * [Lab 4 - Perform Traffic Management](istio101/exercise-6/README.md)

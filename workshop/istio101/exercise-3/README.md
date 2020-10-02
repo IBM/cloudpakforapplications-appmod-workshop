@@ -140,15 +140,11 @@ The Redis database is a service that you can use to persist the data of your app
 
     ```shell
     NAME                            READY   STATUS    RESTARTS   AGE
-    guestbook-v1-98dd9c654-dz8dq    2/2     Running   0          30s
-    guestbook-v1-98dd9c654-mgfv6    2/2     Running   0          30s
-    guestbook-v1-98dd9c654-x8gxx    2/2     Running   0          30s
-    guestbook-v2-8689f6c559-5ntgv   2/2     Running   0          28s
-    guestbook-v2-8689f6c559-fpzb7   2/2     Running   0          28s
-    guestbook-v2-8689f6c559-wqbnl   2/2     Running   0          28s
-    redis-master-577bc6fbb-zh5v8    2/2     Running   0          4m47s
-    redis-slave-7779c6f75b-bshvs    2/2     Running   0          4m46s
-    redis-slave-7779c6f75b-nvsd6    2/2     Running   0          4m46s
+    guestbook-v1-697bf596cf-n5xmx   2/2     Running   0          17m
+    guestbook-v2-f9f597d8d-9cf98    2/2     Running   0          17m
+    redis-master-68857cd57c-s6z2p   2/2     Running   0          18m
+    redis-slave-7779c6f75b-njcpr    2/2     Running   0          18m
+    redis-slave-7779c6f75b-xtbb6    2/2     Running   0          18m
     ```
 
     Note that each guestbook pod has 2 containers in it. One is the guestbook container, and the other is the Envoy proxy sidecar.
